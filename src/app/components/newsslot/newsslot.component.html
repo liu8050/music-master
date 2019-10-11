@@ -1,0 +1,20 @@
+<ion-content class="newsolt">
+      <ion-grid class="nomargin">
+        <ion-row    *ngFor="let item of News" routerLink="/newstxt/{{item.id}}" class="boxActive">
+          <ion-col size="5">
+            <img src="{{item.picurl}}"  class="imgbox">
+          </ion-col>
+          <ion-col size="7" class="infobox">
+            <h6 class="activeName">{{item.title.trim()}}</h6>
+            <p class="authorBox"><span class="author" *ngIf="item.author!=null">{{item.author}}</span></p>
+            <!-- <span class="timebox">{{item.showdate}}</span> -->
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-infinite-scroll threshold="50px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content loadingSpinner="dots" loadingText="{{loadingText}}">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+</ion-content>
+

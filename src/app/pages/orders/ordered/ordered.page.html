@@ -1,0 +1,49 @@
+<ion-content><ion-header mode="ios" translucent="false"  [ngStyle]="{'padding-top':islh ? '33px' : '5px' }">
+  <ion-toolbar>
+      <ion-back-button [defaultHref]="backurl" slot="start" text=""></ion-back-button>
+    <ion-title>支付结果</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="por">
+    <img class="imgs" [src]="imgs" alt=""   [ngClass]="{'odererr': pay=='0'}">
+    <p *ngIf="pay=='1'"  [ngClass]="{'poa': pay=='1'}" class="ordered_p ">支付订单成功</p>
+    <p *ngIf="pay=='0'"    class="ordered_p ">支付订单失败</p>
+  </div>
+  <ion-row class="rowpad">
+    <ion-col size="6" class="padr">
+<div Button  *ngIf="pay=='1'"  [type]="'primary'" [routerLink]="[baseFromUrl+'/myorder']">查看订单</div>
+<div Button  *ngIf="pay=='0'" [type]="'primary'" [routerLink]="['/app/home']">回首页</div>
+    </ion-col>
+  <ion-col size="6"  class="padl" >
+<div Button class="" *ngIf="pay=='1'"  [type]="'primary'" [routerLink]="['/app/mycourse']">马上学习</div>
+<div Button class="" *ngIf="pay=='0'"  [type]="'primary'" (click)="go_pay()">重新支付</div>
+  </ion-col>
+  </ion-row>
+  <!-- <WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace> -->
+  <!-- <WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace> -->
+<div style="width: 100%;">
+  <WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace>
+<p class="ordered_p">课程推荐</p>
+
+  <ion-row>
+    <ion-col size="6" *ngFor="let item of courseList"  routerLink="{{baseFromUrl}}/coursedetails/{{item.id}}" style="margin-bottom: 1em">
+      <ion-card class="newCourses"  routerLink="{{baseFromUrl}}/coursedetails/{{item.id}}">
+        <ion-img class="img-box" src="{{item.picurl}}"></ion-img>
+        <div class="course-title" style="display: -webkit-box!important;
+        -webkit-box-orient: vertical!important;
+        -webkit-line-clamp: 2!important;
+        overflow: hidden!important;
+        ">{{item.title}}</div>
+
+        <div class="course-subtitle" *ngIf="item.dprice!='0.00'">￥{{item.dprice}}<span>原价:{{item.oprice}}</span></div>
+        <div class="course-subtitle" *ngIf="item.dprice=='0.00'">免费</div>
+      </ion-card>
+    </ion-col>
+   
+  </ion-row>
+</div>
+<WhiteSpace class="bgcolor h-1" [size]="'sm'"></WhiteSpace>
+</ion-content>
+</ion-content>

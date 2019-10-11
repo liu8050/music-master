@@ -1,0 +1,245 @@
+<ion-content>
+  <ion-header mode="ios" translucent="false"  [ngStyle]="{'padding-top':islh ? '33px' : '5px' }">
+    <ion-toolbar>
+      <ion-back-button
+        slot="start"
+        defaultHref="/app/guidance"
+        text=""
+      ></ion-back-button>
+      <ion-title class="title">预约名师</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="h1title" size="12">
+          预约流程
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid class="titleH">
+      <ion-row>
+        <ion-col size="1"> </ion-col>
+        <ion-col class="applysteps" size="2">
+          <div class="ionSvg toyuyue">
+            <img src="./assets/images/toyuyue@2x.png" alt="" class="toyuyue" />
+            <!-- <ion-icon color="primary"  src="./assets/icon/notes2.svg"></ion-icon> -->
+          </div>
+          <div>
+            <div style="font-size: 12px">
+              <span>完善预约<br />名师信息<br /></span>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col class="forwardRight" size="2">
+          <img src="./assets/images/toArrow.png" alt="" class="biao" />
+          <!-- <ion-icon name="md-arrow-round-forward"></ion-icon> -->
+        </ion-col>
+        <ion-col class="applysteps" size="2">
+          <!-- <div  class="ionSvg"> -->
+          <img src="./assets/images/toGuwen@2x.png" alt="" class="toGuwen" />
+          <!-- <ion-icon color="primary"   src="./assets/icon/custmer.svg"></ion-icon> -->
+          <!-- </div> -->
+          <div class="subtitle" style="font-size: 12px">
+            课程顾问<br />电话联系
+          </div>
+        </ion-col>
+        <ion-col class="forwardRight" size="2">
+          <img src="./assets/images/toArrow.png" alt="" class="biao" />
+          <!-- <ion-icon name="md-arrow-round-forward"></ion-icon> -->
+        </ion-col>
+        <ion-col class="applysteps" size="2">
+          <!-- <div  class="ionSvg"> -->
+          <img src="./assets/images/tomaster@2x.png" alt="" class="tomaster" />
+          <!-- <ion-icon color="primary"  src="./assets/icon/teachers.svg"></ion-icon> -->
+          <!-- </div> -->
+          <div class="subtitle" style="font-size: 12px">
+            安排名师<br />视频指导
+          </div>
+        </ion-col>
+        <ion-col class="moreLink" size="1">
+          <!-- 更多 <ion-icon class="listtext" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon> -->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace>
+    <!--
+  <ion-item>
+      <ion-label text-wrap>
+        <ion-text color="primary">
+          <h3>完善预约信息</h3>
+        </ion-text>
+        <p>有助于我们更好的匹配合适的专家老师</p>
+        <ion-text color="secondary">
+          <p>有助于我们更好的匹配合适的专家老师</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+    <ion-toolbar>
+        <ion-segment>
+          <ion-segment-button value="all" checked>
+            All
+          </ion-segment-button>
+          <ion-segment-button value="favorites">
+            Favorites
+          </ion-segment-button>
+        </ion-segment>
+      </ion-toolbar>
+
+
+    <ion-item (click)="testClick()">
+        <ion-avatar slot="start">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==">
+        </ion-avatar>
+        <ion-label>
+          Avatar Start, Button Item
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+    <ion-label position="floating">Datetime</ion-label>
+    <ion-datetime></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+      <ion-label>Toggle</ion-label>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Floating Input</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Input (placeholder)</ion-label>
+      <ion-input placeholder="Placeholder"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Checkbox</ion-label>
+      <ion-checkbox slot="start"></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Range</ion-label>
+      <ion-range></ion-range>
+    </ion-item>
+
+
+      <ion-item>
+          <ion-label position="floating">Datetime</ion-label>
+          <ion-datetime></ion-datetime>
+        </ion-item> -->
+
+    <ion-grid class="tosubscribecontent">
+      <ion-row class="padin">
+        <ion-col size="8.5">
+          <p class="h1title">完善预约信息</p>
+          <span class="subtitleminGray"
+            >有助于我们更好的匹配合适的专家老师</span
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row class="padin">
+        <ion-col size="12" class="flex">
+          <div class="fexcenter">姓名</div>
+          <InputItem
+            class="iput"
+            [clear]="true"
+            [placeholder]="'请填写您的名称'"
+            [(ngModel)]="name"
+          
+          ></InputItem>
+        </ion-col>
+        <!-- <p class="h11titless">怎么称呼您</p>
+          <p class="subtitlemin">
+            <ion-input
+              [(ngModel)]="name"
+              class="mm_input"
+              type="text"
+              required
+              pattern=" /^[\u4E00-\u9FA5\uf900-\ufa2d·s]{2,20}$/"
+              minlength="2"
+            ></ion-input>
+          </p> -->
+        <!-- </ion-col> -->
+        <!-- [(ngModel)]="phone" -->
+        <ion-col size="12" class="flex">
+          <div class="fexcenter">手机号</div>
+          <InputItem
+            class="iput"
+            [type]="'phone'"
+            [placeholder]="'请您输入手机号'"
+            [(ngModel)]="phone"
+            (onErrorClick)="inputErrorClick($event)"
+          ></InputItem>
+        </ion-col>
+      </ion-row>
+      <WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace>
+      <ion-textarea
+        style="font-size: 16px;"
+        rows="6"
+        inputmode="text"
+        multiple="true"
+        required="true"
+        [(ngModel)]="remark"
+        placeholder="请简单描述您的情况"
+        (ionFocus)="focusInput()"
+        (ionBlur)="blurInput()"
+      ></ion-textarea>
+      <WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace>
+      <ion-row class="padin">
+        <ion-col size="12">
+          <p class="h11titless">期望提升内容(可多选)</p>
+          <!-- <span class="subtitlemin"><ion-input [(ngModel)]="name"  class="mm_input" type="text"></ion-input></span> -->
+        </ion-col>
+        <ion-col size="12">
+          <div class="box" *ngFor="let child of tagList">
+            <ion-badge
+              class="badge"
+              [ngClass]="{ choose: child.choose }"
+              (click)="choose(child.choose, child.id)"
+              color="primary"
+              >{{ child.title }}</ion-badge
+            >
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="padin">
+        <ion-col size="12"
+          ><ion-label class="minszie">期望上课时间</ion-label>
+          <ListItem
+            DatePicker
+            (onClick)="hidingSure($event)"
+            [extra]="currentDateFormat(yearvalue)"
+            [minDate]="mindate"
+            [arrow]="'horizontal'"
+            [mode]="'datetime'"
+            [(ngModel)]="yearvalue"
+            (onOk)="onOk1($event)"
+            (onDismiss)="dismiss()"
+          >
+          </ListItem>
+        </ion-col>
+      </ion-row>
+      <ion-row class="linebg">
+        <ion-col size="12"></ion-col>
+      </ion-row>
+
+      <!-- <Brief>{{ name1 }}</Brief> -->
+    </ion-grid>
+  </ion-content>
+  <ion-footer class="onpadding nomargin poa">
+    <ion-button
+      class="onpadding nomargin"
+      (click)="post_zgTeacher()"
+      expand="full"
+      color="primary"
+      >确定</ion-button
+    >
+  </ion-footer>
+</ion-content>

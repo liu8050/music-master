@@ -1,0 +1,21 @@
+<ion-content>
+  <ion-header  [ngStyle]="{'padding-top':islh ? '33px' : '5px' }">
+    <ion-toolbar>
+      <!-- <img src="" alt=""> -->
+      <!-- <i-con ></i-con> -->
+      <ion-icon name="close" slot="start" size="large" [routerLink]="[ '/login',nulls ]"></ion-icon>
+      <ion-title>手机号归属地</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  <ion-list class="pdRight">
+    <ion-item *ngFor="let item of Area" class="por"  (click)="jumpLogin(item.areacode)">
+      <div class="txtSizes">{{item.country}}</div>
+      <div class="padLef txtSizes">{{item.ename}}</div>
+      <div class="poARight  txtSizes">{{item.areacode}}</div>
+    </ion-item>
+  </ion-list>
+  </ion-content>
+  
+</ion-content>

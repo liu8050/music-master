@@ -1,0 +1,13 @@
+<div class="img-box">
+  <img src="{{vimg}}" alt="">
+</div>
+<div class="p-box">
+  <p class="subtitleminGray">{{vtext}}
+    <!-- <span class="bluecolor" (click)='refresh()'>{{vclick}}</span> -->
+   </p>
+</div>
+<div class="button-box" *ngIf="vbutton != undefined">
+  <ion-button  class="button-text" routerLink="{{vbuttonlink}}">
+    {{vbutton}}
+  </ion-button>
+</div>

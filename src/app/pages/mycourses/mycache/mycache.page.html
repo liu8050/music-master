@@ -1,0 +1,46 @@
+<ion-content>
+<ion-header>
+  <ion-toolbar>
+      <ion-back-button slot="start" text=""></ion-back-button>
+    <ion-title>离线缓存</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div>
+    <List [renderHeader]='loading'>
+      <ListItem wrap>
+        <ion-row>
+          <ion-col size="4">
+            <ion-img class="img-box-loading" src="./assets/images/guidance.png"></ion-img>
+          </ion-col>
+          <ion-col size="6">
+            <p class="finishing-text">剩余一个，还差1个</p>
+          </ion-col>
+          <ion-col size="2" routerLink="/canchefinished">
+            <ion-icon class="listtext" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ListItem>
+    </List>
+    <WhiteSpace class="bgcolor h-5" [size]="'sm'"></WhiteSpace>
+    <List [renderHeader]=(finished)>
+      <ListItem wrap>
+        <ion-row>
+          <ion-col size="4">
+            <ion-img class="img-box-loading2" src="./assets/images/guidance.png"></ion-img>
+          </ion-col>
+          <ion-col size="6">
+            <p class="class-msg-loading">南非音乐风格及节奏控制</p>
+            <p class="class-teacher">1课件 / 228MB</p>
+          </ion-col>
+          <ion-col size="2" routerLink="/canchefinishing">
+            <ion-icon class="listtext" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ListItem>
+    </List>
+    <ion-row>
+    </ion-row>
+  </div>
+</ion-content>
+</ion-content>

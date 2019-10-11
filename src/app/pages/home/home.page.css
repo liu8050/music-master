@@ -1,0 +1,835 @@
+@charset "UTF-8";
+.newsIcon {
+  width: 17px;
+  height: 17px;
+}
+
+.slider-frame {
+  border-radius: 10px;
+}
+
+.slider-frame ul {
+  height: 100% !important;
+}
+
+.item1 {
+  width: 28px;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.item2 {
+  width: 58px;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.item3 {
+  width: 2px;
+  height: 12px;
+  background: #B88D41;
+  margin-left: 8px;
+}
+
+.item4 {
+  color: #9fa0a0;
+  font-size: 10px;
+  margin-left: 10px;
+  width: 152px;
+  align-items: center;
+  overflow: hidden;
+  /*超出部分隐藏*/
+  text-overflow: ellipsis;
+  /* 超出部分显示省略号 */
+  white-space: nowrap;
+  /*规定段落中的文本不进行换行 */
+}
+
+.title {
+  font-size: 14px;
+}
+
+.titleTxt {
+  font-size: 10px;
+  margin-top: 5px;
+  color: #9FA0A0;
+  margin-left: 10px;
+}
+
+.sold {
+  margin-top: 5px;
+  width: 2px;
+  height: 12px;
+  background: #B88D41;
+}
+
+.radioss {
+  border-radius: 5px;
+}
+
+.radios {
+  border-radius: 5px 5px 0 0;
+}
+
+.foterbtn {
+  height: 20px;
+  width: 80px;
+  font-size: 10px;
+  margin: 0 auto;
+  margin-bottom: 18px;
+  background-color: #ffffff !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333333;
+}
+
+.More {
+  height: 11px;
+  width: 12px;
+  margin-left: 4px;
+}
+
+.search {
+  box-sizing: content-box;
+  height: 44px;
+  padding: 30px 60px 0px;
+}
+
+.ConsultationArea {
+  height: 40px;
+  background: #efefef;
+}
+
+.newspadding {
+  padding: 0;
+  position: relative;
+  height: 40px;
+  box-sizing: border-box;
+  background: #efefef;
+  border-radius: 5pt;
+  display: flex;
+  align-items: center;
+}
+
+.news {
+  padding: 0 15px 18px 14px;
+}
+
+.Login {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.searchicon {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 16px;
+}
+
+.classification {
+  font-size: 10pt;
+  color: #333333;
+}
+
+.Sizewidht {
+  font-weight: 400;
+  height: 32px;
+  padding: 5px 5px 0;
+  font-size: 12px;
+}
+
+.center {
+  display: block;
+  overflow: hidden;
+  /*超出部分隐藏*/
+  text-overflow: ellipsis;
+  /* 超出部分显示省略号 */
+  white-space: nowrap;
+  /*规定段落中的文本不进行换行 */
+}
+
+.centers {
+  margin-bottom: 5px;
+}
+
+.padTxt {
+  padding-left: 5px;
+}
+
+.pore {
+  position: relative;
+}
+
+.abs {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.txtsize {
+  font-size: 16px;
+  text-align: center;
+  padding: 10px 0 0 0;
+}
+
+.courseTypeImg {
+  height: 50px;
+  width: 51px;
+}
+
+.Preprice {
+  margin-top: 5px;
+  font-size: 10px;
+  white-space: nowrap;
+  color: #ffffff;
+  text-decoration: none;
+  background-image: url("../../../assets/images/FreeAdmission2.png");
+  background-size: 100% 100%;
+  height: 16px;
+  width: 66px;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+}
+
+.Oriprice {
+  font-size: 10px;
+  text-decoration: line-through;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  padding-left: 20px;
+  width: 66px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Htxtsize {
+  font-size: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  margin-left: 3%;
+  padding: 4px 7px 3px 20px;
+  white-space: nowrap;
+  color: #ffffff;
+  background-image: url("../../../assets/images/FreeAdmission2.png");
+  background-size: 100% 100%;
+  height: 16px;
+  width: 66px;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+}
+
+.topS {
+  margin: 13px 5px 12px 11px;
+  height: 17px;
+  width: 17px;
+}
+
+.topTxt {
+  margin: 15px 6px 14px 0px;
+  font-weight: 700;
+  font-size: 13px;
+  color: #221815;
+  white-space: nowrap;
+}
+
+.topXian {
+  height: 12px;
+  width: 2px;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #b88d41;
+  margin: 15px 10px 15px 0;
+}
+
+.topMore {
+  position: absolute;
+  top: 11px;
+  right: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 17px;
+  width: 34px;
+  border: 1pt #77afff solid;
+  border-radius: 8px;
+  font-size: 10px;
+  color: #3e8dff;
+}
+
+.lineBlock {
+  font-size: 15px;
+  display: inline-block;
+}
+
+.flextitle {
+  display: flex;
+  white-space: nowrap;
+}
+
+.flexboxRow {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Listitem {
+  width: 50% !important;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.editImgBox {
+  height: 100%;
+  margin-left: 0 !important;
+  border-radius: 5px;
+}
+
+.courseTypeFlex {
+  display: flex;
+  min-width: 355px;
+}
+
+.items {
+  padding-top: 12.4pt;
+  box-sizing: border-box;
+  flex: 1;
+  text-align: center;
+  margin-bottom: 17.5pt;
+}
+
+.ColorTxt {
+  color: #b88d41;
+}
+
+.paddingtitle {
+  padding: 10px 15px 10px 14px;
+  box-sizing: border-box;
+}
+
+.colorGroup {
+  color: #3593fd;
+}
+
+.sizeGroup {
+  font-size: 15px;
+}
+
+.imgCenter {
+  padding: 0 0 0 6.5px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 140px;
+  text-align: center;
+}
+
+.imgCenters {
+  padding: 0 6.5px 0 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 140px;
+  text-align: center;
+}
+
+.txtSize {
+  font-weight: 400;
+}
+
+.editCourse-title {
+  margin-top: 0.625rem !important;
+}
+
+.nowrap {
+  flex: 1;
+  white-space: nowrap !important;
+}
+
+.imgSize {
+  max-height: 87px;
+  border-radius: 2px !important;
+  width: 155px;
+}
+
+.titleSize {
+  font-size: 12px;
+  color: #333333;
+}
+
+.crd {
+  margin: 0;
+  padding: 0;
+}
+
+.shu {
+  color: #3d6ebd;
+  padding-left: 0.5rem;
+  overflow: hidden;
+}
+
+.img {
+  height: 1.35rem;
+  vertical-align: top;
+  padding-left: 0.2rem;
+  box-sizing: border-box;
+}
+
+.mainindex {
+  background-color: #ccc;
+}
+
+.banner-img {
+  width: 100%;
+  height: 273px;
+  border-radius: 0;
+}
+
+.titlemainleft {
+  float: left;
+}
+
+.topsearch {
+  top: 50px;
+  position: fixed;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  z-index: 100;
+}
+
+ion-header .searchbar-md .searchbar-input {
+  border-radius: 50px;
+}
+
+.fireicon {
+  color: #3d84bd;
+  font-size: 1.5em;
+  font-weight: 400;
+  line-height: 1.5em;
+}
+
+.h1title {
+  padding: 0;
+}
+
+.newhot {
+  background-color: #3d84bd;
+  font-size: 0.8em;
+  padding: 5px 10px 5px 10px;
+  margin-right: 10px;
+}
+
+.hotlist {
+  margin: 0 0 0 0 !important;
+}
+
+.hotgroup {
+  font-size: 1em;
+  font-weight: 400;
+  background-color: #ffffff;
+  color: #000000;
+  padding-left: -20px;
+  margin: 0.3em 0 0 0;
+}
+
+.newhotext {
+  font-size: 1em;
+  padding: 5px 10px 5px 10px;
+  margin-right: 10px;
+}
+
+.slide-box {
+  display: -webkit-box;
+  margin: 0px 15px;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  border: 0;
+}
+
+.slide-boxFamousteacher {
+  display: -webkit-box;
+  padding: 0 0px 26px 15px;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  border: 0;
+}
+
+.slide-boxChoir {
+  display: -webkit-box;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  border: 0;
+}
+
+.slide-box-bannerFor {
+  display: -webkit-box;
+  padding-bottom: 25px;
+  margin: 0px 15px;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  border: 0;
+}
+
+.slide-boxChoir {
+  display: -webkit-box;
+  height: 146px;
+  padding: 0  0 0 15px;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  border: 0;
+}
+
+.slide-box-bannerFor {
+  display: -webkit-box;
+  margin: 0 0 0 14px;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  border: 0;
+}
+
+.slide-boxTow {
+  display: -webkit-box;
+  margin: 0px 15px 8px;
+  height: 125px;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  border: 0;
+}
+
+.slide-boxFamousteacher::-webkit-scrollbar {
+  display: none !important;
+}
+
+.slide-box::-webkit-scrollbar {
+  display: none !important;
+}
+
+.slide-box-bannerFor::-webkit-scrollbar {
+  display: none !important;
+}
+
+.slide-boxChoir::-webkit-scrollbar {
+  display: none !important;
+}
+
+.slide-item {
+  width: 120px;
+  max-width: 120px;
+  position: relative;
+  border-radius: 2px !important;
+  text-align: center;
+  border: 0;
+  margin-right: 6px;
+}
+
+.slide-master {
+  width: 150px;
+  position: relative;
+  height: 160px;
+  border-radius: 5px !important;
+  text-align: center;
+  border: 0;
+  margin: 0 10px 0 0;
+}
+
+.slide-master img {
+  border-radius: 5px 5px 0 0  !important;
+}
+
+.slide-video {
+  width: 142px;
+  position: relative;
+  height: 131px;
+  border-radius: 5px !important;
+  text-align: center;
+  border: 0;
+  margin: 0px 10px 0px 0px;
+}
+
+.slide-posterHead {
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 5px !important;
+  text-align: center;
+  border: 0;
+  margin: 0;
+  -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.12);
+}
+
+.slide-poster {
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 5px !important;
+  text-align: center;
+  border: 0;
+  margin: 0px 0px 0px 10px;
+  -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.12);
+}
+
+.imgradios {
+  border-radius: 5px !important;
+  width: 300px;
+  height: 190px;
+}
+
+.videoshow {
+  position: relative;
+}
+
+.videoshow img {
+  border-radius: 2px;
+  height: 86px;
+}
+
+.footerLiset {
+  padding: 5px 15px;
+}
+
+.newCourses {
+  width: 100%;
+  position: relative;
+  min-height: 197px;
+  min-width: 166px;
+  border: 0px solid #ccc;
+  -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.12);
+  padding: 0;
+  margin: 0;
+}
+
+.newCoursess {
+  padding: 0 0 0 7.5px !important;
+}
+
+.newCourseRight {
+  background: #2eaaff;
+}
+
+.slide-item .title {
+  width: 100%;
+  float: left;
+  margin-top: 0.25em;
+  text-align: center;
+  line-height: 2em;
+  font-size: 1.125em;
+  color: white;
+}
+
+.slide-item .info {
+  width: 100%;
+  float: left;
+  text-align: center;
+  line-height: 1.5em;
+  font-size: 0.875em;
+  color: white;
+  border: 0;
+}
+
+.badge_mm {
+  margin: 0px 5px 0px 5px;
+  border-radius: 2px;
+}
+
+.badge_mmSize {
+  font-size: 14px;
+}
+
+.listtitle {
+  font-size: 1.2em;
+  font-weight: 500;
+  line-height: 2em;
+  text-align: left;
+}
+
+#master-name {
+  font-size: 1em;
+}
+
+.listtext {
+  font-size: 0.95em !important;
+  line-height: 1.6em;
+  text-align: left;
+}
+
+.master-detail {
+  font-size: 0.95em !important;
+  line-height: 1.9em;
+  color: #5c5c5c;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  height: 4em;
+  -webkit-line-clamp: 2;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+  -webkit-line-clamp: 2;
+  /** 显示的行数 **/
+  overflow: hidden;
+  /** 隐藏超出的内容 **/
+}
+
+.text-box-p {
+  color: #777777;
+  margin: 0;
+  padding: 0;
+  line-height: 12px;
+  font-size: 12px;
+  text-align: right;
+}
+
+.master-title {
+  width: 100%;
+  color: #4a4a4a;
+  text-align: left;
+}
+
+.masterContent {
+  font-size: 14px;
+  width: 100%;
+  overflow: hidden;
+  /*超出部分隐藏*/
+  white-space: nowrap;
+  /*不换行*/
+  text-overflow: ellipsis;
+  /*超出部分文字以...显示*/
+}
+
+.verticalLine {
+  background-color: #3d84bd;
+  width: 0.15em;
+  line-height: 1.1em;
+  margin-top: 0.25em;
+}
+
+.moreLink {
+  text-align: right;
+  color: #777777;
+  padding: 0;
+  font-size: 12px;
+}
+
+.img-radius {
+  border-radius: 2px;
+}
+
+.poster_img {
+  width: 300px;
+  max-height: 190px;
+  min-height: 190px;
+}
+
+.img-box {
+  height: 100px;
+  border-radius: 2px;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+}
+
+.master_imgs {
+  height: 62px;
+  width: 110px;
+  border-radius: 2px;
+}
+
+.master_img {
+  width: 100%;
+  height: 115px;
+}
+
+.height50 {
+  min-height: 50px;
+  height: 50px;
+}
+
+.skeleton {
+  /*
+    定义单独的属性
+  */
+  --card-height: 340px;
+  --card-padding: 24px;
+  --card-skeleton: linear-gradient(gray var(--card-height), transparent 0);
+  --title-height: 32px;
+  --title-width: 200px;
+  --title-position: var(--card-padding) 180px;
+  --title-skeleton: linear-gradient(white var(--title-height), transparent 0);
+  --avatar-size: 32px;
+  --avatar-position: var(--card-padding) var(--card-padding);
+  --avatar-skeleton: radial-gradient(circle calc(var(--avatar-size) / 2), white 99%, transparent 0);
+  /*
+    现在我们可以把背景分解成单独的形状
+  */
+  background-image: var(--avatar-skeleton), var(--title-skeleton), var(--card-skeleton);
+  background-size: var(--avatar-size), var(--title-width) var(--title-height), 100% 100%;
+  background-position: var(--avatar-position), var(--title-position), 0 0;
+}
+
+.slide-box > div.img-container > .ion-card + .ion-card .img-container {
+  float: left;
+}
+
+.course-title {
+  width: 100%;
+  font-size: 13px !important;
+  text-overflow: ellipsis;
+  color: #130c0e;
+  padding-left: 6.5px;
+  height: 2.3em;
+  line-height: 1.2em;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.flexBox {
+  display: flex;
+}
+
+.mary {
+  font-size: 14px !important;
+  color: #f58220;
+  text-decoration: none;
+  margin: 0;
+}
+
+.allCourses {
+  height: 20px;
+  width: 80px;
+  font-size: 10px;
+  margin: 0 auto;
+  margin-bottom: 18px;
+}
+
+.alltxt {
+  color: #333333;
+}
+
+.ChoirPictures {
+  height: 80px;
+}
+
+.ChoirShow {
+  height: 110px;
+  width: 142px;
+  margin-right: 10px;
+}

@@ -1,0 +1,119 @@
+.text-center {
+    text-align: center;
+    font-size: 14px;
+    color: #8D8D8D;
+    //line-height: 40px;
+    padding-top: 14px;
+}
+
+.time {
+    text-align: center;
+    //font-size: 20px;
+    span{
+        display:inline-block;
+        width: 20px;
+        height: 15px;
+        background-color: #000;
+        color:#fff;
+        font-size:12px;
+        line-height: 16px;
+        border-radius: 2px; 
+    }
+}
+.timout{
+    text-align: center;
+    font-size: 20px;
+}
+
+.picbox{
+    width: 134px;
+    height: 95px;
+    margin:0 25px 0 15px;
+    .pic{
+        width: 134px;
+        height: 95px;
+        border-radius: 5px;
+    }
+}
+
+.text-box{    
+    width: 200px;
+    padding:14px 48px 0 0;
+    text1{
+        padding-bottom: 35px;
+        color: #333;
+        font-size: 13px;
+    }
+    text2{
+        color: #C04E16;
+        font-size: 14px;
+        display:inline-block;
+        padding-right:47px;
+    }
+    text3{
+        color: #8C8C8C;
+        font-size: 10px;
+    }
+}
+.beSure{
+    color: #AFAFAF;
+    font-size: 12px;
+    line-height:38px;
+    text-indent: 15px;
+}
+
+
+.item{  
+    padding-right: 15px;
+    //border-top:1px solid #F2F2F2;
+    --border-color: var(--ion-item-border-color, var(--ion-border-color, var(--ion-color-step-150, #e5e5e5)));
+   
+   .listtext{
+       color: #333;
+       font-size: 15px;
+   } 
+   .textright{
+    color: #AFAFAF;
+    font-size: 12px;
+    text-align: right;
+   }
+   .dprice{
+    color: #C04E16;
+    font-size: 17px;
+   }
+}
+
+
+
+.am-button-primary::before {
+    border-radius: 0px;
+}
+
+.button_bottom {
+    position: fixed !important;
+    bottom: 0px;
+    width: 100%;
+}
+
+.fixed-button {
+    height: 47px;
+    text-align: center;
+    border-radius: 0 !important;
+}
+
+// img{
+//     width: 140px;
+//     height: 72px;
+//     border-radius: 2px;
+//     background-color: #ffffff;
+//     margin: 5px 0;
+// }
+
+
+   .payicon{
+       width:40px ;
+       height: 40px;
+   }
+   .radio-icon{
+       img{}
+   }

@@ -1,0 +1,45 @@
+<ion-content>
+<!-- <ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+
+    <ion-title>newstxt</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+</ion-content> -->
+<ion-header  translucent="false" mode="ios" translucent="false"  [ngStyle]="{'padding-top':islh ? '33px' : '5px' }">
+  <ion-toolbar >
+      <ion-back-button icon="arrow-back" slot="start" defaultHref="newslist" (click)="logNewsList()"  text=""></ion-back-button>
+    <ion-title  mode="ios">{{news.type}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content *ngIf="skeleton" class="mainindex">
+    <ion-img style="width:100%" src="/assets/news.png"></ion-img>
+</ion-content> -->
+
+
+
+
+  <ion-content *ngIf="news!=null" class="has-header" padding>
+
+    <div class="tLeft">
+        <h2>{{ news.title }}</h2>
+        <!-- 日期:{{news.showdate}} -->
+        <p class="h3titleGray" *ngIf="news.author!=null" >作者:{{news.author}}  </p>
+    </div>
+    <div class="tCenter">
+    <img *ngIf="news.picurl!='http://mst.zt-tech.net/image/'" src="{{ news.picurl }}"/>
+    </div>
+    <div [innerHTML]="news.content" class="paddingtxts"></div>
+    <div style="text-align: center">
+        <ion-button *ngIf="news.signup=='报名'" size="small" routerLink="/activities/{{news.id}}"><ion-text style="margin: 10px 20px">立即报名</ion-text></ion-button>
+    </div>
+
+  </ion-content>
+</ion-content>

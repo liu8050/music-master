@@ -1,0 +1,107 @@
+<ion-header>
+<!-- <ion-button [routerLink]="['/login']" size="small" slot="start" fill='clear'>
+<ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+</ion-button> -->
+<ion-toolbar mode="ios">
+<!-- <ion-back-button text="" slot="start" mode="ios" >
+  
+
+</ion-back-button> -->
+<ion-buttons slot="start" text="">
+  <ion-back-button defaultHref="app" text="" slot="start" mode="ios" ></ion-back-button>
+</ion-buttons>
+</ion-toolbar>
+<!-- <ion-button slot="end"  size="small" color="secondary">跳过登录</ion-button> -->
+</ion-header>
+<ion-content padding>
+  <!-- <div Button [type]="'ghost'" [inline]="true"  class="skipbutton" [size]="'small'">跳过登录</div> -->
+  <p class="title">输入验证码</p>
+  <p>已发送四位验证码至+86 {{phonenum}}</p>
+    <div class="container">
+        <div class="vcode" id='vertifycode'>
+          <!-- <ion-input #codeEl  type="text" maxlength='4' class='code' id='code' [(ngModel)]="code" (ionChange)="inputKeyUp()" (keyup)="inputKeyUp()"></ion-input> -->
+          <input #codeEl  type="text" maxlength='4' class='code' id='code' [(ngModel)]="code"  (keyup)="inputKeyUp()">
+            <div class="labels" #labels>
+                <label class='label'
+                       *ngFor="let item of length; let i = index"
+                       [ngClass]="{'active': currentIndex == i}"
+                >{{ codeArr[i] || '' }}</label>
+            </div>
+        </div>
+    </div>
+  <!--<ion-col size="3" (click)="showkeyword()">-->
+    <!--<div class="icon-box">-->
+      <!--&lt;!&ndash; 5 &ndash;&gt;{{codeval.substr(0, 1)}}-->
+    <!--</div>-->
+  <!--</ion-col>-->
+  <!--<ion-col size="3" (click)="showkeyword()">-->
+    <!--<div class="icon-box">-->
+      <!--&lt;!&ndash; 8 &ndash;&gt;{{codeval.substr(1, 1)}}-->
+    <!--</div>-->
+  <!--</ion-col>-->
+  <!--<ion-col size="3" (click)="showkeyword()">-->
+    <!--<div class="icon-box">-->
+      <!--&lt;!&ndash; 3 &ndash;&gt;{{codeval.substr(2, 1)}}-->
+    <!--</div>-->
+  <!--</ion-col>-->
+  <!--<ion-col size="3"  (click)="showkeyword()">-->
+  <!--<div class="icon-box">-->
+    <!--&lt;!&ndash; 7 &ndash;&gt;{{codeval.substr(3, 1)}}-->
+  <!--</div>-->
+<!--</ion-col>-->
+<div class="button_bottom margin-t-30">
+    <div Button [type]="'primary'" (click)="login_reg()">登录</div>
+  </div>
+<p class="text-center">{{verifyCode.verifyCodeTips}}</p>
+
+
+<ion-grid *ngIf="keyindex==1">
+
+   <ion-row class="row1" justify-content-center>
+     <ion-col  size="4">
+     <button class="mybutton"  (click)="numberClick(1)" ion-button color="light" clear>1</button>
+     </ion-col>
+     <ion-col  size="4">
+       <button class="mybutton"  (click)="numberClick(2)" ion-button color="light" clear>2</button>
+     </ion-col>
+     <ion-col  size="4">
+       <button class="mybutton"  (click)="numberClick(3)" ion-button color="light" clear>3</button>
+     </ion-col>
+   </ion-row>
+   <ion-row class="row2" justify-content-center>
+     <ion-col size="4">
+      <button class="mybutton"  (click)="numberClick(4)" ion-button color="light" clear>4</button>
+     </ion-col>
+     <ion-col  size="4">
+       <button class="mybutton"  (click)="numberClick(5)" ion-button color="light" clear>5</button>
+     </ion-col>
+     <ion-col size="4">
+       <button class="mybutton"  (click)="numberClick(6)" ion-button color="light" clear>6</button>
+     </ion-col>
+   </ion-row>
+   <ion-row class="row3" justify-content-center>
+     <ion-col  size="4">
+      <button class="mybutton"  (click)="numberClick(7)" ion-button color="light" clear>7</button>
+     </ion-col>
+     <ion-col  size="4">
+       <button class="mybutton"  (click)="numberClick(8)" ion-button color="light" clear>8</button>
+     </ion-col>
+     <ion-col  size="4">
+       <button class="mybutton"  (click)="numberClick(9)" ion-button color="light" clear>9</button>
+     </ion-col>
+   </ion-row>
+   <ion-row class="row4" justify-content-center>
+     <ion-col size="4">
+      <button class="mybutton"  (click)="hideKeyboard()" ion-button color="light" clear>取消</button>
+     </ion-col>
+     <ion-col  size="4">
+       <button class="mybutton"  (click)="numberClick(0)" ion-button color="light" clear>0</button>
+     </ion-col>
+     <ion-col size="4">
+       <button class="mybutton"  (click)="backspace()" ion-button color="light" clear>回退</button>
+     </ion-col>
+   </ion-row>
+
+  </ion-grid>
+
+</ion-content>

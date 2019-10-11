@@ -1,0 +1,43 @@
+<ion-content>
+<ion-header [translucent]="true" mode="ios"  [ngStyle]="{'padding-top':islh ? '33px' : '5px' }">
+    <ion-row>
+        <ion-col size="10" class="nopad">
+  <ion-searchbar type='search' #searchKeys id="searchKey"  style="padding-top:0px"  [(ngModel)]="searchValue"
+    placeholder="搜索课程" class="topsearch" name='search'></ion-searchbar>
+        </ion-col>
+        <ion-col size="2" class="nopad heigts">
+  <button class="search-button" *ngIf=" searchValue == '' " (click)="goback()">返回</button>
+  
+  <button class="search-button" *ngIf=" searchValue != ''" (click)="search()">搜索</button>
+        </ion-col>
+    </ion-row>
+</ion-header>
+
+<ion-content>
+  <div>
+<!-- <form>
+ 
+  <ion-row>
+      <ion-col size="10">
+<ion-searchbar type='search' #searchKeys id="searchKey"  [(ngModel)]="searchValue"
+  placeholder="搜索课程" class="topsearch" name='search'></ion-searchbar>
+      </ion-col>
+      <ion-col size="2">
+<button class="search-button" *ngIf=" searchValue == '' " (click)="goback()">返回</button>
+
+
+
+
+
+<button class="search-button" *ngIf=" searchValue != ''" (click)="search()">搜索</button>
+      </ion-col>
+  </ion-row>
+</form> -->
+<p class="title">搜索历史</p>
+<!-- <p *ngFor="let item of searchelement"></p> -->
+<div class="badge-box">
+<ion-badge class="badge" *ngFor="let item of searchelement" (click)="changeValue(item)" color="primary">{{item}}</ion-badge>
+</div>
+</div>
+</ion-content>
+</ion-content>

@@ -1,0 +1,42 @@
+<ion-content>
+    <ion-header  mode="ios" translucent="false"  [ngStyle]="{'padding-top':islh ? '33px' : '5px' }">
+        <ion-toolbar>
+            <ion-back-button slot="start" defaultHref="/app/mycenter" (click)="outContent()" text=""></ion-back-button>
+          <ion-title>系统设置</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+  <!-- [renderHeader]=(renderHeader) -->
+  <List [className]="'my-list'">
+    <ListItem multipleLine [extra]="a4gv">
+      允许3G/4G网络播放视频
+    </ListItem>
+    <ListItem multipleLine [extra]="a4ga">
+      允许3G/4G网络播放音频
+    </ListItem>
+    <ListItem multipleLine [extra]="bplay">
+      开启后台自动播放
+    </ListItem>
+    <!-- <ListItem [extra]="'超清'">下载清晰度</ListItem> -->
+    <!-- <ListItem [extra]="'400M'" (click)="clearall()">清除应用缓存</ListItem> -->
+  </List>
+
+  <ng-template #a4gv>
+    <Switch [checked]="settings.a4gv" (onChange)="check($event,'a4gv')" (onClick)="onClick($event)"></Switch>
+  </ng-template>
+
+  <ng-template #a4ga>
+    <Switch [checked]="settings.a4ga" (onChange)="check($event,'a4ga')" (onClick)="onClick($event)"></Switch>
+  </ng-template>
+  <ng-template #bplay>
+    <Switch [checked]="settings.bplay" (onChange)="check($event,'bplay')" (onClick)="onClick($event)"></Switch>
+  </ng-template>
+  
+
+</ion-content>
+</ion-content>
+<ion-footer>
+    <div class="button_bottom">
+        <div Button class="button-clearborder" (click)="logout()" [type]="'warning'">退出登录</div>
+        </div>
+</ion-footer>

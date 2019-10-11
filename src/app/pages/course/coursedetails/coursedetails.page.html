@@ -1,0 +1,286 @@
+<ion-content class="poral"> 
+<ion-header [ngStyle]="{'padding-top':islh ? '33px' : '5px' }">
+    <ion-toolbar>
+      <!-- <ion-button (click)="goback()" class="returnbutton" size="small" slot="start" fill='clear'>
+    <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+  </ion-button> -->
+      <!-- /app/mycourse -->
+      <ion-back-button
+        slot="start"
+        defaultHref="/allcourses/null/null"
+        text=""
+      ></ion-back-button>
+      <ion-title>
+        <!-- {{ course.title }} -->
+     推荐课程
+      </ion-title>
+      <!-- <ion-icon
+        slot="end"
+        (click)="showShareActionSheet()"
+        name="share-alt"
+        style="font-size: 24px"
+      ></ion-icon> -->
+    </ion-toolbar>
+  </ion-header>
+<ion-content>
+
+
+  <ion-content class="padding "
+  [scrollEvents]="true"   (ionScroll)="logScrolling($event)"  (ionScrollStart)="logScrollStart()" 
+  >
+
+    <ion-img
+      class="spaceBetween"
+      *ngIf="course.picurl != null"
+      class="banner"
+      src="{{ course.picurl }}"
+      (ionError)="errSrcimg($event)"
+      
+    ></ion-img>
+
+    <Tabs
+      [useOnPan]="false"
+      [swipeable]="false"
+      [activeTab]="index"
+      *ngIf="course.picurl != null"
+      [page]="3"
+      [tabBarActiveTextColor]="'#1890ff'"
+      (onChange)="onChange($event)"
+      (onTabClick)="onTabClick($event)"
+    >
+      <TabPane
+        style="width: 100%; background-color: white;align-items: center;justify-content: center;"
+        [title]="used"
+      >
+        <ng-template #used>
+          <Badge [text]="">
+            <div>详情  </div>
+          </Badge>
+        </ng-template>
+        <div style="width: 100%;">
+          <WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace>
+          <ion-text>
+            <h2 class="padding-left">{{ course.title }}</h2>
+            <div class="detailBox">
+              <p class="title">指导老师：{{ course.teacher }}</p>
+              <p class="title">视频语言：{{ course.language }}</p>
+              <!-- <p class="title">适用范围：{{ course.syfw }}</p> -->
+              <!-- <p class="title">声部：{{course.part}}</p> -->
+              <!-- <p class="title">训练要点：{{course.xlyd}}</p> -->
+      
+              <!-- <p class="title">难度指数：<app-grade-star [myScore]="item.myScore"></app-grade-star>
+            </p> -->
+              <!-- <p class="title">曲谱页数：20页</p> -->
+            </div>
+          </ion-text>
+          <ion-row class="linebg">
+            <ion-col size="12"></ion-col>
+          </ion-row>
+          <h2 class="padding-left">{{ course.ptitle }}</h2>
+          <div class="padding-left padding-right">
+            <div [innerHTML]="course.content"></div>
+          </div>
+        </div>
+      </TabPane>
+
+      <TabPane
+        style="width: 100%; background-color: white;align-items: center;justify-content: center;"
+        [title]="outofdate"
+      >
+        <ng-template #outofdate>
+          <Badge [text]="">
+            <div>目录</div>
+          </Badge>
+        </ng-template>
+        <div style="width: 100%">
+          <WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace>
+
+          <Accordion
+            [accordion]="true"
+            [defaultActiveKey]="'0'"
+            [activeKey]="activeKey"
+            (onChange)="onChange($event)"
+
+          >
+            <AccordionPanel
+              *ngFor="let items of course.kj; let i = index"
+              [key]="i"
+              [header]="items.title"
+              [disabled]="false"
+        
+            >
+              <List className="my-list">
+                <ListItem
+                  *ngFor="let item of items.children; let t = index"
+                  [thumb]="'/assets/fonts/play.svg'"
+                  wrap
+                  (click)="playvideo(item, i, t)"
+          
+                >
+                  <!-- {{item.name}} -->
+                  <ion-row>
+                    <ion-col size="9">
+                      {{ item.name }}
+                    </ion-col>
+                    <ion-col size="3" *ngIf="item.issf == '1'">
+                      <ion-icon
+                        *ngIf="isowner"
+                        class="margin-icon basecolor"
+                        src="./assets/icon/lock.svg"
+                      ></ion-icon>
+                    </ion-col>
+                    <ion-col size="3" *ngIf="item.issf == '0'">
+                      <p
+                        *ngIf="isowner && item.type != '音频'"
+                        class="course-right"
+                      >
+                        试看
+                      </p>
+                      <p
+                        *ngIf="isowner && item.type == '音频'"
+                        class="course-right"
+                      >
+                        试听
+                      </p>
+                    </ion-col>
+                  </ion-row>
+                </ListItem>
+              </List>
+            </AccordionPanel>
+          </Accordion>
+
+          <!-- List of Text Items -->
+          <!-- <ion-list *ngFor="let items of course.kj;let i = index" style="margin-bottom:0;background-color:#f7f8fc">
+          <ion-item lines="none" style="margin: 0;padding:0;width: 100%" color="#f7f8fc">
+            <ion-label style="margin: 0;padding:0;width: 100%">
+              <ion-row style="margin: 0;padding:0;width: 100%;background-color:#f7f8fc">
+                <ion-col size="12" style="margin: 0;padding:0;width: 100%">
+                  <span style="margin: 0;padding:0">{{items.title}}</span>
+                    <ion-icon name="ios-arrow-down" item-right style="float: right" *ngIf="temp=='show'+i" (click)="accordion(i,'hihe')"></ion-icon>
+                  <ion-icon name="ios-arrow-up" item-right style="float: right" *ngIf="temp!='show'+i" (click)="accordion(i,'show')"></ion-icon>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="temp=='show'+i" style="margin: 0;padding:0;width: 100%;background-color: #ffffff">
+                <ion-row style="margin: 0;padding:0;width:100%;background-color: #ffffff" class="rowitem" *ngFor="let item of items.children;let t=index" (click)="playvideo(item,i,t)">
+                  <ion-col size="1">
+                    <ion-icon class="margin-icon" src="./assets/fonts/play.svg"></ion-icon>
+                  </ion-col>
+                  <ion-col size="9" class="hidover">
+                    <span *ngIf="item.name.length>=30" class="courseName animatetxt">{{item.name}}</span>
+                    <span *ngIf="item.name.length<30" class="courseName">{{item.name}}</span>
+                  </ion-col>
+                  <ion-col size="2" *ngIf="item.issf=='1'">
+                  
+                    <ion-icon *ngIf="isowner" class="margin-icon basecolor" src="./assets/icon/lock.svg"></ion-icon>
+                  </ion-col>
+                  <ion-col size="2" *ngIf="item.issf=='0'">
+                    <p *ngIf="isowner&&item.type!='音频'" class="course-right">试看</p>
+                    <p *ngIf="isowner&&item.type=='音频'"  class="course-right">试听</p>
+                  </ion-col>
+                </ion-row>
+              </ion-row>
+            </ion-label>
+          </ion-item>
+        </ion-list> -->
+        </div>
+      </TabPane>
+
+      <div  class="paddingBottom">
+      <TabPane [title]="havenot"   >
+        <ng-template #havenot>
+          <Badge [text]="">
+            <div>相关课程</div>
+          </Badge>
+        </ng-template>
+
+
+
+
+
+
+
+
+
+        <!-- <ion-grid > -->
+          <WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace>
+          <ion-row *ngIf="courseList.length > 0"  class="foutershow" >
+            <div class="videoList">
+              <ion-col
+                size="6"
+                *ngFor="let item of courseList"
+                routerLink="{{ baseFromUrl }}/coursedetails/{{ item.id }}"
+                style="margin-bottom: 1em "
+                class="videoItem"
+              >
+                <ion-card
+                  class="newCourses"
+                  routerLink="{{ baseFromUrl }}/coursedetails/{{ item.id }}"
+                >
+                  <!-- 如果有数据显示数据 -->
+
+                  <img
+                    class="img-box"
+                    src="{{ item.picurl }}"
+                    (ionError)="errSrcimg($event)"
+                    onerror="this.src='./assets/images/noNewsKCImg.png'"
+                  />
+
+                  <div class="course-title paddingContent">
+                    <div *ngIf="item.titles!=null">
+                      <div class="titletxt">{{item.titles[0]}}</div>
+                      <div class="titletxt">{{item.titles[1]}}</div>
+                    </div>
+                    <div *ngIf="item.titles==null" class="titletxt">
+                      {{item.title}}
+                    </div>
+                  </div>
+                  <!-- <div class="course-title2">曲目:{{item.song}}</div> -->
+                  <div class="course-subtitle" *ngIf="item.dprice != '0.00'">
+                    <div class="flexbox">
+                      <span class="currentPrice Txtsizes">￥{{ item.dprice }}</span>
+                      <span class="Txtright Txtsizes">原价:￥{{ item.oprice }}</span>
+                    </div>
+                  </div>
+                  <div class="currentPrice" *ngIf="item.dprice == '0.00'">
+                    限时免费
+                  </div>
+
+                  <!-- 如果没有数据 -->
+                </ion-card>
+              </ion-col>
+            </div>
+          </ion-row>
+          <ion-row *ngIf="courseList.length < 0" class="boxSizing">
+            暂无视频推荐
+          </ion-row>
+        <!-- </ion-grid> -->
+
+        <!-- <ion-grid *ngIf="courseList.length > 0" class="boxSizing"> </ion-grid> -->
+        <WhiteSpace class="bgcolor h-1" [size]="'sm'"></WhiteSpace>
+      </TabPane>
+    </div>
+    </Tabs>
+    <div class="button_bottom">
+        <div
+          Button
+          [type]="'primary'"
+          (click)="go_pay()"
+      *ngIf="isowner"
+          class="button-clearborder"
+          style="position: fixed;bottom:0;width:100%;"
+        >
+          参与学习
+        </div>
+      </div>
+    <!-- <ion-button color="primary" href="" *ngIf="isowner"
+    class="button-clearborder" (click)="go_pay()" style="border-radius: 0;width: 100%;display: flex;justify-content: center;align-items: center;margin: 0;">   参与学习</ion-button> -->
+
+  
+  </ion-content>
+
+
+
+</ion-content>
+
+
+</ion-content>

@@ -1,0 +1,402 @@
+.text-center {
+  text-align: center;
+  font-size: 14px;
+  color: #8D8D8D;
+  padding-top: 14px;
+  padding-bottom: 3px;
+}
+
+.time {
+  text-align: center;
+}
+
+.time span {
+  display: inline-block;
+  width: 20px;
+  height: 15px;
+  background-color: #000;
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  border-radius: 2px;
+}
+
+.timout {
+  text-align: center;
+  font-size: 20px;
+}
+
+.picbox {
+  width: 134px;
+  height: 95px;
+  margin: 0 25px 0 15px;
+}
+
+.picbox .pic {
+  width: 134px;
+  height: 95px;
+  border-radius: 5px;
+}
+
+.text-box {
+  width: 200px;
+  padding: 14px 48px 0 0;
+}
+
+.text-box text1 {
+  padding-bottom: 35px;
+  color: #333;
+  font-size: 13px;
+}
+
+.text-box text2 {
+  color: #C04E16;
+  font-size: 14px;
+  display: inline-block;
+  padding-right: 47px;
+}
+
+.text-box text3 {
+  color: #8C8C8C;
+  font-size: 10px;
+}
+
+.beSure {
+  color: #AFAFAF;
+  font-size: 12px;
+  line-height: 38px;
+  text-indent: 15px;
+}
+
+.m-t-15 {
+  margin-top: 15px;
+}
+
+.txtSize {
+  font-size: 14px !important;
+}
+
+.t-c-y {
+  color: #3D84BD;
+}
+
+.t-a-right {
+  text-align: right;
+}
+
+.lackimg {
+  height: 100%;
+  padding: 0 91px  0 94px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.p-10 {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.border-1 {
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+}
+
+.w-100 {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px !important;
+}
+
+.buttonCol {
+  text-align: right;
+}
+
+.line-45 {
+  line-height: 45px;
+}
+
+.height-30 {
+  height: 30px;
+}
+
+.button-top {
+  margin-top: 5px;
+}
+
+.text-gray {
+  color: #606060;
+  font-size: 14px;
+}
+
+.img-box {
+  width: 100%;
+  height: 90px;
+  background-color: #606060;
+  border-radius: 5px;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.order-remind {
+  font-size: 14px !important;
+  color: #8D8D8D;
+}
+
+.float-right {
+  float: right;
+}
+
+.popup-list .am-list-body {
+  height: 210px;
+  overflow: auto;
+}
+
+.am-button::before {
+  content: none;
+  border: 0px;
+}
+
+.am-button {
+  height: auto;
+  border: 0px;
+  border-radius: 0%;
+  text-align: inherit;
+}
+
+html:not([data-scale]) .am-button::before {
+  border: 0px;
+}
+
+.button_bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  float: left;
+}
+
+.discountcoupon-box {
+  height: 109px;
+  width: 100%;
+  background-color: #FACD89;
+}
+
+.discountcoupon-box .dis-left-box {
+  width: 44%;
+  float: left;
+  height: 100%;
+  background-color: #F59904;
+}
+
+.discountcoupon-box .dis-right-box {
+  width: 56%;
+  float: left;
+  height: 100%;
+  position: relative;
+}
+
+.discountcoupon-box .dis-right-abu {
+  position: absolute;
+  bottom: 24px;
+  right: 30px;
+  width: 50px;
+  height: 20px;
+  font-size: 12px;
+  background-color: #E60012;
+  color: white;
+  text-align: center;
+  line-height: 20px;
+}
+
+.discountcoupon-box .dis-left-top {
+  text-align: center;
+  height: 64px;
+  width: 100%;
+  color: white;
+}
+
+.discountcoupon-box .dis-left-top p span {
+  font-size: 50px;
+}
+
+.discountcoupon-box .dis-left-bottom {
+  text-align: center;
+  font-size: 14px;
+  color: white;
+}
+
+.discountcoupon-box .dis-right-top {
+  height: 90px;
+  font-size: 30px;
+  line-height: 90px;
+  text-align: center;
+  color: white;
+}
+
+.discountcoupon-box .dis-right-bottom {
+  text-align: center;
+  font-size: 14px;
+  color: white;
+}
+
+.margin-bottom {
+  margin-bottom: 50px;
+}
+
+.font-size-14 {
+  font-size: 14px;
+}
+
+.font-size-12 {
+  font-size: 12px;
+}
+
+.inputItem {
+  background-color: #3D84BD;
+  border: 1px solid #333333;
+  border-radius: 5px;
+  color: white;
+}
+
+.text-algin {
+  text-align: center;
+}
+
+.margin-20 {
+  margin-top: 20px;
+}
+
+.am-button::before {
+  border: 0px !important;
+}
+
+.am-input-label {
+  font-size: 14px !important;
+}
+
+.am-list-line {
+  font-size: 14px !important;
+}
+
+.tag-container {
+  display: flex;
+  padding-top: 9px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+img {
+  border-radius: 5px !important;
+}
+
+.classboxS {
+  width: 100%;
+  padding: 0;
+  margin: 0 !important;
+}
+
+.classboxS .img {
+  width: 140px !important;
+  margin: 10px 0;
+}
+
+.classboxS .classbox-text {
+  width: 100%;
+  height: 72px;
+  padding: 0;
+  margin: 15px 0 0 0;
+}
+
+.course-title {
+  margin-top: 1px;
+  width: 100%;
+  color: #130c0e;
+  padding: 0 0 0 5%;
+  text-align: left;
+}
+
+.course-subtitle {
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0 0 0 5%;
+  font-size: 1.05em !important;
+  color: #f58220;
+  text-align: left;
+}
+
+.listbox {
+  height: 20px;
+  line-height: 20px;
+  font-size: 18px;
+}
+
+.listarrow {
+  font-size: 15px !important;
+  margin: 0 0 0 8px !important;
+}
+
+.boxAction {
+  min-height: 1em !important;
+}
+
+.item .listtext {
+  color: #333;
+  font-size: 15px;
+  font-family: 'PingFang-SC-Regular';
+}
+
+.item .textright {
+  color: #AFAFAF;
+  font-size: 12px;
+  text-align: right;
+}
+
+.dpriceright {
+  text-align: right;
+  color: #C04E16;
+  font-size: 17px;
+}
+
+.dprice {
+  color: #C04E16;
+  font-size: 17px;
+}
+
+.payicon {
+  width: 28px;
+  height: 28px;
+  margin: 0 16px;
+}
+
+.text-box {
+  width: 200px;
+  padding: 14px 45px 0 0;
+  position: relative;
+  flex: 1;
+}
+
+.text-box .text1 {
+  color: #333;
+  font-size: 13px;
+}
+
+.text-box .text2 {
+  color: #C04E16;
+  font-size: 14px;
+  display: inline-block;
+  padding-right: 47px;
+}
+
+.text-box .text3 {
+  color: #8C8C8C;
+  font-size: 10px;
+}
+
+.text-box .bottom {
+  position: absolute;
+  bottom: 20px;
+}

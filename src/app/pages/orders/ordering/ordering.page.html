@@ -1,0 +1,65 @@
+<ion-content><ion-header  [ngStyle]="{'padding-top':islh ? '33px' : '5px' }">
+  <ion-toolbar>
+      <ion-back-button slot="start" defaultHref="/order/0/{{Id}}"  text=""></ion-back-button>
+    <ion-title>支付订单</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p class="text-center">支付剩余时间</p>
+  <p class="time" *ngIf = "payCountDown==''">
+    <span>{{payCountDownM}}</span> : <span>{{payCountDownS}}</span>
+  </p>
+  <p class="timout" *ngIf = "payCountDown!=''">{{payCountDown}}</p>
+  <!--<WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace>-->
+  <ion-row style="border-bottom:1px solid gainsboro;margin-top: 10px;display:flex; justify-content: space-between; height: 120px;">
+    <div class="picbox">
+      <img src="{{Courses.data.picurl}}" class="pic"/>
+    </div>
+    <div class="text-box">
+      <div class="text1">
+        <p>{{Courses.data.title.split("-")[0]}}</p>
+        <p>{{Courses.data.title.split("-")[1]}}</p>  
+      </div>
+      <div>
+        <span class="text2">¥:{{dprice}} </span> 
+        <s class="text3">原价:¥{{Courses.data.oprice}} </s>
+      </div>
+    </div>
+  </ion-row>
+<p class="beSure">购买后不支持退款、转让。请确认后再支付订单</p>
+
+  <WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace>
+
+  <ion-list>
+    <ion-item class="item" >
+      <ion-label class="listtext">乐享卡</ion-label>
+      <ion-label class="textright">输入乐享卡兑换码</ion-label>
+      <ion-icon class="listicon" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+    </ion-item>
+    <ion-item class="item" >
+      <ion-label class="listtext">优惠券</ion-label>
+      <ion-label class="textright">1张优惠券可用</ion-label>
+      <ion-icon class="listicon" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+    </ion-item>
+    <ion-item class="item" >
+      <ion-label class="listtext">课程金额</ion-label>
+      <ion-label class="textright dprice">¥:{{dprice}} </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace>
+
+  <ion-radio-group>
+    <ion-item class="hotlist item" >
+      <ion-label class="listtext">支付方式</ion-label>
+    </ion-item>
+    <ion-item lines="full" >
+      <ion-icon slot="start" color="medium"  src="/assets/icon/alipay.svg" class="payicon"></ion-icon>
+      <ion-label>余额：0.00学习币（余额不足）</ion-label>
+      <ion-checkbox  slot="end" [checked]="paytype=='1'" color="primary"></ion-checkbox>  
+    </ion-item>
+  </ion-radio-group>
+  <div Button class="fixed-button button_bottom" [type]="'primary'" (click)="create_pay()">确认支付 ￥{{dprice}}</div>
+</ion-content>
+</ion-content>

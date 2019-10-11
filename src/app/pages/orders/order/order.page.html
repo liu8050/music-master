@@ -1,0 +1,212 @@
+<ion-content>
+  <ion-header [ngStyle]="{'padding-top':islh ? '33px' : '5px' }">
+    <ion-toolbar>
+        <ion-back-button  slot="start" defaultHref="/coursedetails/{{Id}}" text=""></ion-back-button>
+      <ion-title>支付订单</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content *ngIf="course!=null">
+
+    <p class="text-center">支付剩余时间</p>
+    <p class="time" *ngIf = "payCountDown==''">
+      <span>{{payCountDownM}}</span> : <span>{{payCountDownS}}</span>
+    </p>
+    <p class="timout" *ngIf = "payCountDown!=''">{{payCountDown}}</p>
+    <!--<WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace>-->
+    <ion-row style="border-bottom:1px solid gainsboro;margin-top: 10px;display:flex; justify-content: space-between; height: 120px;">
+      <div class="picbox">
+        <img src="{{Courses.data.picurl}}" class="pic"/>
+      </div>
+      <div class="text-box">
+        <div class="text1">
+          <p>{{Courses.data.title.split("-")[0]}}</p>
+          <p>{{Courses.data.title.split("-")[1]}}</p>  
+        </div>
+        <div class="bottom">
+          <span class="text2">¥:{{Courses.data.dprice}} </span> 
+          <s class="text3">原价:¥{{Courses.data.oprice}} </s>
+        </div>
+      </div>
+    </ion-row>
+    <p class="beSure">购买后不支持退款、转让。请确认后再支付订单</p>
+    
+    <WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace>
+    
+    <ion-list class="list">
+      <ion-item class="item">
+        <ion-label>
+          <div class="w-100" Button (onClick)="showModal('card')">
+              <ion-row>
+                <ion-col size="6">
+                  <p class="listtext">乐享卡</p>
+                </ion-col>
+                <ion-col size="6">
+                  <p class="textright">
+                    <ion-text *ngIf="cardPrice==''">输入乐享卡兑换码</ion-text>
+                    <ion-text *ngIf="cardPrice!=''">￥{{cardPrice}}元</ion-text>
+                    <ion-icon class="listarrow" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+                  </p>
+                </ion-col>
+              </ion-row>
+          </div>
+        </ion-label>
+      </ion-item>
+      <ion-item class="item">
+        <ion-label>
+          <div class="w-100" Button (onClick)="showModal('discountcoupon')">
+            <ion-row>
+              <ion-col size="6">
+                <p class="listtext">优惠券</p>
+              </ion-col>
+              <ion-col size="6">
+                <p class="textright">
+                  <ion-text>{{tickettext}}</ion-text>
+                  <ion-icon class="listarrow" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+                </p>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-label>
+      </ion-item>
+      <ion-item lines="none" class="item">
+        <ion-label>
+          <div class="w-100">
+              <ion-row>
+                <ion-col size="6">
+                  <p class="listtext" >课程金额</p>
+                </ion-col>
+                <ion-col size="6">
+                  <p class="dpriceright" style="margin-right: 19px" *ngIf="course.dprice=='0.00'">限时免费</p>
+                  <p class="dpriceright" style="margin-right: 19px" *ngIf="course.dprice!='0.00'">¥:{{course.dprice}}</p>
+                </ion-col>
+            </ion-row>
+          </div>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    
+    <WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace>
+    
+    <ion-radio-group>
+      <ion-item class="item" >
+        <ion-label class="listtext">支付方式</ion-label>
+      </ion-item>
+      <ion-item (click)="paytype()" class="item" >
+        <img src="/assets/images/ic_list_xxb@2x.png" class="payicon">
+        <ion-label class="listtext" *ngIf="userInfo.surplus=='0.00'">余额：{{userInfo.surplus}}学习币（余额不足）</ion-label>
+        <ion-label class="listtext" *ngIf="userInfo.surplus!='0.00'">余额：{{userInfo.surplus}}学习币</ion-label>
+        <ion-checkbox  slot="end" [checked]="paysure" color="primary"></ion-checkbox>  
+      </ion-item>
+    </ion-radio-group>
+
+    <Modal [(ngModel)]="this.state.card" [popup]="true" [animationType]="'slide-up'" (onClose)="onClose('card')">
+      <List [renderHeader]="cardHeader" [className]="'popup-list'">
+        <ListItem>
+          <InputItem class="inputItem" [(ngModel)]="cardNum" [placeholder]="'请输入乐享卡兑换码'"></InputItem>
+          <!-- <p class="margin-bottom font-size-12">兑换码已经失效，请核实后再进行兑换</p> -->
+        </ListItem>
+        <ListItem>
+          <!-- <div Button class="text-algin" [type]="'primary'" (onClick)="onClose('card')">兑换</div> -->
+          <div Button class="text-algin" [type]="'primary'" (onClick)="useCard('card')">兑换</div>
+        </ListItem>
+      </List>
+    </Modal>
+    <Modal [(ngModel)]="this.state.discountcoupon" [popup]="true" [animationType]="'slide-up'" (onClose)="onClose('discountcoupon')">
+      <List [renderHeader]="discountcouponHeader" style="height:400px;">
+        <Tabs [useOnPan]="true" [swipeable]="true" [activeTab]="index" [page]="2" [tabBarActiveTextColor]="'#1890ff'"
+          (onChange)="onChange($event)" (onTabClick)="onTabClick($event)">
+          <TabPane style="display: flex; height: 350px; width: 100%; background-color: white; align-items: center;justify-content: center;"
+            [title]="titleTemplate">
+            <ng-template #titleTemplate>
+              <Badge [text]="">
+                <div>可用</div>
+              </Badge>
+            </ng-template>
+            <div [ngStyle]="{ height: 350, overflow: 'scroll' }" style="width:100%;height: 350px;">
+              <List [className]="'my-list'">
+                <ListItem wrap *ngFor="let item of ticketlist">
+                    <app-coupon (click)="useTicket(item)" [Coupon]="item"></app-coupon>
+                </ListItem>
+              
+              </List>
+              <div *ngIf="ticketlist!=''" class="lackimg" >
+                <img src="./assets/images/orderimg.png" alt="" class="lkimg">
+                <div>暂无可用优惠卷</div>
+              </div>
+            </div>
+          </TabPane>
+          <!-- <TabPane style="display: flex; height: 350px; width: 100%; background-color: white;align-items: center;justify-content: center;"
+            [title]="titleTemplate1">
+            <ng-template #titleTemplate1>
+              <Badge [text]="">
+                <div>不可用</div>
+              </Badge>
+            </ng-template>
+            <div style="display: flex; align-items: center;justify-content: center;height: 350px;background-color: #fff">
+              Content of second tab
+            </div>
+          </TabPane> -->
+          <TabPane style="display: flex; height: 350px; width: 100%; background-color: white;align-items: center;justify-content: center;"
+            [title]="titleTemplate2">
+            <ng-template #titleTemplate2>
+              <Badge [text]="">
+                <div>未领取</div>
+              </Badge>
+            </ng-template>
+            <div [ngStyle]="{ height: 350, overflow: 'scroll' }" style="width:100%;height: 350px;">
+              <List [className]="'my-list'">
+                <ListItem wrap *ngFor="let item of ticketlist_all">
+                    <app-coupon (click)="getTicket(item.id)" [Coupon]="item"></app-coupon>
+                </ListItem>
+              </List>
+              <div *ngIf="ticketlist!=''" class="lackimg" >
+                <img src="./assets/images/orderimg.png" alt="" class="lkimg">
+                <div>暂无可用优惠卷</div>
+              </div>
+            </div>
+          </TabPane>
+        </Tabs>
+      </List>
+    </Modal>
+    <Modal [(ngModel)]="this.state.bill" [popup]="true" [animationType]="'slide-up'" (onClose)="onClose('bill')">
+      <List [renderHeader]="billHeader" [className]="'popup-list'">
+        <ListItem>
+          <p class="font-size-14">发票抬头</p>
+          <!-- 发票抬头 -->
+          <div class="tag-container">
+            <Tag [selected]="true">个人</Tag>
+            <Tag [selected]="false">单位</Tag>
+          </div>
+        </ListItem>
+        <ListItem>
+          <p class="font-size-14">收票人信息</p>
+          <InputItem [type]="'text'" [labelNumber]="7" [clear]="true" [placeholder]="'start from left'">*收票人手机：</InputItem>
+          <InputItem [type]="'text'" [labelNumber]="7" [clear]="true" [placeholder]="'start from left'">*收票人地址：</InputItem>
+          <p class="font-size-14">*发票内容</p>
+          <!-- 发票内容 -->
+          <Tag [selected]="true">商品明细</Tag>
+          <p class="margin-bottom font-size-12">发票内容将显示详细商品名称与价格信息</p>
+        </ListItem>
+        <!-- <ListItem>
+        <div Button class="text-algin" [type]="'primary'" (onClick)="onClose('bill')">兑换</div>
+      </ListItem> -->
+      </List>
+    </Modal>
+    
+    <ion-row class="button_bottom">
+      <ion-col  size="8" class="fixed-button" style="display: block;text-align: left"><span style="margin-left: 24px">实付金额 :</span><span class="dprice">￥: {{ course.dprice }}</span></ion-col>
+      <ion-col  size="4" class="fixed-button"  style="background-color: #108ee9;display: block;color: #ffffff;font-size: 14px;text-align: center"
+       (click)="create_order()" > 
+        <span *ngIf="newsurplus>=0">支付订单</span> 
+        <span *ngIf="!(newsurplus>=0)">充值并支付</span> 
+      </ion-col>
+      
+    </ion-row>
+    
+  </ion-content>
+
+</ion-content> 
+
+
+

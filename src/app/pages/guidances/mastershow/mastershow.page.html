@@ -1,0 +1,167 @@
+<ion-content class="pore"  *ngIf="masterDetal!=null">
+  <!-- <ion-buttons slot="start">
+    <ion-back-button defaultHref="home"></ion-back-button>
+  </ion-buttons> -->
+  <!-- <ion-header mode="ios">
+   
+  </ion-header> -->
+  <!-- <ion-header class="mainindex"> -->
+    <!-- <ion-toolbar mode="ios"> -->
+      <!-- <ion-buttons slot="start" [color]="danger">
+        <ion-back-button defaultHref="home"></ion-back-button>
+      </ion-buttons> -->
+      
+    <!-- <ion-back-button mode="ios"  slot="start" defaultHref="/mmaster" text="" color="medium" class="start">
+    </ion-back-button> -->
+    <!-- <ion-title>{{master.title}}</ion-title> -->
+    <!-- </ion-toolbar> -->
+    <!-- <ion-img *ngIf="skeleton" style="width:100%" src="/assets/master.png"></ion-img> -->
+   
+
+<!-- masterNoImg.png -->
+    <!-- <img  src='{{masterDetal.picurl}}' class="maserImg" /> -->
+  <!-- </ion-header> -->
+  <ion-content  [scrollEvents]="true" class="poa"  id="mymaincontent" (ionScroll)="logScrolling($event)"  (ionScrollStart)="logScrollStart()" style="overflow: hidden;box-sizing:border-box;"  >
+      <!-- <ion-back-button mode="ios"  slot="start" defaultHref="/mmaster" text="" color="medium" class="start">
+      </ion-back-button> -->
+      <ion-icon id="backicon" name="arrow-back"class="start" (click)="goback()" ></ion-icon>
+  <img *ngIf="masterDetal!=null&&masterDetal.picurl"  src="{{masterDetal.picurl}}" class="maserImg"    onerror="this.src='./assets/images/masterNoImg.png'"/>
+
+    <!-- [useOnPan]="true"
+    [swipeable]="true"
+    [activeTab]="index"
+    [page]="3"
+    [tabBarActiveTextColor]="'#1890ff'"
+    (onChange)="onChange($event)"
+    (onTabClick)="onTabClick($event)" -->
+
+    <Tabs  *ngIf="masterDetal!=null&&masterDetal!=null&&masterDetal.picurl" id="mymastershow" [ngClass]="{'fixedshow animeted fadeInDown' :isfixed}" [activeTab]="0"  [tabBarInactiveTextColor]="'#9E9E9E'" style="height: 50px;" [tabBarUnderlineStyle]="" [useOnPan]="true" [tabBarActiveTextColor]="'#333333'" [swipeable]="true" [activeTab]="index" [tabBarActiveTextColor]="'#1890ff'"
+      (onChange)="onChange($event)" (onTabClick)="onTabClick($event)">
+      <TabPane [title]="titleTemplate"  *ngIf="masterDetal!=null">
+        <ng-template #titleTemplate >
+          <Badge>
+            <div>大师详情</div>
+          </Badge>
+        </ng-template>
+         
+      </TabPane>
+      <TabPane [title]="titleTemplate1" *ngIf="masterDetal!=null">
+        <ng-template #titleTemplate1>
+          <Badge>
+            <div>大师课程</div>
+          </Badge>
+        </ng-template>
+        
+      </TabPane>
+      
+    </Tabs>
+    <div id="maindiv">
+      <div id="maindiv1"  *ngIf="masterDetal.title&&ispadding==0">
+    <div id="maindiv1" class="tab1contentPadding">
+      <div class="introduce" *ngIf="masterDetal.title">介绍:</div>
+      <div class="nameTitle size nationalityPad "  *ngIf="masterDetal.title">{{masterDetal.title}}</div>
+      <div class="size nationalityPad nationalityPad" *ngIf="masterDetal.ename">英文名:{{masterDetal.ename}}</div>
+
+      <div class="size nationalityPad" *ngIf="masterDetal.nationality">
+        国籍:{{masterDetal.nationality}}
+      </div>
+      <div class="size nationalityPad " *ngIf="masterDetal.profession">
+          职位:{{masterDetal.profession}}
+        </div>
+    </div>
+    <div class="minHieght padAchievement" *ngIf="masterDetal.achievement" >
+   <div class="minHeight pore"  > 
+      <div class="achievement"  *ngIf="masterDetal.achievement">
+          职业:
+        </div>
+         <div *ngIf="boolTrue==true" class="itemtag">
+            <ul   class="Mtop"   *ngFor="let item of masterDetal.achievement">
+              <span class="item">{{item}}</span>
+            </ul>
+           </div>
+           <div *ngIf="boolTrue==false" class="itemtag">
+              <ul   class="Mtop " *ngFor="let item of masterDetal.achievements" >
+                <span class="item">{{item}}</span>
+              </ul>
+             </div>
+                  <button class="btnAll" *ngIf="len>=4" fill="clear"  (click)="TakeInverse()">{{boolTxt}}<ion-icon name="arrow-down"></ion-icon></button>
+      </div>
+      <div *ngIf="masterDetal.infos" [class]="masterDetal.achievement?'':''">
+               <p [innerHTML]="masterDetal.infos" [class]="masterDetal.achievement?'padTxt':'padTxt'"></p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+    <div id="maindiv2" class="tab2contentPadding" *ngIf="ispadding==1">
+      <div   mode="ios" class="flexBox StleCard" *ngFor="let item of freeList"  routerLink="/coursedetails/{{item.id}}">
+        <div class="padImgs">
+          <img src="{{item.picurl}}" class="itemYi imgStyle" routerLink="/coursedetails/{{item.id}}"/>
+        </div>
+        <div class="rightBox">
+          <header *ngIf="item.titles" class="crruAll ">
+            <div class="thirteen gray nowper">{{item.titles[0]}}</div>
+            <div *ngIf="item.titles[1]" class="gray thirteen nowper">{{item.titles[1]}}</div>
+          </header>
+          <header *ngIf="item.title&&!item.titles" class="crruAll ">
+            <div class="gray thirteen nowper"  style="
+            height: 30px;
+            display: -webkit-box!important;
+            -webkit-box-orient: vertical!important;
+            -webkit-line-clamp: 2!important;
+            overflow: hidden!important;
+            ">{{item.title}}</div>
+       
+          </header>
+          <div class="freeAdmis flex ">
+            <div *ngIf="item.dprice!='0.00'" class="brown fourteen nowper wdt">
+              ￥{{item.dprice}}
+            </div>
+            <div *ngIf="item.dprice=='0.00'" class="brown fourteen nowper itemyy flexcontent">
+              限时免费
+            </div>
+            <div class="grays line tensize flexcontent nowper itemyy">
+              原价:￥{{item.oprice}}
+            </div>
+          </div>
+          <div class=" heightstyle">
+            <div class="bgimg">
+              <button class="btnStyle">
+                立即听课
+              </button>
+            </div>
+        </div>
+        </div>
+     
+      </div>
+   
+  </div>
+</div>
+    <!-- <WhiteSpace></WhiteSpace> -->
+    <!-- <Tabs [activeTab]="index" [page]="3" [tabBarPosition]="'bottom'" (onChange)="onChange($event)"
+      (onTabClick)="onTabClick($event)">
+      <TabPane [title]="'First Tab'">
+        <div
+          style="display: flex; height: 150px; width: 100%; background-color: white;align-items: center;justify-content: center;">
+          Content of first tab
+        </div>
+      </TabPane>
+      <TabPane [title]="'Second Tab'">
+        <div
+          style="display: flex; height: 150px; width: 100%; background-color: white;align-items: center;justify-content: center;">
+          Content of second tab
+        </div>
+      </TabPane>
+      <TabPane [title]="'Third Tab'">
+        <div
+          style="display: flex; height: 150px; width: 100%; background-color: white;align-items: center;justify-content: center;">
+          Content of third tab
+        </div>
+      </TabPane>
+    </Tabs> -->
+  </ion-content>
+</ion-content>

@@ -1,0 +1,85 @@
+<ion-content>
+<ion-header mode="ios" translucent="false"  [ngStyle]="{'padding-top':islh ? '33px' : '5px' }">
+    <ion-toolbar>
+
+    <ion-back-button slot="start" defaultHref="/coursedetails/{{Id}}" text=""></ion-back-button>
+      <ion-title>课程学习</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+
+  <ion-content class="mainindex ">
+
+  
+      <!-- <ion-img style="width:100%"  *ngIf="plays==null"  src="/assets/detail.png"></ion-img> -->
+
+      <div  *ngIf="plays!=null&&cplay==null" class="bannerno">
+      
+            <ion-spinner class="bigbutton" name="bubbles"></ion-spinner>
+
+
+       
+      </div>
+    <div  *ngIf="plays!=null">
+    <!-- <ion-img *ngIf="cplay!=null&&cplay.type=='文本'" class="banner img_noradius" [src]="cplay.file"></ion-img> -->
+
+    <ion-slides *ngIf="cplay!=null&&cplay.type=='文本'" pager="true" [options]="slideOpts" >
+      <ion-slide *ngFor="let item of cplay.file;let i = index">
+          <img class="banner img_noradius" src="{{item}}" style="width: 100%;"/>
+      </ion-slide>
+    </ion-slides>
+  
+  
+    <!-- <video class="showvideo" *ngIf="cplay!=null&&cplay.type=='视频'" style="object-fit: fill"  [src]="cplay.file" id="showvideo" webkit-playsinline="true" playsinline="true" poster="{{cplay.picurl}}" controls="controls">
+      </video> -->
+
+ <video class="showvideo" *ngIf="cplay!=null&&cplay.type=='视频'&&cplayid==cplay.id" autoplay id="showvideo" poster="{{cplay.picurl}}" controls='controls' webkit-playsinline='true' playsinline='true'>
+	<source src="{{cplay.file}}" type="video/mp4">
+</video>
+<ion-img *ngIf="cplay!=null&&cplay.type=='音频'" class="banner img_noradius" [src]="course.picurl"></ion-img>
+
+<app-audioplayer *ngIf="cplay!=null&&cplay.type=='音频'" [srcFile]="cplay.file" [Title]="cplay.name" [autoPlay]="true"></app-audioplayer>
+
+
+<WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace>
+    <ion-grid>
+        <ion-row>
+          <ion-col size="0.5">
+            <div class="verticalLine">&nbsp;</div>
+          </ion-col>
+          <ion-col class="h1title" size="9">
+              {{course.title}}
+          </ion-col>
+          <!-- <ion-col  (click)="showShareActionSheet()" size="1">
+            <ion-icon name="share-alt" style="font-size: 24px"></ion-icon>
+        </ion-col>
+          <ion-col (click)="godown()" size="1">
+            <ion-icon name="download" style="font-size: 24px"></ion-icon>
+        </ion-col> -->
+       
+        </ion-row>
+        </ion-grid>
+    <div class="slide-box" *ngIf="plays!=null" >
+          <ion-card class="slide-master hidover"  *ngFor="let item of plays.children">
+              <img *ngIf="item.type=='文本'" (click)="play(item)" class="master_img" src="{{item.file}}"/>
+              <img *ngIf="item.type=='音频'" (click)="play(item)" class="master_img" src="{{course.picurl}}"/>
+              <img *ngIf="item.type=='视频'" (click)="play(item)" class="master_img" src="{{course.picurl}}"/>
+              <!-- <video *ngIf="item.type=='视频'" (click)="play(item)"  poster="{{item.picurl}}" [src]="item.file" >
+                </video> -->
+                <!-- <div >
+                  {{course.title}}
+                </div> -->
+                <!-- {{plays.children|json}} -->
+              <div *ngIf="item.name.length>15" class="master-title"  (click)="play(item)" >{{item.name}}</div>
+              <div *ngIf="item.name.length<=15" class="master-title"  (click)="play(item)" >{{item.name}}</div>
+          </ion-card>
+    </div>
+
+
+    <ng-template #message>
+        <div class="am-action-sheet-message"></div>
+      </ng-template>
+    </div>
+  </ion-content>
+</ion-content>
+  

@@ -1,0 +1,55 @@
+<ion-content>
+<ion-header>
+  <ion-toolbar>
+      <ion-back-button slot="start" text=""></ion-back-button>
+    <ion-title>正在缓存</ion-title>
+    <span slot="end">完成</span>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+<ion-grid class="nopadding">
+
+<ion-row *ngFor="let item of downTasks;let t=index" (click)="check(item)">
+  
+  <ion-col size="1" size-sm>
+          <ion-icon *ngIf="!item.checked" class="msticon" src="/assets/icon/checkbox0.svg"></ion-icon>
+          <ion-icon *ngIf="item.checked"  class="msticon" src="/assets/icon/checkbox1.svg"></ion-icon>
+  </ion-col>
+  <ion-col size="8" size-sm>
+      {{item.name}}
+  </ion-col>
+  <ion-col *ngIf="item.state!=1" size="3" size-sm>
+      {{item.fsize}}Mb
+  </ion-col>
+  <ion-col *ngIf="item.state==1"  size="3" size-sm>
+    完成
+  </ion-col>
+  <ion-col size="12" size-sm>
+   <ion-progress-bar value="{{item.Percentage}}" buffer="{{item.Percentage2}}"></ion-progress-bar>
+  </ion-col>
+  <ion-col size="12" size-sm>
+     {{item.speed}}Kb/S
+     </ion-col>
+</ion-row>
+
+</ion-grid>
+
+
+</ion-content>
+
+<ion-footer  class="nomargin nopadding">
+    <ion-grid>
+        <ion-row>
+          <ion-col  size="6" class="nopadding nomargin">
+              <ion-button expand="full" class="nomargin nopadding bgcolor_down" (click)="checkall()" color="primary">全选</ion-button>
+          </ion-col>
+          <ion-col  size="6"  class="nopadding nomargin">
+              <ion-button expand="full" class="nomargin nopadding" (click)="deleteDowntask()" color="primary">删除</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+   
+  </ion-footer>
+</ion-content>

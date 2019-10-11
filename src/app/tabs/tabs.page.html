@@ -1,0 +1,44 @@
+<!-- <ion-tabs class="animated fadeInUp"> -->
+<ion-tabs>
+  <ion-tab-bar slot="bottom" (ionTabBarChanged)="change($event)">
+    <ion-tab-button tab="home" (click)="resetab()">
+      <img
+        src="/assets/images/{{ flag == 'home' ? 'homeCK.png' : 'home.png' }}"
+        #tab
+        class="tabImg"
+      />
+      <!-- <img src="asset" #tab class="tabImg" /> -->
+
+      <ion-label class="tabsize">首页</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="guidance" (click)="resetab()">
+      <img
+        src="/assets/images/{{ flag == 'guidance' ? 'zdCK.png' : 'zd.png' }}"
+        #tab
+        class="tabImg"
+      />
+      <!-- <img src="/assets/images/ic-nave-zd.png" #tab class="tabImg" /> -->
+      <!-- <ion-icon src="/assets/fonts/guidance.svg"></ion-icon> -->
+      <ion-label class="tabsize">指导</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="mycourse" (click)="resetab()">
+      <img
+        src="/assets/images/{{ flag == 'mycourse' ? 'kcCk.png' : 'kc.png' }}"
+        #tab
+        class="tabImg"
+      />
+      <!-- <ion-icon src="/assets/fonts/mycourse.svg"></ion-icon> -->
+      <ion-label class="tabsize">课程</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="mycenter" (click)="resetab()">
+      <img
+        src="/assets/images/{{ flag == 'mycenter' ? 'myCk.png' : 'my.png' }}"
+        #tab
+        class="tabImg"
+      />
+      <ion-label class="tabsize">我的</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

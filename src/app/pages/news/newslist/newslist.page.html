@@ -1,0 +1,26 @@
+<ion-content>
+   <ion-header mode="ios" translucent="false"  [ngStyle]="{'padding-top':islh ? '33px' : '5px' }">
+      <ion-toolbar>
+          <ion-back-button slot="start" defaultHref="/app/home" text=""></ion-back-button>
+        <ion-title>热门资讯</ion-title>
+      </ion-toolbar>
+    </ion-header>
+  <ion-content>
+     
+      <Tabs  *ngIf="newsType.length>0" [activeTab]="typeindex"
+      [page]="newsType.length"
+      (onChange)="selectCard($event)"
+      (onTabClick)="selectCard($event)"
+  >
+  <TabPane  *ngFor="let item of newsType,let i=index" [title]="item.title">
+      <ng-template #titleTemplate>
+ 
+            <div class="stylec">{{item.title}}</div>
+
+        </ng-template>
+    <app-newsslot *ngIf="i==typeindex" [typeId]="item.id"></app-newsslot>
+  </TabPane>
+  </Tabs>
+  </ion-content>
+  </ion-content>
+  

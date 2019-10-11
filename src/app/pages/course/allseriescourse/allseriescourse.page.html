@@ -1,0 +1,53 @@
+<ion-content>
+    <ion-header mode="ios" translucent="false"  [ngStyle]="{'padding-top':islh ? '33px' : '5px' }">
+        <ion-toolbar>
+          <ion-back-button slot="start"  defaultHref="/app/home"  text=""></ion-back-button>
+          <ion-title><h6>推荐课程</h6></ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+<ion-infinite-scroll-content loadingSpinner='dots' loadingText="{{loadingText}}">
+
+<!-- <div >
+    <ion-card class="masterList" *ngFor="let item of allSeriesCourse" routerLink="/seriescourses/{{item.id}}">
+      <ion-card-content class="masterListimg">
+          <img class="masterimg" src="{{item.picurl}}" />
+          <div *ngIf="item.infos !== null">
+              <p class="titleshow" *ngIf="item.infos.trim().length > 0">
+      
+                <span [innerHTML]="item.infos" class="overEllipsis"></span>
+              </p>
+            </div>
+      </ion-card-content>
+      <div class="subTitle"><h6 class="ListTxtSizes">{{item.title}}</h6></div>
+  </ion-card>
+</div> -->
+<div *ngFor="let item of allSeriesCourse"  routerLink="/seriescourses/{{item.id}}" > 
+  <nav class="nav"></nav>
+
+    <div class="content">
+      <div class="hContent">
+        <div class="contentNav">
+
+     
+          <img src="./assets/images/mmstericon.png" alt="" class="startIcon">
+          <div class="title">{{item.title}}</div>
+
+        <!-- <div class="details">详情</div>
+        <img src="./assets/images/gengduo.png" alt="" class="endIcon"> -->
+          <div class="prat">详情</div>
+          <img src="./assets/images/m_more@2x.png" class="endIcon">
+    </div>
+      </div>
+      <div>
+        <img src="{{item.picurl}}" alt="" class="mmaster">
+      </div>
+    </div>
+    <div>
+  </div>
+</div>
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "mq",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

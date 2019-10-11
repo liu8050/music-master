@@ -1,0 +1,45 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>tuto2rial</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+
+<ion-list class="hotlist">
+    <ion-item routerLink="/newsshow" >
+      <ion-badge class="badge_mm" color="primary">最新</ion-badge>
+      <ion-label class="listtext">listtextlisttextlisttextlisttextlisttext</ion-label>
+      <ion-icon class="listtext" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+    </ion-item>
+  </ion-list>
+    <ion-buttons slot="end">
+        <ion-button [routerLink]="['/newsshow']">
+          <ion-icon slot="icon-only" name="add">2112</ion-icon>
+        </ion-button>
+      </ion-buttons>
+</ion-content> -->
+<ion-content class="tutorials slid">
+<div Button [type]="'ghost'" *ngIf="canGo" [inline]="true"  (click)="starTravel()" class="skipbutton " [size]="'small'">跳过</div>
+<!--
+<Carousel *ngIf="picsdata.length>0" class="Carouselshow" [infinite]="true" [autoplay]="true" [autoplayInterval]="2000"
+          (beforeChange)="beforeChange($event)"
+          (afterChange)="afterChange($event)"
+>
+  <CarouselSlide *ngFor="let item of picsdata;let i = index" [ngStyle]="{'height': 200}">
+    <div style="display: inline-block; width: 100%;" [ngStyle]="{'height': 200}">
+      <img [routerLink]="['/app']" class="imgwelcome img_noradius" src="{{item.url}}" style="width: 100%;"/>
+    </div>
+  </CarouselSlide>
+</Carousel> -->
+
+<ion-slides pager="true" [options]="slideOpts" (click)="starTravel()" class="slid" >
+  <ion-slide *ngFor="let item of picsdata;let i = index"  class="slid" >
+      <img [routerLink]="['/app']" class="imgwelcome img_noradius slideshowimg" src="{{item.url}}" />
+  </ion-slide>
+</ion-slides>
+
+
+
+</ion-content>

@@ -1,0 +1,55 @@
+.auther {
+    font-size: 17px !important;
+    color: #000;
+}
+.button_bottom{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+.my-list{
+    font-size: 0.8em !important;
+}
+.subtitleminGray{
+    padding: 0;
+    margin: 0;
+    font-size: 0.8em;
+    //color: #959595 !important;
+}
+input::-webkit-input-placeholder{
+    color:#959595 !important;
+}
+input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+    color:#959595 !important;
+}
+input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+    color:#959595 !important;
+}
+input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+    color:#959595 !important;
+}
+::ng-deep .avatarion{
+    width: 90px;
+    height: 90px;
+    border-radius: 45px;
+    text-align: center;
+}
+.avatarimg{
+    border-radius: 30px;
+    width: 60px;
+    height: 60px;
+    margin:auto;
+    margin-top:5px;
+    z-index: 100;
+    -webkit-filter: blur(0px) !important; /* Chrome, Opera */
+    -moz-filter: blur(0px) !important;
+     -ms-filter: blur(0px) !important;
+         filter: blur(0px) !important;
+}
+::ng-deep .imageUpload{
+    width: 90px;
+    height: 90px;
+    overflow-y: hidden;
+    border-radius: 45px !important;
+    text-align: center;
+}

@@ -1,0 +1,83 @@
+
+<ion-content>
+<ion-header>
+  <ion-toolbar>
+      <ion-back-button slot="start" text=""></ion-back-button>
+    <ion-title>课程缓存</ion-title>
+    <span slot="end" (click)="cachedown()">缓存管理</span>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="course!=null">
+
+    <ion-list  *ngFor="let items of course.kj;let i = index" >
+        <ion-list-header>
+            <ion-label>{{items.title}}</ion-label>
+          </ion-list-header>
+       
+        <!-- <ion-item > -->
+            <ion-grid>
+            <ion-row *ngFor="let item of items.children;let t=index" (click)="check(item)" class="lineheight" lines="none">
+            <ion-col  size="1" >
+                <!-- <ion-checkbox class="msticon"  color="primary"></ion-checkbox> -->
+                <!-- <ion-img *ngIf="item.checked" class="margin-icon" src="/assets/icon/checked.jpg"></ion-img> -->
+                <!-- <ion-img *ngIf="!item.checked" class="margin-icon" src="/assets/icon/nochecked.jpg"></ion-img> -->
+                <ion-icon *ngIf="!item.checked" class="msticon" src="/assets/icon/checkbox0.svg"></ion-icon>
+                <ion-icon *ngIf="item.checked&&!item.downed"  class="msticon" src="/assets/icon/checkbox1.svg"></ion-icon>
+                <ion-icon *ngIf="item.checked&&item.downed"  class="msticongrep" src="/assets/icon/checkbox1.svg"></ion-icon>
+            </ion-col> 
+            <!-- <ion-col  size="1" > -->
+                <!-- <ion-icon class="margin-icon" src="./assets/fonts/play.svg"></ion-icon> -->
+                <!-- <ion-img class="margin-icon" src="/assets/fonts/play.svg"></ion-img> -->
+                    <!-- <ion-icon *ngIf="item.type=='视频'" class="msticon" style="margin-top:5px;"  src="/assets/icon/video2.svg"></ion-icon>
+                    <ion-icon *ngIf="item.type=='文本'" class="msticon" src="/assets/icon/pic.svg"></ion-icon>
+                    <ion-icon *ngIf="item.type=='音频'" class="msticon" src="/assets/icon/audio2.svg"></ion-icon> -->
+            <!-- </ion-col>   -->
+            <ion-col  size="8" > 
+                {{item.name}}
+            </ion-col>
+            <ion-col *ngIf="!item.downed" size="2" >
+                  未缓存
+            </ion-col>
+            <ion-col *ngIf="item.downed&&item.downinfo.state==0" size="2" >
+                缓存中
+          </ion-col>
+          <ion-col  *ngIf="item.downed&&item.downinfo.state==1" size="2" >
+              已缓存
+        </ion-col>
+              </ion-row>
+              </ion-grid>
+            <!-- <ion-label class="list">{{item.name}}</ion-label>
+            <ion-label slot="end">缓存</ion-label> -->
+        <!-- </ion-item> -->
+        <WhiteSpace class="bgcolor" [size]="'xs'"></WhiteSpace>
+      </ion-list>
+      
+
+</ion-content>
+<ion-footer class="nomargin nopadding">
+    <ion-grid class="nomargin nopadding">
+        <ion-row class="nomargin nopadding">
+          <!-- <ion-col  size="8" class="nomargin nopadding">
+              <ion-button expand="full" class="nomargin nopadding" (click)="checkall()" color="primary">全选&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="listtext">
+                  可用空间:
+                  {{freedisk}}</span>
+              </ion-button>
+          </ion-col>
+          <ion-col  size="4"  class="nopadding nomargin">
+              <ion-button expand="full" class="nomargin nopadding bgcolor_down" (click)="createDowntask()">确定缓存</ion-button>
+            </ion-col> -->
+
+
+            <ion-col  size="8" class="fixed-button" style="background-color: #3c94e0;display: block;color: #ffffff;text-align: left" (click)="checkall()"><span style="margin-left: 24px"  >全选 </span>  <span class="listtext">
+                可用空间:
+                {{freedisk}}</span></ion-col>
+    <ion-col  size="4" class="fixed-button"  style="background-color: #108ee9;display: block;color: #ffffff;font-size: 18px;text-align: center" (click)="createDowntask()">确定缓存</ion-col>
+
+
+        </ion-row>
+    </ion-grid>
+   
+  </ion-footer>
+</ion-content>

@@ -1,0 +1,53 @@
+<ion-content>
+<ion-header mode="ios" translucent="false"  [ngStyle]="{'padding-top':islh ? '33px' : '5px' }">
+  <ion-toolbar>
+    <ion-back-button slot="start"  defaultHref="/app/mycenter" (click)="loginmycenter(userInfo.surplus)" text=""></ion-back-button>
+    <ion-title>我的余额</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="por">
+<div class="nav">
+
+<div class="headers">
+    <!-- <ion-card-header> -->
+        <ion-card-subtitle class="odermany">我的余额</ion-card-subtitle>
+        <ion-card-title class="odermany">￥{{userInfo.surplus}}学习币</ion-card-title>
+      <!-- </ion-card-header> -->
+  <ion-card>
+  
+  
+    <ion-card-content style="z-index: 200;background: #ffffff">
+      <p>1.余额可以直接购买APP内课程内容（不含有线下课程及实物产品）。</p>
+      <p>2.IOS系统余额不能与其它系统使用。</p>
+      <p>3.余额不可提现，不可转让。</p>
+
+    </ion-card-content>
+  </ion-card>
+  
+</div>
+
+</div>
+
+
+<div class="hrbox">
+
+</div>
+<ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let item of Cmoney;let  i=index" size="4">
+          <ion-button expand="block" class="moneyButton" (click)="Recharge(i)"  [fill]="CmoneyStyle[i]">{{item}}学习币<br><br>{{item}}元</ion-button>
+      </ion-col>
+     
+      </ion-row>
+  
+  </ion-grid>
+      
+
+</ion-content>
+
+<ion-footer class="bgcolors button_bottom ">
+  <ion-button (click)="buyProduct()" expand="full" class="nopad" >充值</ion-button>
+</ion-footer>
+
+</ion-content>

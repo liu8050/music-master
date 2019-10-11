@@ -1,0 +1,50 @@
+.nav {
+  padding-top: 46px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 197px;
+  box-sizing: border-box;
+}
+
+.titlesize {
+  font-size: #333333;
+  font-size: 17px;
+}
+
+.slog {
+  height: 69px;
+  width: 69px;
+}
+
+.boderBtm {
+  height: 44px;
+  border-bottom: 1px #EEEEEE solid;
+  display: flex;
+  color: #333333;
+  font-size: 15px;
+  align-items: center;
+  padding-left: 15px;
+}
+
+.hr {
+  height: 8px;
+  background: #EEEEEE;
+  width: 100%;
+}
+
+.padcontent {
+  padding-top: 15px;
+  padding-left: 15px;
+}
+
+.serveContent {
+  font-size: 13px;
+  color: #777777;
+}
+
+.txtIndex {
+  text-indent: 1em;
+  color: #333333;
+  font-size: 15px;
+}

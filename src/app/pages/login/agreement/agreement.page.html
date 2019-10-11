@@ -1,0 +1,15 @@
+<ion-content>
+  <ion-header  [ngStyle]="{'padding-top':islh ? '33px' : '5px' }">
+    <ion-toolbar>
+      <ion-back-button slot="start"      defaultHref='/login/""' text=""></ion-back-button>
+      <ion-title [innerHTML]="agreement.title"></ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+      <ion-text color="primary" class="content_agreement ">
+          <div  [innerHTML]="agreement.content"></div>
+        </ion-text>
+  </ion-content>
+  
+</ion-content>

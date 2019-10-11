@@ -1,0 +1,568 @@
+
+// .am-tabs-horizontal .am-tabs-pane-wrap-active{
+// height:auto;
+// }
+// .am-tabs-content-wrap{
+//   height: auto;
+// }
+.noblock{
+  display: none;
+}
+.nationalityPad{
+  padding: 9px 0px 0px 20px;
+  box-sizing: border-box;
+}
+.poa{
+  
+}
+.am-tabs-pane-wrap{
+  // margin-bottom: 333px !important;
+}
+.crruAll{
+  padding-top: 18px;
+  // padding-bottom: 30px;
+  // height: 80px;
+  box-sizing: border-box;
+}
+.fixedshow{
+  position:fixed;
+  -webkit-overflow-scroll:touch;
+  border-radius:0px !important;
+  z-index: 100;
+  top: 0px;
+  left: 0px;
+}
+// 课程列表右侧盒子
+.rightBox{
+  padding:  0 0px 11px 18px ;
+  // background: #ccc;
+  box-sizing: border-box;
+  width: 100%;
+}
+// 样式
+.padImgs{
+  padding: 2px 0;
+}
+.itemtag{
+  position: relative;
+}
+.abstract{
+  color: #777777;
+  font-size: 14px;
+  padding-top: 11px;
+}
+.am-tabs-default-bar-tab-active{
+  color: #333333;
+}
+.minHieght{
+  // min-height: 183px;
+  position: relative;
+  padding: 0 15px;
+  border-bottom: 1px solid #EEEEEE;
+}
+// .header{
+//   min-height: 97px;
+//   padding: 16px 15px 0px;
+//   border-bottom: 1px solid #EEEEEE;
+// }
+.headertow{
+  // min-height: 102px;
+  padding: 0 15px 20px;
+  border-bottom: 1px solid #EEEEEE;
+}
+.flexBox{
+  display: flex;
+}
+.itemY{
+  // flex: 1;
+  font-size: 17px;
+}
+.padContent{
+  height: auto;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+.minHeight{
+
+  // min-height: 183px;
+  border-bottom: 1px #EEEEEE solid;
+}
+.introduce{
+  margin-left: 15px;
+  min-height: 20px;
+  min-width: 60px;
+  max-width: 60px;
+  background: url('../../../../assets/images/btn_default_@2x.png') no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+  font-size: 15px;
+  color: #FFFFFF;
+  // margin-top: 15px;
+  line-height: 20px;
+}
+.btnAll{
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translate(-50%,-50%);
+  min-height: 20px;
+  max-height: 20px;
+  min-width: 80px;
+  margin: 0 auto;
+  border-radius: 10px;
+  color: #8D8D8D !important;
+  font-size: 10px;
+  background: #fff;
+ box-shadow: 0 4px 16px #C4C3C3;
+}
+.padImg{
+  padding-top: 20px;
+
+}
+.radios{
+  border-radius: 10px;
+}
+.padTxt{
+height: auto;
+  margin-bottom: 50px;
+  text-align: 2em;
+
+}
+.padAchievement{
+  padding-top: 19px;
+  // box-sizing: border-box;
+  margin-bottom: 0px;
+}
+.achievement{
+  min-height: 20px;
+  min-width: 60px;
+  max-width: 60px;
+
+  background:url('../../../../assets/images/btn_default_@2x.png') no-repeat;
+  background-size: 100% 100%;
+
+  background-size: 100% 100%;
+  text-align: center;
+  font-size: 15px;
+  color: #FFFFFF;
+  // margin-top: 15px;
+  // border-radius: 10px;
+  line-height: 20px;
+}
+
+.size{
+  font-size: 14px;
+  color: #333333;
+}
+.content{
+  padding-top: 15px;
+}
+.card-native.sc-ion-card-ios{
+  display: flex !important;
+}
+.sizemin{
+  font-size: 13px;
+  color: rgb(119, 119, 119)
+}
+.mainindex{
+  // height: 225px;
+  // background: #ccc;
+  padding-top: 0 !important;
+}
+.start{
+position: fixed;
+ width: 50px;
+ z-index: 2;
+ color: #ccc;
+ font-size: 2em;
+ font-weight: 700;
+ margin-top: 45px;
+ margin-left: 12px;
+//  color: #EEEEEE;
+}
+.tab1contentPadding{
+  padding:5px  0px 0px 0px;
+  // height: 100%;
+  // overflow-y: scroll;
+
+}
+.tab2contentPadding{
+  padding:5px  0px 30px 0px;
+
+}
+
+.maserImg{
+  z-index: -99;
+  // height: 331px;
+  width: 100%;
+  // height: 100%;
+  // width: 100%;
+}
+.translate{
+  font-size: 13px;
+  color: rgb(51, 51, 51)
+}
+.txtContent{
+  font-size: 12px;
+  color: rgb(119,119,119);
+}
+.noOuterSpacing{
+  display: flex;
+// // margin: 0;
+// border-radius: 9px;
+// margin-top: 1px;
+// /* margin-left: 2px; */
+// height: 115px;
+// margin-bottom: 1px;
+// /* box-shadow: 0 3px 16px #C4C3C3; */
+// border-radius: 2px;
+// // background: #ccc;
+
+height: 115px;
+border-radius: 5px;
+width: 100%;
+// border
+-webkit-box-shadow: 3 3px 7px #C4C3C3;
+box-shadow: 3px 3px 2px #C4C3C3; 
+margin-bottom: 10px;
+}
+.Mtop{
+  margin-top: 10px;
+}
+.pore{
+  position: relative;
+}
+
+.am-tabs{
+  border-radius: 25px 25px 0 0;
+}
+// .item{
+//   box-shadow: 0 4px 16px rgba(0,0,0,.12);
+//   border-radius: 8px;
+//   // display: inline-block;
+//   color: #777777;
+//   font-size: 14px;
+//   padding: 0px 10px 1px;
+//   display:inline;
+//   // margin-top: 5px;
+// }
+
+.imgStyle{
+  float: left;
+  // background: #CCC;
+  border-radius: 5px ;
+  height: 100%;
+  width: 170px;
+  min-width: 170px;
+  // width: 100%;
+  // margin-bottom: 2px;
+}
+// .cardContent{
+// float: left;
+//   width: 100%;
+// display: flex;
+// flex-direction: column;
+// padding: 18px 0px 0px 18px ;
+
+// box-sizing: border-box;
+// flex-wrap: wrap;
+// }
+.itemStyle{
+  width: 100%;
+  // padding-top: 30px;
+  // display:inline-block;
+
+}
+
+.txtSize{
+  font-weight: 400;
+
+}
+// .contentTitle{
+//   // color: #000;
+// margin-bottom: 30px;
+//   height: 31px;
+// }
+.btnStyle{
+  background: none;
+  color: #FFFFFF;
+  font-size: 10px;
+}
+
+// 详情
+.colorStyle{
+  font-size: 14px;
+  color: #C04E16;
+}
+// .mincolorStyle{
+//   font-size: 10px;
+//   color: rgb(140,140,140);
+//   text-decoration: line-through;
+// }
+// .heightstyle{
+//   margin-top: 30px;
+//   box-sizing: border-box;
+//   height: 16px;
+//   width: 48px;
+//   padding: 4px;
+//   box-sizing: border-box;
+//   background: url('../../../../assets/images/masterBtn.png') no-repeat;
+//   background-size: 100% 100%;
+
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+.StleCard{
+  border-bottom: 1px solid #EEEEEE;
+  // margin: 0 0 20px 0;
+padding:  10px 23px 10px 15px; 
+box-sizing: border-box; 
+  background: #fff;
+  height: 145px;
+}
+// .itemYi{
+//   // float: left;
+//   flex: 1;
+//   height: 100%;
+//   // display: inline-block;
+// }
+.sc-ion-back-button-ios{
+  color: #fff ;
+  // font-weight: 100 !important;
+}
+
+// 自己的
+// .slidetxt{
+//   height:100%;
+//   display:flex;
+//   justify-content:center;
+//   align-items:center;
+// }
+// .radios{
+//   border-radius: 2px;
+// }
+// .txtStyle{
+//   font-size: 14px ;
+// }
+// .styleWiDth{
+//     // background: #ccc;
+//     font-weight: 400;
+//     max-height: 37px;
+//         min-height: 37px;
+//     // display:-webkit-box;
+  
+//     overflow:hidden;
+//   // font-weight: 400;
+// }
+// .mintitle{
+//   min-height: 2.7em;
+//   max-height: 2.7em;
+//   // background: #ccc;
+//   top: 0;
+//   margin: 0 !important;
+//   width: 100%;
+//   // min-font-size:
+//   font-size: .8em !important;
+//   color: #130c0e;
+//   padding: 0 0 0.3em 5%;
+//   box-sizing: border-box;
+//   text-align: left;
+// }
+// .flexBox{
+//   display: flex
+// }
+// .currentPrice{
+// color: #f58220;
+// padding: 0 0 0 5%
+// }
+
+
+// .half{
+//   flex: 1;
+//   white-space: nowrap;
+// }
+// .originalPrice{
+//   text-decoration: line-through;
+//   color: #ccc;
+// }
+
+// .course-title {
+//   min-height: 2.7em;
+//   max-height: 2.7em;
+//   // background: #ccc;
+//   top: 0;
+//   margin: 0 !important;
+//   width: 100%;
+//   // min-font-size:
+//   font-size: 1.2em !important;
+//   color: #130c0e;
+//   padding: 0 0 0.3em 5%;
+//   box-sizing: border-box;
+//   text-align: left;
+// }
+
+
+
+
+// .descbox{
+//   margin: 0.5em 0 0 0;
+//   padding: 10px;
+//   box-sizing: border-box;
+//   font-size:1.2em;
+//   line-height: 1.6em;
+//   height: 6.4em;
+//   overflow: hidden;
+// }
+// .descbox1{
+//   padding: 0 10px;
+//   margin: 0.5em 0 0 0;
+//   font-size:1.2em;
+//   line-height: 1.6em;
+// }
+// .descInfo{
+//   //font-size:1em;
+//   //line-height: 1.5em;
+// }
+// .banner{
+//   width: 100%;
+//   height: auto;
+// }
+// .classbox{
+//   padding:0;
+//   margin: 0;
+//   .img{
+//     width: 140px !important;
+//     height: 72px !important;
+//     margin: 10px 0;
+//     position:relative;
+//     border-radius: 2px !important;
+
+//   }
+//   .classbox-text{
+//     width: 100%;
+//     height: 72px;
+//     padding: 0;
+//     margin: 0;
+//   }
+// }
+// .course-title {
+//   overflow:hidden;
+//   top: 0;
+//   margin: 0 !important;
+//   width: 100%;
+//   // font-size: 1.2em !important;
+//   color: #130c0e;
+//   padding: 0 5px  5%;
+//   text-align: left;
+
+// }
+// .course-subtitle{
+//   margin: 0 !important;
+//   width: 100%;
+//   padding:5px 0 0 3%;
+//   font-size: 14px !important;
+//   color: #f58220;
+//   text-align: left;
+//   position:absolute;
+//   bottom:12px;
+//   box-sizing: border-box;
+// }
+// .nopadding{
+//   // margin-top: 0.5em;
+//   padding: 10px 0 0 0 !important;
+//   margin: 0;
+  
+//  }
+//  .radius{
+//   border-radius: 2px !important;
+//   // height: 211px;
+//  }
+
+.weper{
+  word-wrap:break-word;
+}
+.itemtag{
+  margin-bottom: 50px;
+}
+// 大师详情央视
+.thirteen{
+  overflow: hidden;
+  height: 36px;
+font-size: 13px;
+}
+.gray{
+  color: #333333
+}
+.grays{
+  color: #8C8C8C;
+}
+.brown{
+  color: #C04E16;
+}
+.line{
+  text-decoration: line-through;
+}
+.tensize{
+  font-size: 10px;
+}
+.flex{
+  margin-bottom: 13px;
+  display: flex;
+}
+// 剧中对其
+.flexcontent{
+  height: 35px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+.bgimg{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // padding-left: 4px;
+  box-sizing: border-box;
+  background-image: url('../../../../assets/images/masterBtn.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 16px;
+  width: 57px;
+  // padding: 4px;
+  box-sizing: border-box;
+}
+.fourteen{
+  font-size: 14px;
+  height: 35px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.wdt{
+  width: 60px;
+}
+.itemyy{
+  flex: 1;
+}
+.item{
+  flex: 1;
+  box-shadow: 0 4px 16px #C4C3C3;
+  display: inline-flex;
+  border-radius: 12px;
+  padding: 3px 11px 3px 10px;
+  font-size: 14px;
+  color: #777777;
+}
+$jst_width:640;
+@media (min-width:375px){
+  html{
+    font-size:100*(375/$jst_width);
+  }
+}

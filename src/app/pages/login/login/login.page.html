@@ -1,0 +1,175 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+<ion-content class="loginHiden" >
+  
+  <div class="loginBack">
+    <!-- <ion-row> -->
+      <!-- <ion-col>跳过登录</ion-col> -->
+    <!-- </ion-row> -->
+  <!-- <a  class="outlogin"    [routerLink]="['/app']">跳过登录</a> -->
+  
+      <header class="title">
+        <a [routerLink]="[ '/app']" class="outlogin" >跳过登录</a>
+      </header>
+      <div class="content">
+          <ion-row class="tabsIslogin">
+              
+              <!-- {{tabIsBlock}} -->
+              <div class="rmPad"  (click)="DensityFree()">
+                <a  class="tab1 tabs" [class]="tabIsBlock===true?'Highlight':'tabs'" #tab>免密登录</a>
+                  <img src="./assets/islogin/aBtms.png" *ngIf="tabIsBlock==true" [class]="tabIsBlock==true?'isShow':'footerSlode'" alt="" >
+              </div>
+              <div class="rmPad"    (click)="userLoign()">
+                <a  class="tab2 tabs" [class]="tabIsBlock!==true?'Highlight':'tabs'"  #tab>账号登录</a>
+                  <img src="./assets/islogin/aBtms.png" *ngIf="tabIsBlock!=true" alt="" [class]="tabIsBlock!=true?'isShow':'footerSlode'" >
+                <!-- <ion-button (click)="openCamera()">
+                  账号登录
+                </ion-button> -->
+              </div>
+      
+            </ion-row>
+            <ion-row class="fromContent" mode="ios">
+              <div  *ngIf="tabIsBlock==true" class="outLoign">
+      
+                <div class="userCellPhoneNumber">
+                    <!-- <div class="am-demo-page">
+                        <div class="am-list-body">
+                         
+                          <InputItem [placeholder]="'请输入手机号'">
+                            <div style="background-image:url('../../../assets/images/userIcon.png'); background-size:cover;height:22px; width: 22px "></div>
+                          </InputItem>
+                        </div>
+                    </div> -->
+                    <div class="leftIcon">
+                  <ion-img src='./assets/images/userIcon.png' class="userIcon"></ion-img>
+                </div>
+                <div class="Braceup">
+                  <div class="flexBox poa">
+                    <!-- <ion-img src="./assets/images/triange.png" class="heights"></ion-img> -->
+                      <span class="spacing miniSize" (click)="get" style="color:#CECECE"[routerLink]="[ '/area-num-list']" ngif='AreaCode==""'>{{AreaCode}}</span>
+                  </div>
+                </div>
+                    <!-- <input placeholder="请输入手机号"> -->
+                    <ion-input  [maxlength]="11"  mode="ios" clearInput required="true" (ionInput)='consoleValue($event)' style="color:#CECECE; margin-left: 10px;  --padding-bottom: 0px !important;" class="sizeColor" [(ngModel)]="phonenum"   [placeholder]="'请输入手机号'" class="spacing"></ion-input>
+                </div>
+                <!--  -->
+                
+                    <div  class="flexBox">
+                        <div class="userwrd">
+                            <!-- <div class="am-demo-page">
+                                <div class="am-list-body">
+                                 
+                                  <InputItem [placeholder]="'请输入手机号'">
+                                    <div style="background-image:url('../../../assets/images/userIcon.png'); background-size:cover;height:22px; width: 22px "></div>
+                                  </InputItem>
+                                </div>
+                            </div> -->
+                            <div class="leftIcon">
+                                <ion-img src='./assets/images/iconPwd.png' class="userIcon"></ion-img>
+                            </div>
+                            <!-- <span class="spacing">{{AreaCode}}</span> -->
+                            <!-- <input placeholder="请输入手机号"> -->
+                            <!-- [(ngModel)]="" -->
+                            <ion-input    [type]="'number'" oninput="if(value.length>4)value=value.slice(0,4)" mode="ios" clearInput required="true" style="color:#CECECE; --padding-bottom: 0px !important;" (onchange)='vftCodes($event)' class="spacing" [(ngModel)]="vftCode"  [placeholder]="'请输入验证码'"  [maxlength]="4" ></ion-input>
+                              <!-- <input type="number" maxlength="4" [(ngModel)]="vftCode" [placeholder]="'请输入验证码'" > -->
+                         <!-- verifyCode countdown -->
+                        </div>
+                        <div class="flexBten">
+                          <!-- <button> {{verifyCode.verifyCodeTips}}</button> -->
+                          
+                            <ion-button  (click)="getCode($event)"  [disabled]="verifyCode.disable" style="color:#CECECE;font-size:13px;" #domgetCode  fill="clear" class="getCodeM">
+                              {{verifyCode.verifyCodeTips}}
+                              </ion-button>
+                        </div>
+                    </div>
+        
+                <!-- <div button class="btn"><a [routerLink]="[ '/home' ]">登录</a></div> -->
+                <ion-button class="islogin" fill="clear"  (click)="CklLogin()">
+            
+                  <ion-label  class="loginstyle">登录</ion-label>
+                </ion-button>
+                <ion-row  class="pad">
+                  <ion-col class="txtSizes" > 
+                    登录即代表已阅读并同意<a  [routerLink]="['/agreement/']" class="txtColor">音乐大师服务协议</a>
+                  </ion-col>
+                </ion-row>
+                <!-- <ion-row class="padTop Contered">
+                  <div  class="allSize">
+                    OR
+                  </div>
+                 
+                </ion-row>
+                <ion-row class="marginTOP Contered">
+                  <div class="allSize">
+                    使用其他社交平台账号登录
+                  </div>
+                </ion-row> -->
+              </div>
+
+
+
+
+
+              <div  *ngIf="tabIsBlock!=true" class="userLoign">
+                <ion-row class="flexBox borBtm">
+                    <div class="leftIcon">
+                    <ion-img src='./assets/images/userIcon.png' class="userIcon"></ion-img>
+                      </div>
+                    <ion-input  [maxlength]="13" clearInput required="true" (ionInput)='consoleValue($event)' style="color:#CECECE" class="sizeColor" [(ngModel)]="userlogin.username" [placeholder]="'请输入账号或手机号'" class="spacing"></ion-input>
+                </ion-row>
+                <ion-row class="flexBox borBtm">
+                    <div class="leftIcon">
+                    <ion-img src='./assets/images/iconPwd.png' class="userIcon"></ion-img>
+                  </div>
+                    <ion-input  clearInput type="password"  (ionInput)='consoleValue($event)' style="color:#CECECE" class="sizeColor" [(ngModel)]="userlogin.password" [placeholder]="'请输入登录密码'" class="spacing"></ion-input>
+                </ion-row>
+                <ion-button class="islogin" fill="clear"  (click)="userIslog()">
+                    <!-- <ion-icon name="camera"></ion-icon> -->
+                    <ion-label class="loginstyle" >登录</ion-label>
+                  </ion-button>
+                  <ion-row class="pad">
+                      <a [routerLink]="[ '/register' ]" class="size">账号快速注册</a>
+                      <ion-img src='./assets/images/geng.png' class="loginGt"></ion-img>
+                  </ion-row>
+                  
+
+                  <!-- <ion-row class="padTop Contered">
+                    <div  class="allSize">
+                      OR
+                    </div>
+                   
+                  </ion-row>
+                  <ion-row class="marginTOP Contered">
+                    <div class="allSize">
+                      使用其他社交平台账号登录
+                    </div>
+                  </ion-row> -->
+              </div>
+            </ion-row>
+                <!-- click)="weboAuth()"
+                (click)="weChatAuth()"
+                (click)="QQlogin()" -->
+            <!-- <ion-row class="padHexacosa Fouterflex">
+            
+              <img class="icon_size" src="./assets/images/weixin@2x.png"   />
+              <img   class="icon_size"src="./assets/images/weibo@2x.png"    />
+              <img  class="icon_size" src="./assets/images/qq@2x.png"   />
+            </ion-row> -->
+      </div>
+    <footer class="fouter">
+        <div class="fouterpad">
+            <div class="fouter_nav">OR</div>
+            <div class="foutertxt"> 使用其他社交平台账号登录</div>
+            <div class="fouter_icon">
+              <img class="weixiiocn" src="./assets/images/weixin@2x.png"   (click)="weChatAuth()"/>
+              <img   class="weiboicon"src="./assets/images/weibo@2x.png"  (click)="weboAuth()"  />
+              <img  class="qqicon" src="./assets/images/qq@2x.png"  (click)="QQlogin()"  />
+            </div>
+        </div>
+    </footer>
+</div>
+  </ion-content>
+  

@@ -1,0 +1,117 @@
+<ion-content>
+  <ion-header mode="ios" translucent="false"  [ngStyle]="{'padding-top':islh ? '33px' : '5px' }">
+    <ion-toolbar mode="ios" style="padding: 0px" >
+      <ion-back-button
+        mode="ios"
+        slot="start"
+        defaultHref="/allseriescourse"
+        text=""
+      ></ion-back-button>
+      <ion-title>推荐课程</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <div *ngIf="Courses != null" class="padding">
+      <ion-img class="banner" src="{{ Courses.picurl }}"></ion-img>
+      <ion-text>
+        <h4 class="padding-24">{{ Courses.title }}</h4>
+        <p class="padding-24 remarkDetail">
+          <span>{{ Courses.remark }}</span>
+        </p>
+      </ion-text>
+    </div>
+    <WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace>
+    <ion-list *ngIf="Courses != null && shoWait">
+      <!-- <ion-infinite-scroll threshold="100px" (ionInfinite)="load_Courses()">
+<ion-infinite-scroll-content loadingSpinner='dots' loadingText="数据加载中..."> -->
+
+      <!-- <ion-item *ngFor="let item of Courses.product" routerLink="/coursedetails/{{item.id}}" class="classbox marginSmall nopadding"
+  lines="full"
+  >
+    <ion-thumbnail slot="start" class="img borRuide ">
+        <ion-img [src]="item.picurl"  class="radiusImg"></ion-img>
+    </ion-thumbnail>
+    <div class="classbox-text">
+        <div class="course-title">
+          <h6 class="ListTxtSizes">{{item.name}}</h6>
+        </div>
+        <div class="course-subtitle" *ngIf="item.product_price!='0.00'">
+          <div class="flexBox"> 
+            <span class="flexOne txtcolor  txtSize">
+                source ~/.bash_profile￥{{item.product_price}}
+            </span><span class="flexOne txtSize">原价:{{item.price}}</span>
+          </div>
+        </div>
+        <p class="course-subtitle txtSize" *ngIf="item.product_price=='0.00'">免费</p>
+    </div>
+        </ion-item> -->
+      <div
+        class="items"
+        *ngFor="let item of Courses.product"
+        routerLink="/coursedetails/{{ item.id }}"
+      >
+        <div class="leftImg">
+          <img src="{{ item.picurl }}" alt="" class="leftimg" />
+        </div>
+        <div class="rightBox">
+          <!-- name字段显示 -->
+          <div *ngIf="item.names != null" class="contentHei">
+            <div class="title">{{ item.names[0] }}</div>
+            <div class="title">{{ item.names[1] }}</div>
+          </div>
+          <div *ngIf="item.names == null" class="title ">
+            <div class="contentHei" style="display: -webkit-box!important;
+            -webkit-box-orient: vertical!important;
+            -webkit-line-clamp: 2!important;
+            overflow: hidden!important;
+            ">
+              {{ item.name }}
+            </div>
+          </div>
+          <!--  -->
+          <div *ngIf="item.product_price == '0'" class="freeaAdmin isoder">
+            限时免费
+          </div>
+          <div *ngIf="item.product_price != '0'" class="freeaAdmin">
+            <div class="isoder ite">¥{{ item.product_price }}</div>
+            <div class="ite oderby">原价:¥{{ item.price }}</div>
+          </div>
+          <div class="bcImg">
+            <div class="isstart">
+              立即听课
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- </ion-infinite-scroll-content>
+    </ion-infinite-scroll> -->
+    </ion-list>
+  </ion-content>
+  <ion-footer *ngIf="isbuy">
+    <div class="button_bottom">
+      <div
+        Button
+        [type]="'primary'"
+        (click)="go_pay()"
+        class="button-clearborder"
+      >
+        参加全部课程 ￥{{ Courses.dprice }}
+      </div>
+    </div>
+  </ion-footer>
+</ion-content>
+
+<!-- <ion-item [routerLink]="['/coursedetails']" class="marginSmall nopadding" lines="full" *ngFor="let item of Courses">
+        <ion-thumbnail class="courseThumbnail" slot="start">
+          <img class="margin-12" src="{{item.picurl}}">
+        </ion-thumbnail>
+        <ion-label>
+          <div class="course-title">{{item.title}}</div>
+          <div class="course-title2">课程包标题</div>
+          <div class="course-title2">讲师</div>
+          <div class="course-subtitle">￥{{item.dprice}}<span>原价:{{item.oprice}}</span></div>
+          <div class="course-subtitle">这里显示课程简介</div>
+        </ion-label>
+      </ion-item> -->
+<!-- [routerLink]="['/coursedetails']" -->

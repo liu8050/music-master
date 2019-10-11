@@ -1,0 +1,45 @@
+<ion-content>
+<ion-header>
+  <ion-toolbar>
+      <ion-back-button slot="start" text=""></ion-back-button>
+    <ion-title>已缓存</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+
+
+  <List [renderHeader]="renderHeader">
+    <CheckboxItem *ngFor="let i of checkItemListData" [name]="i.name" [value]="i.value" [(ngModel)]="i.checked"
+      (onChange)="onChange($event)">
+      {{ i.name }} <span class="float-right">{{i.percent}}%</span>
+      <div class="progress-container">
+        <div class="show-info">
+          <div class="progress">
+            <Progress [percent]="i.percent" [position]="'normal'"></Progress>
+          </div>
+          <div aria-hidden="true">{{i.speed}}</div>
+        </div>
+        <!-- <WhiteSpace [size]="'xl'"></WhiteSpace> -->
+      </div>
+    </CheckboxItem>
+    <!-- <CheckboxItem multipleLine key="disabled" data-seed="logId" [disabled]="disabledStatus" [(ngModel)]="disabledCheckboxItemStatus">
+    Undergraduate<Brief>Auxiliary text</Brief>
+  </CheckboxItem> -->
+
+  </List>
+  <div class="button-box">
+    <ion-row>
+      <ion-col size="6">
+        <div class="buttons">
+          <div Button [type]="'warning'">全选</div>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <div class="buttons">
+          <div Button [type]="'warning'">删除</div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+</ion-content>

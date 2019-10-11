@@ -1,0 +1,278 @@
+<ion-content *ngIf=" data['course'].length>0">
+<ion-header  class="nav">
+  <!-- <ion-toolbar class="nav"> -->
+      <!-- <ion-segment (ionChange)="segmentChanged($event)" class="navtitle"> -->
+          <!-- <ion-segment-button value="mycourse" checked  class="titles" >
+            <ion-label>我的课程</ion-label>
+          </ion-segment-button> -->
+          
+          <!-- <ion-segment-button value="mycache">
+            <ion-label>离线缓存</ion-label>
+          </ion-segment-button> -->
+        <!-- </ion-segment> -->
+
+        <!-- <div class="nav"> -->
+     
+        <!-- </div> -->
+  <!-- </ion-toolbar> -->
+       <div class="flexbox">
+          我的课程
+          </div>
+</ion-header>
+<ion-content >
+  
+<!-- <ion-img *ngIf="skeleton" style="width:100%" src="/assets/images/noappointment.png"></ion-img> -->
+
+<div  *ngIf="isshow&&!skeleton&&!mycache" class="" >
+  <!-- <div [ngSwitch]="tabs"> -->
+  <!-- <div *ngSwitchCase="'friends'"> -->
+
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col class="h1title" size="9">
+        课程
+      </ion-col>
+      <ion-col  class="tRight total-color" size="3">
+        全部{{total}}个
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <WhiteSpace class="bgcolorGray" [size]="'xs'"></WhiteSpace> -->
+    <!-- <ion-list> -->
+        <!-- <div *ngIf=" data['course'].length<=0">
+            <ion-row class="bgcolorWhite nopadding mindivheight" >
+              <ion-col class="bgcolorWhite nopadding h3titleGray tcenter" size="12">
+                <img src="./assets/images/noappointment.png">
+                <div class="subtitleminGray marginBig tcenter TstSize">
+                  暂无相关课程
+                </div>
+              </ion-col>
+            </ion-row>
+          </div> -->
+
+
+        
+        <!-- <ion-item  routerLink="/coursedetails/{{item.product_id}}" class="classbox" lines="full" inset="fasle"
+                   *ngFor="let item of data['course']">
+            <ion-thumbnail slot="start" class="img">
+                <img [src]="item.picurl">
+            </ion-thumbnail>
+            <div class="classbox-text">
+                <div class="course-title"><h6 class="txtWidth">{{item.title}}</h6></div>
+                <p class="course-subtitle"><span>讲师：{{item.teacher}}</span></p>
+            </div>
+        </ion-item>
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+            <ion-infinite-scroll-content loadingSpinner='dots' loadingText="{{loadingText}}">
+   
+            </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </ion-list> -->
+    <!--<List>-->
+
+      <!-- 显示不全bug -->
+      <ul class="blokBug">
+        <li *ngFor="let item of data['course']" class="items"  [routerLink]="[ '/coursedetails/', item.product_id ]" >
+          <!-- <div class="mrightimg"> -->
+            <img [src]="item.picurl" alt="" class="itemsImg"      onerror="this.src='./assets/images/masterNoImg.png'">
+          <!-- </div> -->
+          <div class="rightbox">
+              <div *ngIf="item.titles" class="filterTitles">
+                  <div class="mTitlesty">{{item.titles[0]}}</div>
+                  <div class="mTitlesty">{{item.titles[1]}}</div>
+              </div>
+              <div *ngIf="!item.titles">
+                  <div class="mTitlesty">{{item.title}}</div> 
+              </div>
+              <div class="content">
+                <div class="price">
+                  <!-- <div>{{}}</div> -->
+                </div>
+              </div>
+              <div class="fouterBtn">讲师：{{item.teacher}}</div>
+          </div>
+    
+        </li>
+      </ul>
+    <!--<ListItem wrap *ngFor="let item of data.course">-->
+      <!--<ion-row routerLink="/app/mycourse/coursedetails/{{item.product_id}}">-->
+        <!--&lt;!&ndash; <ion-col size="12">-->
+          <!--<p class="class-title">{{item.title}}</p>-->
+        <!--</ion-col> &ndash;&gt;-->
+        <!--<ion-col size="6">-->
+          <!--<ion-img class="img-box" src="{{item.picurl}}"></ion-img>-->
+        <!--</ion-col>-->
+<!--<ion-col size="6" >-->
+          <!--<p class="class-msg">{{item.title}}</p>-->
+          <!--<p class="class-teacher">讲师：{{item.teacher}}</p>-->
+        <!--</ion-col>-->
+        <!--&lt;!&ndash;  <WhiteSpace class="bgcolor h-5" [size]="'sm'"></WhiteSpace> &ndash;&gt;-->
+      <!--</ion-row>-->
+    <!--</ListItem>-->
+  <!--</List>-->
+    <!--<ion-infinite-scroll threshold="50px" (ionInfinite)="loadData($event)">-->
+        <!--<ion-infinite-scroll-content loadingSpinner='dots' loadingText="{{loadingText}}">-->
+  <!--</ion-infinite-scroll-content>-->
+<!--</ion-infinite-scroll>-->
+  <!-- </div> -->
+  <!-- <div *ngSwitchCase="'enemies'">
+
+</div> -->
+</div>
+<div *ngIf="!isshow&&skeleton&&mycache" style="width:100%">
+    <ion-row class="ion-padding custom-skeleton">
+        <ion-skeleton-text animated style="width: 100%;height: 4vh"></ion-skeleton-text>
+        <ion-skeleton-text animated style="width: 100%;height: 3vh"></ion-skeleton-text>
+    </ion-row>
+    <ion-item>
+        <ion-thumbnail slot="start" style="width: 40%;height: 12vh">
+            <ion-skeleton-text animated style="border-radius: 0.5rem"></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label style="width:60%">
+            <h3>
+                <ion-skeleton-text animated style="width: 100%;height: 3vh"></ion-skeleton-text>
+            </h3>
+            <p>
+                <ion-skeleton-text animated style="width: 100%;height: 3vh"></ion-skeleton-text>
+            </p>
+            <p>
+                <ion-skeleton-text animated style="width: 100%;height: 3vh"></ion-skeleton-text>
+            </p>
+        </ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-thumbnail slot="start" style="width: 40%;height: 12vh">
+            <ion-skeleton-text animated style="border-radius: 0.5rem"></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label style="width:60%">
+            <h3>
+                <ion-skeleton-text animated style="width: 100%;height: 3vh"></ion-skeleton-text>
+            </h3>
+            <p>
+                <ion-skeleton-text animated style="width: 100%;height: 3vh"></ion-skeleton-text>
+            </p>
+            <p>
+                <ion-skeleton-text animated style="width: 100%;height: 3vh"></ion-skeleton-text>
+            </p>
+        </ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-thumbnail slot="start" style="width: 40%;height: 12vh">
+            <ion-skeleton-text animated style="border-radius: 0.5rem"></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label style="width:60%">
+            <h3>
+                <ion-skeleton-text animated style="width: 100%;height: 3vh"></ion-skeleton-text>
+            </h3>
+            <p>
+                <ion-skeleton-text animated style="width: 100%;height: 3vh"></ion-skeleton-text>
+            </p>
+            <p>
+                <ion-skeleton-text animated style="width: 100%;height: 3vh"></ion-skeleton-text>
+            </p>
+        </ion-label>
+    </ion-item>
+    </div>
+<div  *ngIf="isshow&&!skeleton&&mycache" >
+   
+  <div *ngIf=" downnum>0">
+      <ion-grid>
+          <ion-row>
+            <ion-col class="h1title" size="9">
+              正在缓存
+            </ion-col>
+            <ion-col  class="tRight" size="3">
+              <!-- 全部{{total}}个 -->
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      <List>
+          <ListItem wrap>
+            <ion-row *ngIf="downnum>0">
+              <!-- <ion-col size="12">
+                <p class="class-title">{{item.title}}</p>
+              </ion-col> -->
+              <ion-col size="4">
+                <ion-img class="img-box_cache" src="/assets/downall.png"></ion-img>
+              </ion-col>
+      <ion-col size="6" [routerLink]="['/cacheprogress/0']">
+                <p class="class-msg">剩余</p>
+                <p class="class-teacher">{{downnum}}个课件未下载完成</p>
+              </ion-col>
+              <!--  <WhiteSpace class="bgcolor h-5" [size]="'sm'"></WhiteSpace> -->
+            </ion-row>
+          </ListItem>
+        </List>
+      <WhiteSpace class="bgcolorGray" [size]="'xl'"></WhiteSpace>
+  </div>
+  
+  <div *ngIf="cacheOK>0">
+      <ion-grid>
+          <ion-row>
+            <ion-col class="h1title" size="9">
+              已缓存
+            </ion-col>
+            <ion-col  class="tRight" size="3">
+              <!-- 全部{{total}}个 -->
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      <List>
+  
+  
+  
+            <ListItem wrap *ngFor="let item of cacheOK">
+              <ion-row *ngIf="item.downnum>0">
+                <!-- <ion-col size="12">
+                  <p class="class-title">{{item.title}}</p>
+                </ion-col> -->
+                <ion-col size="6">
+                  <ion-img class="img-box" src="{{item.picurl}}"></ion-img>
+                </ion-col>
+        <ion-col size="6"  routerLink="/coursedetails/{{item.id}}">
+                  <p class="class-msg">{{item.title}}</p>
+                  <p class="class-teacher">共{{item.list.length}}个课件|{{item.fsize}}M</p>
+                </ion-col>
+                <!--  <WhiteSpace class="bgcolor h-5" [size]="'sm'"></WhiteSpace> -->
+              </ion-row>
+            </ListItem>
+          </List>
+  </div>
+<!-- <div *ngIf="!cacheOK&&!downnum">
+    <ion-row class="bgcolorWhite nopadding mindivheight" >
+      <ion-col class="bgcolorWhite nopadding h3titleGray tcenter" size="12">
+        <img src="./assets/images/noappointment.png">
+        <div class="subtitleminGray marginBig tcenter">
+          暂无相关缓存
+        </div>
+      </ion-col>
+    </ion-row>
+  </div> -->
+
+
+
+</div>
+<div *ngIf="!skeleton&&data.course==null">
+        <app-nothings vText='暂时没有课程哦' vButton='去筛选课程' vButtonLink="/allcourses/null/null" vImg='./assets/images/nocard.png'></app-nothings>
+    </div>
+
+</ion-content>
+</ion-content>
+<ion-content *ngIf=" data['course'].length<=0">
+    <ion-header  class="nav">
+ 
+             <div class="flexbox">
+                我的课程
+                </div>
+      </ion-header>
+  <div >
+    <ion-row class="bgcolorWhite  mindivheight" >
+      <ion-col class="bgcolorWhite nopadding h3titleGray tcenter " size="12">
+        <img src="./assets/images/iscourse.png" class="iscourse">
+        <div class="subtitleminGray marginBig tcenter TstSize">
+          暂无相关课程
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

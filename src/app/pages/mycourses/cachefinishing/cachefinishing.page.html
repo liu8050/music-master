@@ -1,0 +1,32 @@
+<ion-content>
+<ion-header>
+  <ion-toolbar>
+      <ion-back-button slot="start" text=""></ion-back-button>
+    <ion-title>正在缓存</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <List [renderHeader]="renderHeader">
+    <CheckboxItem *ngFor="let i of checkItemListData" [name]="i.name" [value]="i.value" [(ngModel)]="i.checked"
+      (onChange)="onChange($event)">
+      <span class="float-left">{{ i.name }}</span> <span class="float-right">{{i.size}}</span>
+    </CheckboxItem>
+  </List>
+
+  <div class="button-box">
+    <ion-row>
+      <ion-col size="6">
+        <div class="buttons">
+          <div Button [type]="'warning'">全选</div>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <div class="buttons">
+          <div Button [type]="'warning'">删除</div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+  </ion-content>
+</ion-content>

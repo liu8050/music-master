@@ -1,0 +1,38 @@
+<ion-content>
+    <ion-header mode="ios" translucent="false"  [ngStyle]="{'padding-top':islh ? '33px' : '5px' }">
+        <ion-toolbar>
+            <ion-back-button slot="start" defaultHref="/app/mycenter" (click)="outmycenter()" text=""></ion-back-button>
+          <ion-title>消息</ion-title>
+        </ion-toolbar>
+      </ion-header>   
+      <ion-content>   
+  <ion-grid >
+    <ion-row  class="message-box" *ngFor="let item of systemList">
+        <ion-col size="6"><span class="messageTitle">{{item.title}}</span></ion-col>
+        <ion-col size="6"><span class="time">{{item.addtime}}</span></ion-col>
+        <ion-col size="12"> {{item.content}} </ion-col>
+    </ion-row>
+    <div *ngIf="systemList.length<=0">
+        <ion-row class="bgcolorWhite nopadding mindivheight" >
+          <ion-col class="bgcolorWhite nopadding h3titleGray tcenter" size="12">
+            <img src="./assets/images/noappointment.png">
+            <div class="subtitleminGray marginBig tcenter">
+              暂无消息
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+  </ion-grid>
+
+  <!-- <ion-card *ngIf="systemList!=null" *ngFor="let item of systemList" >
+    <ion-card-header>
+      <ion-card-subtitle>{{item.addtime}}</ion-card-subtitle>
+      <ion-card-title>{{item.title}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{item.content}} 
+    </ion-card-content>
+  </ion-card> -->
+</ion-content>
+</ion-content>

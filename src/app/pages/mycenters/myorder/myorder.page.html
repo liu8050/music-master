@@ -1,0 +1,559 @@
+<ion-content>
+    <ion-header mode="ios" translucent="false"  [ngStyle]="{'padding-top':islh ? '33px' : '5px' }">
+        <ion-toolbar>
+            <ion-back-button slot="start" defaultHref="/app/mycenter" (click)="outcontent()" text=""></ion-back-button>
+          <ion-title>我的订单</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+<Tabs [useOnPan]="false" [swipeable]="false" [activeTab]="index" [page]="4" [tabBarActiveTextColor]="'#1890ff'"
+  (onChange)="onChange($event)" (onTabClick)="onTabClick($event)">
+  <TabPane style="width: 100%; background-color: white;align-items: center;justify-content: center;overflow: hidden;"
+    [title]="titleTemplate">
+    <ng-template #titleTemplate>
+      <Badge>
+        <div>全部订单</div>
+      </Badge>
+    </ng-template>
+   
+
+    
+    <div style="align-items: center;justify-content: center;width: 100%;overflow: hidden;" *ngFor="let item of orderlist" >
+      <ion-row *ngIf="item.state=='支付成功'" routerLink="/coursedetails/{{ item.opid }}">
+        <ion-col size="4" style="padding-left:5%;margin-top: 0.5em">
+          <p class="order-box-time">
+            <span class="text-gray">{{item.ydtime}}</span>
+          </p>
+        </ion-col>
+        <ion-col size="8" style="padding-left:5%;margin-top: 0.5em;text-align: right;">
+          <p class="order-box-time">
+           <span class="text-gray">订单号：{{item.order_no}}</span>
+          </p>
+        </ion-col>
+        <ion-col size="5" style="margin-bottom: 1em;padding-left: 5%">
+          <img class="img-box" src="{{item.picurl}}">
+        </ion-col>
+        <ion-col size="7" style="position: relative" style="margin-bottom: 1em">
+          <ion-row  class="t-l "><h6 class="txtStyle" style="display: -webkit-box!important;
+            -webkit-box-orient: vertical!important;
+            -webkit-line-clamp: 2!important;
+            overflow: hidden!important;">{{item.name}}</h6></ion-row>
+          <ion-row  class="t-2 txtSize" *ngIf="!isArray(item.yxq)">有效期：{{item.etime}}</ion-row>
+          <ion-row  class="t-3 txtSize">
+            <ion-col size="6">
+              <span class="t-c-y ">¥{{item.total_price}}</span>
+            </ion-col>
+            <ion-col size="6">
+            <span class="text-gray noWper t-a-right" style="font-size:14px">
+              <span >实付:¥{{item.pay_price}}</span>
+              
+            </span>
+            </ion-col>
+            <!--<div class="t-c-y">-->
+              <!--<span>¥{{item.total_price}}</span>-->
+              <!--<span class="text-gray t-a-right" style="font-size:0.875em">-->
+              <!--<span>实付：</span>-->
+                <!--¥{{item.pay_price}}</span>-->
+            <!--</div>-->
+          </ion-row>
+        </ion-col>
+        <!-- <WhiteSpace class="bgcolor h-5" [size]="'sm'"></WhiteSpace> -->
+        <div class="p-10 border-1 w-100">
+          <ion-row>
+            <ion-col size="6" style="padding-left: 5%">
+              <p class="line-45">{{item.state}}</p>
+              <p class="line-45" *ngIf="item.state == 0">待支付</p>
+              <p class="line-45" *ngIf="item.state == 1">支付成功</p>
+              <p class="line-45" *ngIf="item.state == 2">交易关闭</p>
+            </ion-col>
+            <ion-col size="6" class="buttonCol button-top">
+              <ion-button size="small" *ngIf="item.music.length>0&&item.state=='支付成功'" (click)="getMusicbyEmail(item)">获取曲谱</ion-button>
+              <ion-button size="small" *ngIf="item.state=='待支付'" (click)="cancelModal(item.id)">取消订单</ion-button>
+              <ion-button size="small" *ngIf="item.state=='待支付'" (click)="go_pay(item)">继续支付</ion-button>
+              <ion-button size="small" *ngIf="item.state=='交易关闭'" (click)="deleteModal(item.id)">删除订单</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-row>
+      <ion-row *ngIf="item.state!='支付成功'" >
+        <ion-col size="4" style="padding-left:5%;margin-top: 0.5em">
+          <p class="order-box-time">
+            <span class="text-gray">{{item.ydtime}}</span>
+          </p>
+        </ion-col>
+        <ion-col size="8" style="padding-left:5%;margin-top: 0.5em;text-align: right;">
+          <p class="order-box-time">
+           <span class="text-gray">订单号：{{item.order_no}}</span>
+          </p>
+        </ion-col>
+        <ion-col size="5" style="margin-bottom: 1em;padding-left: 5%">
+          <ion-img class="img-box" src="{{item.picurl}}"></ion-img>
+        </ion-col>
+        <ion-col size="7" style="position: relative" style="margin-bottom: 1em">
+          <ion-row  class="t-l "><h6 class="txtStyle" style="display: -webkit-box!important;
+          -webkit-box-orient: vertical!important;
+          -webkit-line-clamp: 2!important;
+          overflow: hidden!important;
+          ">{{item.name}}</h6></ion-row>
+          <ion-row  class="t-2 txtSize" *ngIf="!isArray(item.yxq)">有效期：{{item.etime}}</ion-row>
+          <ion-row  class="t-3 txtSize">
+            <ion-col size="6">
+              <span class="t-c-y ">¥{{item.total_price}}</span>
+            </ion-col>
+            <ion-col size="6">
+            <span class="text-gray noWper t-a-right" style="font-size:14px">
+              <span >实付:¥{{item.pay_price}}</span>
+              
+            </span>
+            </ion-col>
+            <!--<div class="t-c-y">-->
+              <!--<span>¥{{item.total_price}}</span>-->
+              <!--<span class="text-gray t-a-right" style="font-size:0.875em">-->
+              <!--<span>实付：</span>-->
+                <!--¥{{item.pay_price}}</span>-->
+            <!--</div>-->
+          </ion-row>
+        </ion-col>
+        <!-- <WhiteSpace class="bgcolor h-5" [size]="'sm'"></WhiteSpace> -->
+        <div class="p-10 border-1 w-100">
+          <ion-row>
+            <ion-col size="6" style="padding-left: 5%">
+              <p class="line-45">{{item.state}}</p>
+              <p class="line-45" *ngIf="item.state == 0">待支付</p>
+              <p class="line-45" *ngIf="item.state == 1">支付成功</p>
+              <p class="line-45" *ngIf="item.state == 2">交易关闭</p>
+            </ion-col>
+            <ion-col size="6" class="buttonCol button-top">
+              <ion-button size="small" *ngIf="item.music.length>0&&item.state=='支付成功'" (click)="getMusicbyEmail(item)">获取曲谱</ion-button>
+              <ion-button size="small" *ngIf="item.state=='待支付'" (click)="cancelModal(item.id)">取消订单</ion-button>
+              <ion-button size="small" *ngIf="item.state=='待支付'" (click)="go_pay(item)">继续支付</ion-button>
+              <ion-button size="small" *ngIf="item.state=='交易关闭'" (click)="deleteModal(item.id)">删除订单</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-row>
+    </div>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event,-1)">
+      <ion-infinite-scroll-content loadingSpinner='dots' loadingText="{{loadingText}}">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+<div *ngIf="orderlist.length<=0&&!reseting">
+    <ion-row class="bgcolorWhite nopadding mindivheight" >
+      <ion-col class="bgcolorWhite nopadding h3titleGray tcenter" size="12">
+        <img src="./assets/images/oderImg.png">
+        <div class="subtitleminGray marginBig tcenter">
+          暂无相关订单
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+
+
+  </TabPane>
+  <TabPane style=" height: auto; width: 100%; background-color: white;align-items: center;justify-content: center;position: fixed"
+    [title]="titleTemplate1">
+    <ng-template #titleTemplate1>
+      <Badge>
+        <div>待支付</div>
+      </Badge>
+    </ng-template>
+
+
+    <div style="align-items: center;justify-content: center;width: 100%;overflow: hidden;" *ngFor="let item of orderpaidlist">
+      <ion-row>
+        <ion-col size="4" style="padding-left:5%;margin-top: 0.5em">
+          <p class="order-box-time">
+            <span class="text-gray">{{item.ydtime}}</span>
+          </p>
+        </ion-col>
+        <ion-col size="8" style="padding-left:5%;margin-top: 0.5em;text-align: right;">
+          <p class="order-box-time">
+           <span class="text-gray">订单号：{{item.order_no}}</span>
+          </p>
+        </ion-col>
+        <ion-col size="5" style="margin-bottom: 1em;padding-left: 5%">
+          <ion-img class="img-box" src="{{item.picurl}}"></ion-img>
+        </ion-col>
+        <ion-col size="7" style="position: relative" style="margin-bottom: 1em">
+          <ion-row  class="t-l" style="display: -webkit-box!important;
+          -webkit-box-orient: vertical!important;
+          -webkit-line-clamp: 2!important;
+          overflow: hidden!important;
+          ">{{item.name}}</ion-row>
+          <ion-row  class="t-2" *ngIf="!isArray(item.yxq)">有效期：{{item.etime}}</ion-row>
+          <ion-row  class="t-3">
+            <ion-col size="6">
+              <span class="t-c-y">¥{{item.total_price}}</span>
+            </ion-col>
+            <ion-col size="6">
+    <!-- white-space: nowrap; -->
+
+            <span class="text-gray  t-a-right" style="font-size:0.875em">
+              <span class="noWper">实付:¥{{item.pay_price}}</span>
+           
+            </span>
+            </ion-col>
+            <!--<div class="t-c-y">-->
+              <!--<span>¥{{item.total_price}}</span>-->
+              <!--<span class="text-gray t-a-right" style="font-size:0.875em">-->
+              <!--<span>实付：</span>-->
+                <!--¥{{item.pay_price}}</span>-->
+            <!--</div>-->
+          </ion-row>
+        </ion-col>
+        <!-- <WhiteSpace class="bgcolor h-5" [size]="'sm'"></WhiteSpace> -->
+        <div class="p-10 border-1 w-100">
+          <ion-row>
+            <ion-col size="6" style="padding-left: 5%">
+              <p class="line-45">{{item.state}}</p>
+              <p class="line-45" *ngIf="item.state == 0">待支付</p>
+              <p class="line-45" *ngIf="item.state == 1">支付成功</p>
+              <p class="line-45" *ngIf="item.state == 2">交易关闭</p>
+            </ion-col>
+            <ion-col size="6" class="buttonCol button-top">
+              <ion-button size="small" *ngIf="item.music.length>0&&item.state=='支付成功'" (click)="getMusicbyEmail(item)">获取曲谱</ion-button>
+              <ion-button size="small" *ngIf="item.state=='待支付'" (click)="cancelModal(item.id)">取消订单</ion-button>
+              <ion-button size="small" *ngIf="item.state=='待支付'" (click)="go_pay(item)">继续支付</ion-button>
+              <ion-button size="small" *ngIf="item.state=='交易关闭'" (click)="deleteModal(item.id)">删除订单</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-row>
+    </div>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event,0)">
+      <ion-infinite-scroll-content loadingSpinner='dots' loadingText="{{loadingText}}">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+<div *ngIf="orderpaidlist.length<=0&&!reseting">
+    <ion-row class="bgcolorWhite nopadding mindivheight" >
+      <ion-col class="bgcolorWhite nopadding h3titleGray tcenter" size="12">
+        <img src="./assets/images/oderImg.png">
+        <div class="subtitleminGray marginBig tcenter">
+          暂无相关订单
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <!--
+    <div class="order-box" *ngFor="let item of orderpaidlist">
+      <ion-row>
+        <ion-col size="12" style="padding-left:5%;margin-top: 0.5em">
+          <p class="order-box-time">
+            <span class="text-gray">{{item.ydtime}}</span>&nbsp;&nbsp;&nbsp; <span class="text-gray">订单号：{{item.order_no}}</span>
+          </p>
+        </ion-col>
+        <ion-col size="5" style="margin-bottom: 1em;padding-left: 5%">
+          <ion-img class="img-box" src="{{item.picurl}}"></ion-img>
+        </ion-col>
+        <ion-col size="7" style="position: relative" style="margin-bottom: 1em">
+          <ion-row size="12" class="t-l"><b>{{item.name}}</b></ion-row>
+          <ion-row size="12" class="t-2" *ngIf="!isArray(item.yxq)">有效期：{{item.yxq}}月</ion-row>
+          <ion-row size="12" class="t-3"><ion-text class="t-c-y">¥{{item.total_price}}<ion-text class="text-gray t-a-right" style="font-size:0.875em;float: right"><ion-text>实付：</ion-text>¥{{item.pay_price}}</ion-text></ion-text></ion-row>
+        </ion-col>
+        <div class="p-10 border-1 w-100">
+          <ion-row>
+            <ion-col size="6">
+              <p class="line-45">{{item.state}}</p>
+            </ion-col>
+            <ion-col size="6" class="buttonCol button-top">
+              <ion-button size="small" *ngIf="item.state=='待支付'" (click)="cancelModal(item.id)">取消订单</ion-button>
+              <ion-button size="small" *ngIf="item.state=='待支付'" (click)="go_pay(item)">继续支付</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-row>
+
+
+
+    </div>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event,0)">
+      <ion-infinite-scroll-content loadingSpinner='dots' loadingText="{{loadingText}}">
+    </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+    <div *ngIf="orderpaidlist.length<=0&&!reseting">
+    <ion-row class="bgcolorWhite nopadding mindivheight">
+      <ion-col class="bgcolorWhite nopadding h3titleGray tcenter" size="12">
+        <img src="./assets/images/noappointment.png">
+        <div class="subtitleminGray marginBig tcenter">
+          暂无相关订单
+        </div>
+      </ion-col>
+</ion-row>
+</div>
+-->
+  </TabPane>
+  <TabPane style=" height: auto; width: 100%; background-color: white;position: fixed"
+    [title]="titleTemplate2">
+    <ng-template #titleTemplate2>
+      <Badge>
+        <div>交易成功</div>
+      </Badge>
+    </ng-template>
+
+
+
+    <div style="align-items: center;justify-content: center;width: 100%;overflow: hidden;"   routerLink="/coursedetails/{{ item.opid }}" routerLinkActive="router-link-active"   *ngFor="let item of ordersuccesslist">
+      <ion-row>
+        <ion-col size="4" style="padding-left:5%;margin-top: 0.5em">
+          <p class="order-box-time">
+            <span class="text-gray">{{item.ydtime}}</span>
+          </p>
+        </ion-col>
+        <ion-col size="8" style="padding-left:5%;margin-top: 0.5em;text-align: right;">
+          <p class="order-box-time">
+           <span class="text-gray">订单号：{{item.order_no}}</span>
+          </p>
+        </ion-col>
+        <ion-col size="5" style="margin-bottom: 1em;padding-left: 5%">
+          <ion-img class="img-box" src="{{item.picurl}}"></ion-img>
+        </ion-col>
+        <ion-col size="7" style="position: relative" style="margin-bottom: 1em">
+          <ion-row  class="t-l" style="display: -webkit-box!important;
+          -webkit-box-orient: vertical!important;
+          -webkit-line-clamp: 2!important;
+          overflow: hidden!important;
+          ">{{item.name}}</ion-row>
+          <ion-row  class="t-2" *ngIf="!isArray(item.yxq)">有效期：{{item.etime}}</ion-row>
+          <ion-row  class="t-3">
+            <ion-col size="6">
+              <span class="t-c-y">¥{{item.total_price}}</span>
+            </ion-col>
+            <ion-col size="6">
+            <span class="text-gray t-a-right" style="font-size:0.875em">
+              <span class="noWper"> 实付:¥{{item.pay_price}}</span>
+          
+            </span>
+            </ion-col>
+            <!--<div class="t-c-y">-->
+              <!--<span>¥{{item.total_price}}</span>-->
+              <!--<span class="text-gray t-a-right" style="font-size:0.875em">-->
+              <!--<span>实付：</span>-->
+                <!--¥{{item.pay_price}}</span>-->
+            <!--</div>-->
+          </ion-row>
+        </ion-col>
+        <!-- <WhiteSpace class="bgcolor h-5" [size]="'sm'"></WhiteSpace> -->
+        <div class="p-10 border-1 w-100">
+          <ion-row>
+            <ion-col size="6" style="padding-left: 5%">
+              <p class="line-45">{{item.state}}</p>
+              <p class="line-45" *ngIf="item.state == 0">待支付</p>
+              <p class="line-45" *ngIf="item.state == 1">支付成功</p>
+              <p class="line-45" *ngIf="item.state == 2">交易关闭</p>
+            </ion-col>
+            <ion-col size="6" class="buttonCol button-top">
+              <ion-button size="small" *ngIf="item.music.length>0&&item.state=='支付成功'" (click)="getMusicbyEmail(item)">获取曲谱</ion-button>
+              <ion-button size="small" *ngIf="item.state=='待支付'" (click)="cancelModal(item.id)">取消订单</ion-button>
+              <ion-button size="small" *ngIf="item.state=='待支付'" (click)="go_pay(item)">继续支付</ion-button>
+              <ion-button size="small" *ngIf="item.state=='交易关闭'" (click)="deleteModal(item.id)">删除订单</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-row>
+    </div>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event,1)">
+      <ion-infinite-scroll-content loadingSpinner='dots' loadingText="{{loadingText}}">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+<div *ngIf="ordersuccesslist.length<=0&&!reseting">
+    <ion-row class="bgcolorWhite nopadding mindivheight" >
+      <ion-col class="bgcolorWhite nopadding h3titleGray tcenter" size="12">
+        <img src="./assets/images/oderImg.png">
+        <div class="subtitleminGray marginBig tcenter">
+          暂无相关订单
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+
+
+    <!--
+    <div class="order-box" *ngFor="let item of ordersuccesslist">
+      <ion-row>
+        <ion-col size="12" style="padding-left:5%;margin-top: 0.5em">
+          <p class="order-box-time">
+            <span class="text-gray">{{item.ydtime}}</span>&nbsp;&nbsp;&nbsp; <span class="text-gray">订单号：{{item.order_no}}</span>
+          </p>
+        </ion-col>
+        <ion-col size="5" style="margin-bottom: 1em;padding-left: 5%">
+          <ion-img class="img-box" src="{{item.picurl}}"></ion-img>
+        </ion-col>
+        <ion-col size="7" style="position: relative" style="margin-bottom: 1em">
+          <ion-row size="12" class="t-l"><b>{{item.name}}</b></ion-row>
+          <ion-row size="12" class="t-2" *ngIf="!isArray(item.yxq)">有效期：{{item.yxq}}月</ion-row>
+          <ion-row size="12" class="t-3"><ion-text class="t-c-y">¥{{item.total_price}}<ion-text class="text-gray t-a-right" style="font-size:0.875em;float: right"><ion-text>实付：</ion-text>¥{{item.pay_price}}</ion-text></ion-text></ion-row>
+        </ion-col>
+        <div class="p-10 border-1 w-100">
+          <ion-row>
+            <ion-col size="6">
+              <p class="line-45">{{item.state}}</p>
+            </ion-col>
+            <ion-col size="6" class="buttonCol button-top">
+              <ion-button size="small" *ngIf="item.music.length>0&&item.state=='支付成功'" (click)="getMusicbyEmail(item)">获取曲谱</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+
+
+
+
+
+      </ion-row>
+    </div>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event,1)">
+      <ion-infinite-scroll-content loadingSpinner='dots' loadingText="{{loadingText}}">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+
+    <ion-row class="bgcolorWhite nopadding mindivheight" *ngIf="ordersuccesslist.length<=0&&!reseting">
+      <ion-col class="bgcolorWhite nopadding h3titleGray tcenter" size="12">
+        <img src="./assets/images/noappointment.png">
+        <div class="subtitleminGray marginBig tcenter">
+          暂无相关订单
+        </div>
+      </ion-col>
+    </ion-row>
+
+  -->
+  </TabPane>
+  <TabPane style=" height: auto; width: 100%; background-color: white;align-items: center;justify-content: center;position: fixed"
+    [title]="titleTemplate3">
+    <ng-template #titleTemplate3>
+      <Badge>
+        <div>交易关闭</div>
+      </Badge>
+    </ng-template>
+
+
+
+    <div style="align-items: center;justify-content: center;width: 100%;overflow: hidden;" *ngFor="let item of orderclosedlist">
+      <ion-row>
+        <ion-col size="4" style="padding-left:5%;margin-top: 0.5em">
+          <p class="order-box-time">
+            <span class="text-gray">{{item.ydtime}}</span>
+          </p>
+        </ion-col>
+        <ion-col size="8" style="padding-left:5%;margin-top: 0.5em;text-align: right;">
+          <p class="order-box-time">
+           <span class="text-gray">订单号：{{item.order_no}}</span>
+          </p>
+        </ion-col>
+        <ion-col size="5" style="margin-bottom: 1em;padding-left: 5%">
+          <ion-img class="img-box" src="{{item.picurl}}"></ion-img>
+        </ion-col>
+        <ion-col size="7" style="position: relative" style="margin-bottom: 1em">
+          <ion-row  class="t-l"  style="display: -webkit-box!important;
+          -webkit-box-orient: vertical!important;
+          -webkit-line-clamp: 2!important;
+          overflow: hidden!important;
+          ">{{item.name}}</ion-row>
+          <ion-row  class="t-2" *ngIf="!isArray(item.yxq)">有效期：{{item.etime}}</ion-row>
+          <ion-row  class="t-3">
+            <ion-col size="6">
+              <span class="t-c-y noWper">¥{{item.total_price}}</span>
+            </ion-col>
+            <ion-col size="6">
+            <span class="text-gray t-a-right" style="font-size:0.875em">
+                <!-- ： -->
+              <span class="noWper">实付:¥{{item.pay_price}}</span>
+
+            </span>
+            </ion-col>
+            <!--<div class="t-c-y">-->
+              <!--<span>¥{{item.total_price}}</span>-->
+              <!--<span class="text-gray t-a-right" style="font-size:0.875em">-->
+              <!--<span>实付：</span>-->
+                <!--¥{{item.pay_price}}</span>-->
+            <!--</div>-->
+          </ion-row>
+        </ion-col>
+        <!-- <WhiteSpace class="bgcolor h-5" [size]="'sm'"></WhiteSpace> -->
+        <div class="p-10 border-1 w-100">
+          <ion-row>
+            <ion-col size="6" style="padding-left: 5%">
+              <p class="line-45">{{item.state}}</p>
+              <p class="line-45" *ngIf="item.state == 0">待支付</p>
+              <p class="line-45" *ngIf="item.state == 1">支付成功</p>
+              <p class="line-45" *ngIf="item.state == 2">交易关闭</p>
+            </ion-col>
+            <ion-col size="6" class="buttonCol button-top">
+              <ion-button size="small" *ngIf="item.music.length>0&&item.state=='支付成功'" (click)="getMusicbyEmail(item)">获取曲谱</ion-button>
+              <ion-button size="small" *ngIf="item.state=='待支付'" (click)="cancelModal(item.id)">取消订单</ion-button>
+              <ion-button size="small" *ngIf="item.state=='待支付'" (click)="go_pay(item)">继续支付</ion-button>
+              <ion-button size="small" *ngIf="item.state=='交易关闭'" (click)="deleteModal(item.id)">删除订单</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-row>
+    </div>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event,2)">
+      <ion-infinite-scroll-content loadingSpinner='dots' loadingText="{{loadingText}}">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+<div *ngIf="orderclosedlist.length<=0&&!reseting">
+    <ion-row class="bgcolorWhite nopadding mindivheight" >
+      <ion-col class="bgcolorWhite nopadding h3titleGray tcenter" size="12">
+        <img src="./assets/images/oderImg.png">
+        <div class="subtitleminGray marginBig tcenter">
+          暂无相关订单
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+
+    <!--
+    <div class="order-box" *ngFor="let item of orderclosedlist">
+      <ion-row>
+        <ion-col size="12" style="padding-left:5%;margin-top: 0.5em">
+          <p class="order-box-time">
+            <span class="text-gray">{{item.ydtime}}</span>&nbsp;&nbsp;&nbsp; <span class="text-gray">订单号：{{item.order_no}}</span>
+          </p>
+        </ion-col>
+        <ion-col size="5" style="margin-bottom: 1em;padding-left: 5%">
+          <ion-img class="img-box" src="{{item.picurl}}"></ion-img>
+        </ion-col>
+        <ion-col size="7" style="position: relative" style="margin-bottom: 1em">
+          <ion-row size="12" class="t-l"><b>{{item.name}}</b></ion-row>
+          <ion-row size="12" class="t-2" *ngIf="!isArray(item.yxq)">有效期：{{item.yxq}}月</ion-row>
+          <ion-row size="12" class="t-3"><ion-text class="t-c-y">¥{{item.total_price}}<ion-text class="text-gray t-a-right" style="font-size:0.875em;float: right"><ion-text>实付：</ion-text>¥{{item.pay_price}}</ion-text></ion-text></ion-row>
+        </ion-col>
+        <div class="p-10 border-1 w-100">
+          <ion-row>
+            <ion-col size="6">
+              <p class="line-45">{{item.state}}</p>
+            </ion-col>
+            <ion-col size="6" class="buttonCol button-top">
+              <ion-button size="small" *ngIf="item.state=='交易关闭'" (click)="deleteModal(item.id)">删除订单</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-row>
+    </div>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event,2)">
+      <ion-infinite-scroll-content loadingSpinner='dots' loadingText="{{loadingText}}">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+
+<div *ngIf="orderclosedlist.length<=0&&!reseting&&!reseting">
+    <ion-row class="bgcolorWhite nopadding mindivheight" >
+      <ion-col class="bgcolorWhite nopadding h3titleGray tcenter" size="12">
+        <img src="./assets/images/noappointment.png">
+        <div class="subtitleminGray marginBig tcenter">
+          暂无相关订单
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+-->
+  </TabPane>
+</Tabs>
+</ion-content>
+</ion-content>

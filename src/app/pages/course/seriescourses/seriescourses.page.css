@@ -1,0 +1,184 @@
+.items {
+  height: 145px;
+  border-bottom: 1px #ccc solid;
+  margin-bottom: 2px;
+  display: flex;
+}
+
+.leftimg {
+  width: 170px;
+  height: 120px;
+  border-radius: 5px;
+}
+
+.leftImg {
+  padding: 10px 0 10px 15px;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.nopad {
+  padding-top: 0px;
+}
+
+.rightBox {
+  padding-top: 19px;
+  padding-left: 10px;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.title {
+  display: flex;
+  align-items: flex-start;
+  white-space: wrap;
+  font-size: 13px;
+  color: #333333;
+}
+
+.contentHei {
+  height: 37px;
+}
+
+.freeaAdmin {
+  height: 53px;
+  display: flex;
+}
+
+.ite {
+  flex: 1;
+  white-space: nowrap;
+  padding-top: 30px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.oderby {
+  color: #8C8C8C;
+  font-size: 10px;
+  text-decoration: line-through;
+}
+
+.isoder {
+  color: #C04E16;
+  font-size: 14px;
+}
+
+.nooder {
+  color: #8C8C8C;
+  font-size: 10px;
+}
+
+.isstart {
+  width: 57px;
+  color: #ffffff;
+  font-size: 10px;
+  padding: 4px 4px 3px 4px;
+  background: url("../../../../assets/images/masterBtn.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.padding {
+  padding: 10px 0 0 0;
+}
+
+.radiusImg {
+  border-radius: 2px !important;
+}
+
+.flexBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flexOne {
+  flex: 1;
+  white-space: nowrap;
+}
+
+.txtcolor {
+  text-decoration: none;
+  color: #f58220;
+  margin-left: 0 !important;
+}
+
+.button_bottom {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  border-radius: 0px;
+}
+
+.button-clearborder {
+  border-radius: 0px;
+}
+
+.classbox {
+  padding: 0;
+  margin: 0;
+}
+
+.classbox .img {
+  width: 140px !important;
+  height: 72px !important;
+  margin: 10px 0;
+  position: relative;
+  border-radius: 2px !important;
+}
+
+.classbox .classbox-text {
+  width: 100%;
+  height: 72px;
+  padding: 0;
+  margin: 0;
+}
+
+.course-title {
+  top: 0;
+  margin: 0 !important;
+  width: 100%;
+  font-size: 1.2em !important;
+  color: #130c0e;
+  padding: 0 0 0 5%;
+  text-align: left;
+}
+
+.course-subtitle {
+  margin: 0 !important;
+  width: 100%;
+  padding: 0 0 0 3%;
+  font-size: 1.05em !important;
+  color: #f58220;
+  text-align: left;
+  position: absolute;
+  bottom: 12px;
+}
+
+.banner {
+  border-radius: 2px;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.padding-24 {
+  padding-left: 24px;
+  padding-right: 24px;
+  margin: 1em 0 0 0;
+}
+
+.marginSmall {
+  margin: 0;
+  margin-top: 12px;
+}
+
+.remarkDetail {
+  line-height: 1.5em;
+}

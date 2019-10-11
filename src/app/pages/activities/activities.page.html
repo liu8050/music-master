@@ -1,0 +1,93 @@
+<ion-content>
+<ion-header mode="ios" translucent="false"  [ngStyle]="{'padding-top':islh ? '33px' : '5px' }">
+  <ion-toolbar>
+    <ion-back-button text=""></ion-back-button>
+    <ion-title>活动报名</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list no-border >
+    <ng-container *ngFor="let item of systemList['questions']; let i =index">
+      <ion-item  lines="full"  *ngIf="item.title=='姓名'&&item.isqy==1">
+        <ion-col size="4">
+          <ion-label class="subtitleminBlack" position="fixed">{{item.title}}：</ion-label>
+        </ion-col>
+        <ion-col size="8">
+          <ion-input class="subtitleminGray" placeholder="报名者的真实姓名" [(ngModel)]="activities.name" [required]="item.isbt==1"></ion-input>
+        </ion-col>
+      </ion-item>
+      <ion-item (click)="selectSex()" lines="full"  *ngIf="item.title=='性别'&&item.isqy==1">
+        <ion-col size="4">
+          <ion-label class="subtitleminBlack" position="fixed">性别:</ion-label>
+        </ion-col>
+        <ion-col size="8">
+          <ion-input  class="subtitleminGray" placeholder="请输入性别" [(ngModel)]="activities.sex" [required]="item.isbt==1"></ion-input>
+        </ion-col>
+      </ion-item>
+      <ion-item  lines="full"  *ngIf="item.title=='城市'&&item.isqy==1">
+        <ion-col size="4">
+          <ion-label class="subtitleminBlack" position="fixed">城市：</ion-label>
+        </ion-col>
+        <ion-col size="8">
+          <ion-input class="subtitleminGray" placeholder="您来自哪个城市" [(ngModel)]="activities.city" [required]="item.isbt==1"></ion-input>
+        </ion-col>
+      </ion-item>
+      <ion-item lines="full"  *ngIf="item.title=='邮箱'&&item.isqy==1">
+        <ion-col size="4">
+          <ion-label class="subtitleminBlack" position="fixed">邮箱:</ion-label>
+        </ion-col>
+        <ion-col size="8">
+          <ion-input  class="subtitleminGray" placeholder="请填写有效邮箱" [(ngModel)]="activities.email" [required]="item.isbt==1"></ion-input>
+        </ion-col>
+      </ion-item>
+      <ion-item  lines="full"  *ngIf="item.title=='联系方式'&&item.isqy==1">
+      <ion-col size="4">
+        <ion-label class="subtitleminBlack" position="fixed">联系方式:</ion-label>
+      </ion-col>
+      <ion-col size="8">
+        <ion-input  class="subtitleminGray" placeholder="请填写有效手机号" [(ngModel)]="activities.phone" [required]="item.isbt==1"></ion-input>
+      </ion-col>
+    </ion-item>
+      <ion-item  lines="full" *ngIf="item.title!='姓名'&&item.title!='性别'&&item.title!='城市'&&item.title!='邮箱'&&item.title!='联系方式'">
+        <ion-col size="4">
+          <ion-label class="subtitleminBlack" position="fixed">{{item.title}}:</ion-label>
+        </ion-col>
+        <ion-col size="8">
+          <ion-radio-group  [(ngModel)]="activities.school" *ngIf="item.type==0" [required]="item.isbt==1">
+            <ion-item *ngFor="let l of item.children; let m = index">
+              <ion-label>{{l.title}}</ion-label>
+              <ion-radio value='{{m}}' slot="end"></ion-radio>
+            </ion-item>
+
+          </ion-radio-group>
+          <ion-list *ngIf="item.type==1">
+            <ng-container *ngFor="let i of item.children">
+              <ion-item >
+                <ion-label>{{i.title}}</ion-label>
+                <ion-checkbox slot="start"  [(ngModel)]="i.id"></ion-checkbox>
+              </ion-item>
+            </ng-container>
+
+          </ion-list>
+          <ion-input  class="subtitleminGray" placeholder="单行文本" [(ngModel)]="activities.age" *ngIf="item.type==2" [required]="item.isbt==1"></ion-input>
+          <ion-textarea  class="subtitleminGray" placeholder="多行文本" [(ngModel)]="activities.introduction" *ngIf="item.type==3"></ion-textarea>
+        </ion-col>
+      </ion-item>
+    </ng-container>
+  </ion-list>
+  <ion-list *ngIf="systemList['issc']==1">
+    <p  class="padding-left">上传出演图片(可选5张):</p>
+  </ion-list>
+  <ImagePicker [files]="files" [length]="5" [selectable]="files.length <= 5" [multiple]="multipleTab === 1" (onChange)="fileChange($event)"
+               (onImageClick)="imageClick($event)" *ngIf="systemList['issc']==1">
+  </ImagePicker>
+</ion-content>
+
+
+<ion-footer>
+  <div>
+    <ion-button  expand="full"  (click)="register()">确认并报名</ion-button>
+  </div>
+</ion-footer>
+</ion-content>

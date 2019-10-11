@@ -1,0 +1,231 @@
+.register {
+  background: url("../../../../assets/images/pic-zhuce@2x.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 100%;
+  position: relative;
+}
+
+.title {
+  height: 117px;
+  padding: 34px  26px 0 27px;
+}
+
+.getCodeM {
+  height: 36px;
+  border-top: 1px solid #ABABAB;
+  border-left: 1px solid #ABABAB;
+  border-right: 1px solid #ABABAB;
+  margin-bottom: 0;
+}
+
+.outlogin {
+  position: absolute;
+  right: 26px;
+  top: 37px;
+  color: #CECECE;
+  font-size: 13px;
+}
+
+.block {
+  display: block;
+  color: #FFFFFF;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.padContet {
+  margin-left: 64px;
+}
+
+.footerSlode {
+  height: 3px;
+  width: 66px;
+}
+
+.padingrow {
+  margin-left: 4rem;
+  margin-right: 4rem;
+  padding-top: .625rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px #ABABAB solid;
+  box-sizing: border-box;
+}
+
+.userIcon {
+  width: 14px;
+  height: 15px;
+}
+
+.android {
+  height: 17px;
+  width: 13px;
+}
+
+.userPwd {
+  width: 13px;
+  height: 16px;
+}
+
+.sizeColor {
+  margin-left: 10px;
+}
+
+.leftIcon {
+  width: 26px;
+  padding-left: 3px;
+}
+
+.islogin {
+  width: 100%;
+}
+
+.pad {
+  margin-left: 64px;
+  margin-right: 74px;
+  height: 46px;
+  margin-top: 21px;
+}
+
+.isRgister {
+  margin: 0;
+  background: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.spacing {
+  margin-left: 10px;
+  font-size: 10px;
+}
+
+.txtSizes {
+  font-size: 12px;
+  white-space: nowrap;
+  color: #B1B1B1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.agreel {
+  padding: 10px 5px 0;
+}
+
+.codePic {
+  width: 155px;
+}
+
+.maxHei {
+  max-height: 100%;
+  padding: 0;
+  margin-left: 26px;
+}
+
+.footerSlode {
+  display: block;
+}
+
+.allSize {
+  box-sizing: border-box;
+}
+
+.padTop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marginTOP {
+  padding-top: 26px;
+  box-sizing: border-box;
+}
+
+.Contered {
+  color: #777777;
+  font-size: 13px;
+}
+
+.padHexacosa {
+  margin-top: 34px;
+  padding-right: 115px;
+  padding-left: 105px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon_size {
+  width: 25px;
+  height: 22px;
+}
+
+.top {
+  margin-top: 2.8125rem;
+}
+
+.btnstyle {
+  font-size: 15px;
+  color: #333333;
+}
+
+.fouterpad {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.fouter_nav {
+  width: 100%;
+  display: flex;
+  color: #777777;
+  font-size: 13px;
+  justify-content: center;
+  align-items: center;
+}
+
+.foutertxt {
+  width: 100%;
+  display: flex;
+  color: #777777;
+  font-size: 13px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 26px;
+}
+
+.fouter_icon {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.weixiiocn {
+  width: 25px;
+  height: 22px;
+}
+
+.weiboicon {
+  width: 25px;
+  height: 20px;
+  margin-top: 1px;
+}
+
+.qqicon {
+  width: 19px;
+  height: 20px;
+  margin-top: 2px;
+}

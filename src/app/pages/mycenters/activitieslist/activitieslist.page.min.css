@@ -1,0 +1,1 @@
+.detail{font-size:0.8em;position:relative;line-height:1.4em;height:4.2em;overflow:hidden}.detail::after{content:"...";font-weight:bold;position:absolute;bottom:0;right:0;padding:0 20px 1px 45px}.am-list{padding-top:98px}.pad{padding-right:55px}.flexCenter{width:100%;display:flex;justify-content:center;align-items:center}

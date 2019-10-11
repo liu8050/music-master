@@ -1,0 +1,48 @@
+<!-- <ion-header> -->
+  <!-- <ion-toolbar>
+    <ion-title>在线指导</ion-title>
+
+<ion-icon class="guidance_icon" routerLink="/app/guidance/schedule" slot="end" src="./assets/fonts/goCourse3.svg"></ion-icon>
+  </ion-toolbar> -->
+<!-- </ion-header> -->
+
+
+
+<div class="guidance_header">
+<div>
+<div class="title">
+  <p>线上指导</p>
+  <img src="./assets/images/gui.png" class="guidance_icon" routerLink="/schedule" alt="">
+<!-- <ion-icon class="guidance_icon" routerLink="/schedule" slot="end" src="./assets/fonts/ic_nav_rl@2x.png"></ion-icon> -->
+</div>
+</div>
+</div>
+<ion-content >
+  <div class="padtop" [ngClass]="{'class': true}">
+  <div class="block">
+
+        <ion-row class="guidancepad"> 
+          <ion-col class="guidance_box" size="12">
+          <img class="guidance_img" src="./assets/images/guidanceImg.png" /> </ion-col>
+          </ion-row>
+            <!-- <ion-card>
+              <img src="./assets/images/guidance2.jpeg" />
+            </ion-card> -->
+          
+          
+            <ion-grid class="button-box">
+                <!-- <ion-row>
+              <ion-col class="buttonCol" size="12">
+            <ion-button size="default" routerLink="/tosubscribe" class="guidanceButton" color="primary">去预约</ion-button>
+          
+              </ion-col>
+            </ion-row> -->
+            <div >
+              <div class="islog" routerLink="/tosubscribe" button>
+                去预约
+              </div>
+            </div>
+            </ion-grid>
+      </div>
+  </div>
+</ion-content>

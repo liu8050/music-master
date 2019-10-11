@@ -1,0 +1,485 @@
+<ion-content class="mainindex" #homeContent>
+  <img *ngIf="skeleton" style="width:100%" src="/assets/index.png" />
+  <div *ngIf="!skeleton" mode="ios" translucent="false"  >
+    <!-- <item android:width="375dp" android:height="173dp">
+        <shape android:shape="rectangle">
+          <gradient android:type="linear" android:useLevel="true" android:startColor="#ffffffff" android:centerColor="#ff2eaaff" android:endColor="#ff2eaaff" android:angle="0" />
+        </shape>
+      </item> -->
+    <div class="bannerNav">
+      <div class="Login oder">
+        <img src="./assets/images/scale3.png" />
+      </div>
+      <!-- <div class="banner_seach"> -->
+      <!-- 旧class="topsearch" -->
+      <!-- <ion-searchbar class="search"></ion-searchbar> -->
+      <!-- <input placeholder="搜索课程、名师等" > -->
+      <div class="search">
+        <SearchBar
+          [placeholder]="'搜索课程、名师等'"
+          [maxLength]="8"
+          [routerLink]="['/search']"
+          [(ngModel)]="searchValue"
+        ></SearchBar>
+      </div>
+      <!--    <ion-searchbar [routerLink]="['/search']" type='search' name='search' [(ngModel)]="searchValue" placeholder="搜索课程" ></ion-searchbar> -->
+      <!-- <ion-icon slot="end" [routerLink]="['/search']" name="search" class="searchicon"></ion-icon> -->
+      <!-- 阿里-走马灯轮播图组件 -->
+
+      <!-- <ion-slides pager="true" class="indexbanner" [options]="slideOpts">
+          <ion-slide  *ngFor="let item of bannerdata;let i = index">
+            <img  (click)="RouterCoursedetails(item.link)" class="imgwelcome img_noradius" src="{{item.url}}"/>
+            <preload-image  [ratio]="{w: 1, h: 1}" class="imgwelcome img_noradius" style="width: 100%;" [src]="item.url"></preload-image>
+          </ion-slide>
+        </ion-slides> -->
+      <!-- animated   -->
+      <!-- <img src="/assets/images/serach.png" class="topsearch" [routerLink]="['/search']"/> -->
+
+      <!--<button ng-click="search()"></button>-->
+      <!-- <Carousel *ngIf="bannerdata.length>0" class="indexbanner" [infinite]="true" [autoplay]="true" [autoplayInterval]="3000">
+          <CarouselSlide *ngFor="let item of bannerdata;let i = index" >
+          <div style="display: inline-block; width: 100%;" >
+                  <img class="banner-img" src="{{item.url}}" style="width: 100%;"/>
+          </div>
+          </CarouselSlide>
+      </Carousel> -->
+
+      <!-- <ion-slides pager="true" class="indexbanner" [options]="slideOpts">
+          <ion-slide  *ngFor="let item of bannerdata;let i = index">
+            <img  (click)="RouterCoursedetails(item.link)" class="imgwelcome img_noradius" src="{{item.url}}"/>
+            <preload-image  [ratio]="{w: 1, h: 1}" class="imgwelcome img_noradius" style="width: 100%;" [src]="item.url"></preload-image>
+          </ion-slide>
+        </ion-slides>
+-->
+
+      <!-- </div> -->
+      <!-- 轮播图 -->
+
+  
+          <!-- -->
+          <!-- -->
+          <WingBlank class="minheight">
+            <!--      [autoplay]="true"
+              [autoplayInterval]="3000" -->
+        
+            <Carousel
+            [autoplay]="true"
+            [autoplayInterval]="3000"
+              [infinite]="true"
+              [vertical]="false" 
+              [selectedIndex]="1"
+              (beforeChange)="beforeChange($event)"
+              (afterChange)="afterChange($event)"
+            >
+              <CarouselSlide *ngFor="let item of bannerdata"  >
+                <div
+                  (click)="RouterCoursedetails(item.link)"
+                  style="height: 100%;width: 100%;"
+                >
+                  <img
+                  style="height: 100%;width: 100%;"
+                class="bannerImg"
+                    src="{{ item.url }}"
+                    onerror="this.src='./assets/images/banner.png'"
+                  />
+                </div>
+              </CarouselSlide>
+            </Carousel>
+          </WingBlank>
+
+
+
+      
+    </div>
+    <!--
+    <div class="h1title"><ion-icon class="fireicon" name="flame"></ion-icon>热门资讯</div> -->
+    <!-- <ion-grid>
+        <ion-row [routerLink]="['/newslist']">
+      
+          <ion-col class="h1title " size="6.5" class="flextitle">
+                <span size-lg>
+                  <span>
+                    <span>
+                      <img
+                        src="./assets/images/fire.png"
+                        alt=""
+                        srcset=""
+                        class="img"
+                        onerror="this.src= './assets/images/LoadFail.png'"
+                      />
+                    </span>
+                  </span>
+                </span>
+             
+                 <h6>热门资讯</h6>
+            </ion-col>
+            <ion-col size="3">
+            
+          </ion-col>
+          <ion-col class="moreLink" size="3">
+           更多 <ion-icon class="listtext" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+          </ion-col>
+        </ion-row>
+        </ion-grid> -->
+
+    <!-- <ion-list class="hotlist">
+<ion-item *ngFor="let item of hotNews"  routerLink="/newstxt/{{item.id}}">
+          <ion-badge class="badge_mm" color="primary"><h6 class="adge_mmSize">最新</h6></ion-badge>
+          <ion-label class="listtext"><h6>{{item.title}}</h6></ion-label>
+          <ion-icon class="listtext" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+        </ion-item>
+      </ion-list> -->
+
+    <!-- <WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace> -->
+    <!-- <div class="slide-box">
+        <div *ngFor="let item of courseType" class="slide-item pore" [ngStyle]="{ 'background-image':'url(' + item.imgurl + ')','background-size':'cover','background-repeat':'no-repeat'}"
+          [routerLink]="['/allcourses/'+item.children+'/'+item.counts]">
+     
+          <img class="master_imgs" src="{{item.imgurl}}" #img onerror="this.src='./assets/images/errImage.png'"/>
+          <div class="abs" >
+   
+   
+
+              <span class="title absTitle" >{{item.title}}</span>
+
+
+          </div>
+ 
+
+        </div>
+    </div> -->
+    <!-- (click)="clasid(item.id)" -->
+    <!-- 分类 -->
+    <div class="flexconter">
+      <ul class="courseTypeFlex">
+        <li
+          *ngFor="let item of courseType"
+          class="items"
+        
+          [routerLink]="['/allcourses/' +  item.id+ '/' +null]" 
+        >
+        <!-- [routerLink]="['/allcourses/' + null+ '/' + item.id]" -->
+   
+        <!--  -->
+
+          <img src="{{ item.imgurl }}" class="courseTypeImg" />
+          <div class="classification">{{ item.title }}</div>
+        </li>
+        <li
+          class="items"
+          [routerLink]="['/allcourses/' + 'null' + '/' + 'null']"
+        >
+          <img src="./assets/images/allkc.png" class="courseTypeImg" />
+          <div class="classification">全部课程</div>
+        </li>
+      </ul>
+    </div>
+    <!--  -->
+    <WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace>
+
+    <ion-grid class="paddingtitle">
+      <ion-row>
+        <ion-col class="h1title longString" size="4">
+          <!-- <span class="shu" size-lg>
+                          |
+                        </span> -->
+          <!-- <span size-lg> -->
+          <h6 class="lineBlock ColorTxt">名师讲堂</h6>
+          <!-- </span> -->
+          <!-- <ion-img
+                          class="titlemainleft"
+                          src="/assets/titles[表情]zt.png"
+                        ></ion-img> -->
+          <!-- <span>|</span>
+                        <h3>名师讲堂</h3> -->
+        </ion-col>
+        <ion-col class="h1title" size="5">
+          <!-- <img class="titlemainleft" src="/assets/titles/xszt.png" /> -->
+        </ion-col>
+        <ion-col [routerLink]="['/mmaster']" class="moreLink" size="3">
+          <span class="text-box-p"
+            >更多 <img src="{{ gengduo }}" alt="" class="More" />
+          </span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- <div> -->
+    <div class="slide-boxFamousteacher">
+      <ion-card
+        routerLink="/mastershow/{{ item.id }}"
+        class="slide-master"
+        *ngFor="let item of recommendMasters; let key = index"
+      >
+        <img
+          class="master_img"
+          src="{{ item.picurl }}"
+          onerror="this.src='./assets/images/errImg.png'"
+        />
+        <div id="master-name" class="master-title ">
+          <!-- [ngClass]="{ txtsize: key == 1; }" -->
+          <h6 class="txtsize">
+            {{ item.title }}
+          </h6>
+        </div>
+      </ion-card>
+    </div>
+    <ion-grid class="news">
+      <ion-row>
+        <ion-col class="newspadding">
+          <div class="item1">
+              <img src="./assets/images/ic-zx@3x.png" alt="" class="newsIcon">
+          </div>
+          <div class="item2">
+              <div class="title">热门资讯</div>
+          </div>
+          <div class="item3">
+          
+          </div>
+         
+   
+              <div  *ngFor="let item of hotNews"
+            class="item4"
+            routerLink="/newstxt/{{ item.id }}">
+            {{ item.title }}
+            </div>
+             
+ 
+          <div>
+              <div class="topMore" [routerLink]="['/newslist']">更多</div>
+          </div>
+
+        </ion-col>
+      </ion-row>
+      <!-- <div>新闻资讯</div> -->
+    </ion-grid>
+    <!-- <div class="ConsultationArea">新闻资讯</div> -->
+    <!-- </div> -->
+    <WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace>
+
+    <ion-grid class="paddingtitle">
+      <ion-row>
+    
+        <ion-col class="h1title longString" size="4.5">
+       
+          <h6 class="lineBlock ColorTxt">合唱团荣誉殿堂</h6>
+       
+        </ion-col>
+
+        <!-- </ion-col> -->
+        <ion-col size="4.5"> </ion-col>
+        <ion-col [routerLink]="['/videolist']" class="moreLink" size="3">
+          <p class="text-box-p">
+            更多
+            <img src="{{ gengduo }}" alt="" class="More"  class="More"       />
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- <div class="slide-box">
+          <ion-card routerLink="/mastershow/{{item.id}}" class="slide-master"  *ngFor="let item of recommendMasters">
+              <img class="master_img" src="{{item.picurl}}"  onerror="this.src='./assets/images/errImg.png'"/>
+              <div id="master-name" class="master-title "><h6 class="txtsize">{{item.title}}</h6></div>
+<div class="master-subtitle listtext master-detail">{{item.infos}}</div>
+          </ion-card>
+    </div> -->
+    <div class="slide-boxChoir">
+      <div
+        class="img-container"
+        *ngFor="let item of recommendVideos1; let i = index"
+      >
+        <ion-card
+          class="slide-video"
+          routerLink="/videoplay/{{ item.id }}/{{ item.titles[0] }}"
+        >
+        <!-- 合唱团展示.png -->
+          <img src="{{ item.picurl }}" class="ChoirPictures radios" onerror="this.src='./assets/images/合唱团展示.png '" />
+          <div class="master-title Sizewidht">
+            <span class="center centers">{{ item.titles[0] }}</span>
+            <span class="center padTxt">{{ item.titles[1] }}</span>
+          </div>
+        </ion-card>
+
+        <!-- <div routerLink="/videoplay/{{item.id}}/{{item.title}}" class="ChoirShow">
+              <img src="{{item.picurl}}" class="ChoirPictures"/>
+              <div class="master-title Sizewidht">  {{item.titles}}</div>
+            </div> -->
+        <!-- <div>
+                  <ion-card   class="slide-video"  routerLink="/videoplay/{{recommendVideos2[i].id}}/{{item.title}}">
+                      <img src="{{recommendVideos2[i].picurl}}"/>
+                      <div class="master-title"><h6 class="Sizewidht">{{recommendVideos2[i].titles}}</h6></div>
+                  </ion-card>
+              </div> -->
+
+        <!--<ng-template #elseBlock>-->
+        <!--<div *ngFor="let item of recommendVideos2;let b =index">-->
+        <!--<ion-card   class="slide-video"  routerLink="/videoplay/{{item.id}}">-->
+        <!--<img src="{{item.picurl}}"/>-->
+        <!--<div class="master-title">{{i}}-{{item.title}}</div>-->
+        <!--</ion-card>-->
+        <!--</div>-->
+
+        <!--</ng-template>-->
+      </div>
+    </div>
+
+    <WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace>
+    <ion-grid class="paddingtitle">
+      <ion-row>
+        <!-- <ion-col size="0.5">
+                  <div class="verticalLine">&nbsp;</div>
+                </ion-col>
+                <ion-col class="h1title" size="8.5">
+                精品课程
+            </ion-col> -->
+
+        <ion-col class="h1title longString" size="4">
+          <!-- <span class="shu" size-lg>
+                |
+              </span> -->
+          <!-- <span size-lg> -->
+          <h6 class="lineBlock ColorTxt">
+            推荐课程
+          </h6>
+          <!-- </span> -->
+          <!-- <ion-img
+                class="titlemainleft"
+                src="/assets/titles[表情]zt.png"
+              ></ion-img> -->
+          <!-- <span>|</span>
+              <h3>名师讲堂</h3> -->
+        </ion-col>
+        <ion-col size="5"> </ion-col>
+
+        <ion-col [routerLink]="['/allseriescourse']" class="moreLink" size="3">
+          <p class="text-box-p">
+            更多
+            <img src="{{ gengduo }}" alt="" class="More" />
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div class="slide-box-bannerFor">
+      <ion-card 
+        class="slide-poster"
+        [ngClass]="{ 'slide-posterHead': key == 0, 'slide-poster': key != 0 }"
+        *ngFor="let item of coursePoster; let key = index"
+        [routerLink]="['/seriescourses/' + item.id]"
+      >
+        <img class="poster_img" src="{{ item.picurl }}" class="imgradios" />
+      </ion-card>
+    </div>
+    <!-- <div class="ExcellentClassroom">
+      <ion-card
+        class="slide-poster"
+        *ngFor="let item of coursePoster"
+        [routerLink]="['/seriescourses/' + item.id]"
+      >
+        <img class="poster_img" src="{{ item.picurl }}" />
+      </ion-card>
+    </div> -->
+
+    <WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace>
+
+    <ion-grid class="paddingtitle">
+      <ion-row [routerLink]="['/allcourses/' + 'null' + '/' + 'null']">
+        <!-- <ion-col size="0.5">
+                      <div class="verticalLine">&nbsp;</div>
+                    </ion-col>
+                    <ion-col class="h1title" size="8.5">
+                    最新课程
+                </ion-col> -->
+        <ion-col class="h1title longString" size="4">
+          <!-- <span class="shu" size-lg>
+                          |
+                        </span> -->
+          <!-- <span size-lg> -->
+          <h6 class="lineBlock ColorTxt">
+            最新课程
+          </h6>
+          <!-- </span> -->
+          <!-- <ion-img
+                          class="titlemainleft"
+                          src="/assets/titles[表情]zt.png"
+                        ></ion-img> -->
+          <!-- <span>|</span>
+                        <h3>名师讲堂</h3> -->
+        </ion-col>
+        <ion-col size="5"> </ion-col>
+
+        <ion-col class="moreLink" size="3">
+          <p class="text-box-p">
+            更多
+            <img src="{{ gengduo }}" alt="" class="More" />
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="footerLiset">
+      <ion-row class="flexboxRow">
+        <ion-col
+          size="6"
+          *ngFor="let item of newCourses; let key = index"
+          class="crd Listitem"
+        >
+          <!-- [ngClass]="{'newCoursess': key%2!=0,'newCourses': key%2==0}" -->
+          <ion-card
+            class="newCourses"
+            routerLink="/coursedetails/{{ item.id }}"
+          >
+            <!-- {{key}} -->
+            <div
+              [ngClass]="{ imgCenter: key % 2 != 0, imgCenters: key % 2 == 0 }"
+            >
+              <img
+                class="editImgBox"
+                src="{{ item.picurl }}"
+                onerror="this.src='./assets/images/noNewsKCImg.png'"
+              />
+            </div>
+            <div class="course-title editCourse-title " style="display: -webkit-box!important;
+            -webkit-box-orient: vertical!important;
+            -webkit-line-clamp: 2!important;
+            overflow: hidden!important;
+            ">
+            {{ item.titles }}
+            </div>
+            <!-- <div class="course-title2">曲目:{{item.song}}</div> -->
+            <div
+              class="course-subtitle flexBox "
+              *ngIf="item.dprice != '0.00'"
+            >
+          
+
+              <span class=" Preprice">￥{{ item.dprice }} </span>
+              <span class="nowrap Oriprice">原价:￥{{ item.oprice }}</span>
+            </div>
+            <div
+              class=" Htxtsize "
+              *ngIf="item.dprice == '0.00'"
+            >
+              限时免费
+            </div>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-card class="foterbtn">
+          <a   [routerLink]="['/allcourses/' + 'null' + '/' + 'null']" class="alltxt">查看全部课程</a>
+            <!-- <ion-button
+            *ngIf="showButton"
+            color="light"
+            [routerLink]="['/allcourses/' + 'null' + '/' + 'null']"
+            class="allCourses"
+            ><span class="alltxt"></span></ion-button
+          > -->
+        </ion-card>
+     
+      </ion-row>
+    </ion-grid>
+    <!-- <ion-infinite-scroll threshold="50px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content class="height50" loadingSpinner='dots' loadingText="{{loadingText}}">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll> -->
+  </div>
+</ion-content>
+<!-- Custom Refresher Content -->

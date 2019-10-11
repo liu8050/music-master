@@ -1,0 +1,45 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>msou3p</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <video id="local_video" class="localvideo"></video>
+
+  <video #myvideo id="remotevideo" poster="./assets/meeting.jpeg" class="remotevideo"></video>
+
+  <audio  #myaudio id="remoteaudio">
+    </audio>
+
+<!-- 
+  <button id="start_video_button" (click)="startVideo()">Start Video</button>
+ -->
+
+
+ <ion-fab *ngIf="Mic" class="noAudio" slot="fixed">
+    <ion-fab-button color="light" (click)="OSMic()">
+        <ion-icon class="greenfont" name="mic"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab *ngIf="!Mic" class="noAudio" slot="fixed">
+      <ion-fab-button color="light" (click)="OSMic()">
+          <ion-icon class="redfont" name="mic"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+<ion-fab class="hangUp" slot="fixed">
+  <ion-fab-button color="danger" (click)="hangDown()">
+      <ion-icon name="call"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<ion-fab class="Answer" slot="fixed">
+  <ion-fab-button color="light" (click)="changeWebcam()">
+      <ion-icon name="sync"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+
+</ion-content>

@@ -1,0 +1,66 @@
+<ion-content>
+    <ion-header>
+        <ion-toolbar>
+          <!-- <img src="./assets/images/back.png"  [routerLink]="['/app']" routerLinkActive="router-link-active"  alt=""> -->
+          <ion-back-button  slot="start" defaultHref="/app" text=""></ion-back-button>
+          <ion-title>合唱团荣誉殿堂</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content >
+  <div  class="contents">
+
+      <!-- <ion-card class="masterList" *ngFor="let item of videolist" routerLink="/videoplay/{{item.id}}/{{item.title}}">
+        <ion-card-content class="masterListimg">
+            <img class="masterimg" src="{{item.picurl}}" />
+        
+            <div *ngIf="item.infos === null">
+                <p class="titleshow" *ngIf="item.infos.trim().length > 0">
+        
+                  <span [innerHTML]="item.infos"></span>
+                </p>
+              </div>
+        </ion-card-content>
+      <span class="subTitle"><h6 class="txtWidth">{{item.title}}</h6></span>
+    </ion-card> -->
+  
+    
+
+ 
+    <div *ngFor="let item of videolist"   routerLink="/videoplay/{{item.id}}/{{item.titles[0]}}" > 
+      <nav class="nav"></nav>
+  
+        <div class="content">
+          <div class="hContent" [ngClass]="{'sContent': item.titles.length==1}">
+            <div class="contentNav">
+  
+              <i style="background: url(./assets/images/arc3@2x.png);" class="startIcon1 startIcon" *ngIf="item.titles.length==1"></i>
+              <img src="./assets/images/videoList_startImg3.png" alt="" class="startIcon2 startIcon" *ngIf="item.titles.length==2">
+              <!-- <img src="./assets/images/videoList_startImg3.png" alt="" class="startIcon"> -->
+              <div class="title">
+                <div class="fifteenSize blackColor">{{item.titles[0]}}</div>
+                <div class="fifteenSize charColor">{{item.titles[1]}}</div>
+              </div>
+     
+              <div class="rightTxt">
+                <div class="prat">详情</div>
+                <img src="./assets/images/m_more@2x.png" class="endIcon">
+              </div>
+            </div>
+          </div>
+          <div>
+            <img src="{{item.picurl}}" alt="" class="mmaster" onerror="this.src='./assets/images/banner.png'">
+          </div>
+        </div>
+        <div>
+      </div>
+    </div>
+
+  </div>
+  <!-- <ion-infinite-scroll threshold="50px" (ionInfinite)="loadData($event)">
+<ion-infinite-scroll-content loadingSpinner='dots' loadingText="{{loadingText}}">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll> -->
+
+
+
+</ion-content></ion-content>

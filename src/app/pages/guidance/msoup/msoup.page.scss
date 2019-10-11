@@ -1,0 +1,39 @@
+.localvideo{
+    width: 90px;
+    position: absolute;
+    top: 5px;
+    right: 5px; 
+    height: 160px; 
+    border: 0px solid black;
+    z-index: 99;
+}
+.remotevideo{
+    width: 100%; position: absolute;top: 0px;right: 0%; height: 100%; border: 0px solid black;
+    z-index: 9;
+}
+.hangUp{
+    position:absolute !important;
+    bottom: 50px !important;
+    right: 42.5% !important;
+    -webkit-transform:rotate(136deg); /* Safari 和 Chrome */
+    z-index: 50;    
+}
+.Answer{
+    
+    position:absolute !important;
+    bottom: 50px !important;
+    right: 50px !important;
+    z-index: 50;    
+}
+.noAudio{
+    position:absolute !important;
+    bottom: 50px !important;
+    left: 50px !important;
+    z-index: 50;    
+}
+.redfont{
+    color: red;
+}
+.greenfont{
+    color: green;
+}

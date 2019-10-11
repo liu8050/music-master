@@ -1,0 +1,110 @@
+
+
+
+<ion-content  >
+  <div class="register">
+    <header class="title">
+      <img src="./assets/images/histBak.png"  style="height:18px;width:18px" [routerLink]="[ '/app']" alt="" >
+      <a [routerLink]="[ '/app']" class="outlogin" >跳过注册</a>
+    </header>
+    <!--  -->
+    <ion-row class="padContet">
+      <!-- <ion-col> -->
+        <div>
+          <span href="javascript:;" class="block">账号注册</span>
+          <img src="./assets/islogin/aBtms.png" alt="" class="footerSlode">
+        </div>
+      <!-- </ion-col> -->
+      
+    </ion-row>
+    <ion-row class="padingrow">
+      <div class="leftIcon">
+        <ion-img src='./assets/images/userIcon.png' class="userIcon"></ion-img>
+      </div>
+      <ion-input  clearInput required="true" (ionInput)='AccNumbers($event)' style="color:#CECECE" class="padContents" [(ngModel)]="RgisterUser.username" [placeholder]="'请输入账号'"></ion-input>
+      
+      </ion-row>
+      <ion-row class="padingrow">
+        <div class="leftIcon">
+          <ion-img src='./assets/images/shoujihao@2x.png' class="android"></ion-img>
+        </div>
+        <ion-input  clearInput required="true" (ionInput)='phones($event)' style="color:#CECECE" class="padContents" [(ngModel)]="RgisterUser.phone"  type="number"  [placeholder]="'请输入手机号'"></ion-input>
+        
+        </ion-row>
+        <!--验证码 -->
+        <ion-row class="padingrow flexBox">
+          <!-- 高百分百类名 maxHei -->
+    
+
+            <ion-input  clearInput required="true" style="color:#CECECE;margin-left:26px;" class="padContentss" type='number' [(ngModel)]="RgisterUser.code"  [placeholder]="'请输入验证码'"></ion-input>
+      
+       
+                      
+                    <ion-button  (click)="getCode($event)"  [disabled]="verifyCode.disable"  style="color:#CECECE ;width:82px;font-size:13px;" #domgetCode  fill="clear" class="getCodeM">
+                      {{verifyCode.verifyCodeTips}}
+                      </ion-button>
+          <!-- </ion-col> -->
+          </ion-row>
+
+          <ion-row class="padingrow" >
+              <div class="leftIcon">
+                  <ion-img src='./assets/images/iconPwd.png' class="userPwd"></ion-img>
+              </div>
+              <div  style="color:#CECECE ;font-size:13px" >
+                  密码
+              </div>
+              <!-- <input type="password" [(ngModel)]="RgisterUser.password"   style="color:#CECECE" > -->
+            <ion-input  clearInput required="true"  style="color:#CECECE ;font-size:10px" class="padContents spacing pwd"  type="password"   [(ngModel)]="RgisterUser.password"   [placeholder]="'(6位以上包含数字和字母，区分大小写)'">
+            </ion-input>
+
+            </ion-row>
+            <ion-row class="padingrow">
+              <div class="leftIcon"></div>
+            <ion-input  clearInput required="true" style="color:#CECECE" class="padContents  " [(ngModel)]="RgisterUser.confirmPassword"  type="password"   [placeholder]="'再次输入密码'"></ion-input>
+            
+            </ion-row>
+            <ion-row  class="pad">
+                <ion-button class="isRgister" fill="clear"  (click)="isRgisters()" >
+                    <!-- <ion-icon name="camera"></ion-icon> -->
+                    <ion-label class="btnstyle" >注册</ion-label>
+                  </ion-button>
+            </ion-row>
+            <ion-row  class="agreel">
+                <ion-col class="txtSizes"> 
+                  登录即代表已阅读并同意<a [routerLink]="['/agreement/']" class="txtColor">音乐大师服务协议</a>
+                </ion-col>
+              </ion-row>
+              <!-- <ion-row class="padTop ">
+                <div  class="allSize Contered top
+                ">
+                  OR
+                </div>
+               
+              </ion-row>
+              <ion-row class="padTop marginTOP">
+                <div class="fotertxt Contered">
+                  使用其他社交平台账号登录
+                </div> -->
+              <!-- </ion-row> -->
+                      <!-- (click)="weChatAuth()"
+                  (click)="weboAuth()"
+                  (click)="QQlogin()" -->
+              <!-- <ion-row class="padHexacosa Fouterflex">
+          
+                <img class="icon_size" src="./assets/images/weixin@2x.png"   />
+                <img   class="icon_size"src="./assets/images/weibo@2x.png" />
+                <img  class="icon_size" src="./assets/images/qq@2x.png"   />
+              </ion-row> -->
+              <div class="fouterpad">
+                <div class="fouter_nav">OR</div>
+                <div class="foutertxt"> 使用其他社交平台账号登录</div>
+                <div class="fouter_icon">
+                  <img class="weixiiocn" src="./assets/images/weixin@2x.png"  (click)="weChatAuth()"  />
+                  <img   class="weiboicon"src="./assets/images/weibo@2x.png"    (click)="weboAuth()" />
+                  <img  class="qqicon" src="./assets/images/qq@2x.png"  (click)="QQlogin()" />
+                </div>
+              </div>
+
+  </div>
+  
+</ion-content>

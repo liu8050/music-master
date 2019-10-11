@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start" text=""></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <!-- <div Button [type]="'ghost'" [inline]="true" [routerLink]="['/app']" class="skipbutton" [size]="'small'">跳过登录</div> -->
+  <p class="title">绑定手机号码</p>
+  <!-- <p>手机号</p> -->
+  <!-- Inputs with labels -->
+  <ion-item>
+    <ion-label>+86</ion-label>
+  <ion-input [disabled]="vcoded" clearInput required="true"  [(ngModel)]="phonenum" placeholder='请输入手机号码'></ion-input>
+  <!-- <ion-label><ion-button color="light" size="small">Verification</ion-button></ion-label> -->
+  </ion-item>
+
+  <ion-item  *ngIf="vcoded"  >
+    <ion-label>获取验证码</ion-label>
+  <ion-input clearInput required="true"  [(ngModel)]="vcodenum" placeholder='请输入验证码'></ion-input>
+  <!-- <ion-label><ion-button color="light" size="small">Verification</ion-button></ion-label> -->
+  </ion-item>
+  <div class="button_bottom">
+    <!-- <div Button class="fixed-button" [type]="'primary'" (click)="getCode()">获取验证码</div> -->
+    <ion-button *ngIf="!vcoded" (click)="getCode()" expand="block">验证码</ion-button>
+    <ion-button *ngIf="vcoded" (click)="login()" expand="block">绑定</ion-button>
+  </div>
+
+
+
+  <!-- 未注册用户验证后自动登录18910389583 -->
+  <!-- <p class="text-center margin-t-30">未注册用户验证后自动登录</p> -->
+  <div class="position-bottom hide-on-keyboard-open">
+  <!-- <ion-row>
+    <ion-col size="4">
+      <div class="icon-box" (click)="QQlogin()">
+        <ion-icon class="icon-img" src="../assets/icon/QQ.svg"></ion-icon>
+      </div>
+    </ion-col>
+    <ion-col size="4">
+    <div class="icon-box" (click)="weChatAuth()">
+        <ion-icon class="icon-img" src="./assets/icon/weixin.svg"></ion-icon>
+      </div>
+    </ion-col>
+    <ion-col size="4">
+      <div class="icon-box">
+        <ion-icon class="icon-img" src="./assets/icon/weibo.svg"></ion-icon>
+      </div>
+    </ion-col>
+  </ion-row> -->
+  <!-- <p class="text-center margin-t-30">
+    Login means that you have read and agreed.  </p>
+    <p class="text-center"><span class="text-color">《Music-Master Terms》</span>
+  </p> -->
+  </div>
+  </ion-content>

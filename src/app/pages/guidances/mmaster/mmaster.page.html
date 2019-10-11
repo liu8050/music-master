@@ -1,0 +1,55 @@
+
+<ion-content>
+    <ion-header mode="ios" translucent="false"  [ngStyle]="{'padding-top':islh ? '33px' : '5px' }">
+        <ion-toolbar mode="ios">
+          <ion-back-button slot="start" slot="start" mode="ios" defaultHref="/app" text=""></ion-back-button>
+          <ion-title><h5>名师讲堂</h5> </ion-title>
+        </ion-toolbar>
+      </ion-header>
+<ion-content  >
+
+  <ion-infinite-scroll threshold="100px"  (ionInfinite)="loadData($event)">
+<ion-infinite-scroll-content loadingSpinner='dots' loadingText="{{loadingText}}">
+    <!-- <WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace> -->
+ 
+  <div *ngFor="let item of mmaster"  routerLink="/mastershow/{{item.id}}" > 
+    <nav class="nav"></nav>
+
+      <div class="content">
+        <div class="hContent">
+          <div class="contentNav">
+  
+       
+            <img src="./assets/images/mmstericon.png" alt="" class="startIcon">
+            <div class="title">{{item.title}}</div>
+ 
+          <!-- <div class="details">详情</div>
+          <img src="./assets/images/gengduo.png" alt="" class="endIcon"> -->
+            <div class="prat">详情</div>
+            <img src="./assets/images/m_more@2x.png" class="endIcon">
+      </div>
+        </div>
+        <div class="masterImg">
+          <img src="{{item.details}}" alt="" class="mmaster" onerror="this.src='./assets/images/名师讲堂更多.png'">
+        </div>
+      </div>
+      <div>
+    </div>
+  </div>
+<!-- 
+    <div class="mmaster">
+        <ion-card class="masterList" routerLink="/mastershow/{{item.id}}">
+          <ion-card-content class="masterListimg">
+            <img class="masterimg" src="{{item.picurl}}" style="height:211px "  />
+         
+          </ion-card-content>
+            <div class="subTitle"><h5 class="size ">{{item.title}}</h5></div>
+        </ion-card>
+    </div> -->
+
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+
+
+</ion-content></ion-content>

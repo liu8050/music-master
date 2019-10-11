@@ -1,0 +1,67 @@
+.discountcoupon-box {
+    height: 109px;
+    width: 100%;
+    background-color: #FACD89;
+
+    .dis-left-box {
+        width: 44%;
+        float: left;
+        height: 100%;
+        background-color: #F59904;
+    }
+
+    .dis-right-box {
+        width: 56%;
+        float: left;
+        height: 100%;
+        position: relative;
+    }
+
+    .dis-right-abu {
+        position: absolute;
+        bottom: 24px;
+        right: 30px;
+        width: 50px;
+        height: 20px;
+        font-size: 12px;
+        background-color: #E60012;
+        color: white;
+        text-align: center;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    .dis-left-top {
+        text-align: center;
+        height: 64px;
+        width: 100%;
+        color: white;
+        padding-top:30px;
+
+        p {
+            span {
+                font-size: 30px;
+            }
+        }
+    }
+
+    .dis-left-bottom {
+        text-align: center;
+        font-size: 14px;
+        color: white;
+    }
+
+    .dis-right-top {
+        height: 80px;
+        font-size: 30px;
+        line-height: 90px;
+        text-align: center;
+        color: white;
+    }
+
+    .dis-right-bottom {
+        text-align: center;
+        font-size: 14px;
+        color: white;
+    }
+}

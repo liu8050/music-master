@@ -1,0 +1,40 @@
+<!-- <ion-header translucent="true"  class="po" *ngIf="isIOS">
+  <ion-toolbar  translucent="true" *ngIf="bool" >
+    <ion-back-button slot="start" defaultHref="/videolist" (click)="loginhome()" text=""></ion-back-button>
+      <ion-title><h6 class="tilte">{{title}}</h6></ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content style="background-color: #000  !important;" class="nopadding content">
+
+
+  <ion-card  class="nopadding showvideo nomargin">
+    <ion-card-content *ngIf="video!=null" class="nopadding showvideo">
+
+    <video class="showvideo"  autoplay id="showvideo " poster="{{video.picurl}}" controls='controls'  (touchend)="ck()">
+        <source src="{{video.video}}" type="video/mp4">
+      </video>
+   </ion-card-content>
+  </ion-card>
+
+
+</ion-content> -->
+<!-- <ion-header translucent="true" *ngIf="bool" class="po">
+    <ion-toolbar  translucent="true" >
+      <ion-back-button slot="start" defaultHref="/videolist" text=""></ion-back-button>
+        <ion-title><h6 class="tilte">{{title}}</h6></ion-title>
+      </ion-toolbar>
+  </ion-header> -->
+  <ion-content style="background-color: #000  !important;" class="nopadding content">
+      <ion-icon id="backicon" name="arrow-back"class="start" *ngIf="backshow" (click)="goback()" ></ion-icon>
+    <video *ngIf="istencent" id="player-container-{{vid}}" class="player-container-id" style="width:100% !important;height: 100% !important;" preload="auto" playsinline webkit-playsinline>
+    </video>
+
+    <video *ngIf="!istencent&&video!=null" class="showvideo"  autoplay id="showvideo " poster="{{video.picurl}}" controls='controls'  (touchend)="ck()">
+        <source src="{{video.video}}" type="video/mp4">
+      </video>
+    <!-- <ion-text style="position:absolute;top:20px;left:20px;font-size: 2em;font-weight: 600;z-index: 999;color:#ffffff" (click)='canGoBack()'>
+        <ion-icon ios="ios-arrow-back"></ion-icon>
+      </ion-text>  -->
+  
+  </ion-content>
+  

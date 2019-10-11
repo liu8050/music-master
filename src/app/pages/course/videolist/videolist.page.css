@@ -1,0 +1,186 @@
+@charset "UTF-8";
+.contents {
+  margin-bottom: 100px;
+}
+
+.nav {
+  height: 8px;
+  background: #eeeeee;
+}
+
+.hContent {
+  height: 41px;
+}
+
+.sContent {
+  height: 16px;
+  margin: 4px 0 13px 0;
+}
+
+.content {
+  height: 280px;
+  padding: 9px 15px 24px;
+  box-sizing: border-box;
+}
+
+.contentNav {
+  display: flex;
+  position: relative;
+}
+
+.startIcon1 {
+  display: inline-block;
+  width: 3px;
+  height: 14px;
+  vertical-align: middle;
+}
+
+.startIcon2 {
+  width: 3px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+.startIcon {
+  position: absolute;
+  left: 0px;
+  top: 3px;
+}
+
+.endIcon {
+  width: 12px;
+  height: 11px;
+  position: absolute;
+  right: 0px;
+  top: 3px;
+  vertical-align: middle;
+}
+
+.prat {
+  position: absolute;
+  right: 4px;
+  font-size: 12px;
+  color: #777777;
+  top: 0;
+  transform: translate(-50%, 0);
+}
+
+.title {
+  position: absolute;
+  left: 8px;
+  top: 0;
+  color: #333333;
+  font-size: 15px;
+}
+
+.endIcon {
+  width: 12px;
+  height: 11px;
+}
+
+.details {
+  color: #777777;
+  font-size: 12px;
+}
+
+.mmaster {
+  border-radius: 5px;
+}
+
+.rightTxt {
+  height: 100%;
+  width: 200px;
+  position: absolute;
+  right: 0;
+}
+
+.infinite-scroll-enabled {
+  margin-bottom: 77px;
+}
+
+.fifteenSize {
+  font-size: 14px;
+}
+
+.blackColor {
+  color: #333333;
+  white-space: nowrap;
+}
+
+.charColor {
+  color: #777777;
+  white-space: nowrap;
+  padding-left: 4px;
+}
+
+.padding {
+  padding: 10px 0 0 0;
+}
+
+.txtWidth {
+  width: 100%;
+  font-weight: 400;
+  overflow: hidden;
+  /*超出部分隐藏*/
+  white-space: nowrap;
+  /*不换行*/
+  text-overflow: ellipsis;
+  /*超出部分文字以...显示*/
+}
+
+.masterList {
+  width: 100%;
+  position: relative;
+  height: 17em;
+  border-radius: 2px;
+  border: 0 solid #ccc;
+  margin: 0 6px 1.2em 0;
+  -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.12);
+}
+
+.masterListimg {
+  position: relative;
+  width: 100%;
+  height: 211px;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.masterListimg img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.masterListimg .titleshow {
+  position: absolute;
+  width: 100%;
+  height: 2.2em;
+  left: 0;
+  color: #ffffff;
+  font-weight: 400;
+  bottom: 0;
+  z-index: 2;
+  font-size: 0.8em;
+  line-height: 2em;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.masterList .subTitle {
+  display: block;
+  width: 100%;
+  color: #4A4A4A;
+  margin: 0.3em 0 0 0.2em;
+  font-size: 1.4em !important;
+  padding-left: 2px;
+  text-align: left;
+}
+
+.masterimg {
+  border-radius: 0;
+}

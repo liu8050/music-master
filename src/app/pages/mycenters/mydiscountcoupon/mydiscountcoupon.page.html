@@ -1,0 +1,100 @@
+<ion-content>
+    <ion-header mode="ios" translucent="false"  [ngStyle]="{'padding-top':islh ? '33px' : '5px' }">
+        <ion-toolbar>
+            <ion-back-button  slot="start" defaultHref="/app/mycenter"  (click)="outcontent()"  text=""></ion-back-button>
+          <ion-title>我的优惠券</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+  <div [hidden]="!showList">
+    <Tabs [useOnPan]="false" [swipeable]="false" [activeTab]="index" [page]="4" [tabBarActiveTextColor]="'#1890ff'"
+    (onChange)="onChange($event)" (onTabClick)="onTabClick($event)">
+        <TabPane style="width: 100%; background-color: white; align-items: center;justify-content: center"
+        [title]="titleTemplate">
+        <ng-template #titleTemplate>
+          <Badge>
+            <div>未使用</div>
+          </Badge>
+        </ng-template>
+        <div style="padding-top: 8px; align-items: center;justify-content: center;width: 100%;">
+        <List [className]="'my-list'" *ngIf="ticketlist!=null">
+        <ListItem wrap *ngFor="let item of ticketlist">
+         <app-coupon [Coupon]="item"></app-coupon>
+        </ListItem>
+        </List>
+
+
+        <div *ngIf="ticketlist==null">
+          <!-- vButton="去领取" -->
+              <app-nothings vText='暂无优惠券' vClick='点击刷新'  vButtonLink="/pages/me/me" vImg='./assets/images/nocard.png'></app-nothings>
+        </div>
+
+        </div>
+        </TabPane>
+        <TabPane style="width: 100%; background-color: white;align-items: center;justify-content: center"
+        [title]="titleTemplate1">
+        <ng-template #titleTemplate1>
+          <Badge>
+            <div>已使用</div>
+          </Badge>
+
+        </ng-template>
+        <div style="padding-top: 8px;align-items: center;justify-content: center;width: 100%;">
+        <List [className]="'my-list'" *ngIf="ticketlist_used!=null">
+            <ListItem wrap *ngFor="let item of ticketlist_used">
+             <app-coupon [Coupon]="item"></app-coupon>
+            </ListItem>
+          </List>
+
+
+        <div *ngIf="ticketlist_used==null">
+          <!-- vButton="去领取" -->
+              <app-nothings vText='暂无优惠券' vClick='点击刷新'  vButtonLink="/pages/me/me" vImg='./assets/images/nocard.png'></app-nothings>
+        </div>
+        </div>
+        </TabPane>
+        <TabPane style="width: 100%; background-color: white;align-items: center;justify-content: center"
+        [title]="titleTemplate2">
+        <ng-template #titleTemplate2>
+          <Badge>
+            <div>已过期</div>
+          </Badge>
+        </ng-template>
+        <div style="padding-top: 8px; align-items: center;justify-content: center;width: 100%;">
+        <List [className]="'my-list'" *ngIf="ticketlist_timeout!=null"><!--[renderHeader]=(renderHeader5)-->
+          <ListItem wrap *ngFor="let item of ticketlist_timeout">
+              <app-coupon [Coupon]="item"></app-coupon>
+             </ListItem>
+        </List>
+        <div *ngIf="ticketlist_timeout==null">
+          <!-- vButton="去领取" -->
+              <app-nothings vText='暂无优惠券' vClick='点击刷新'  vButtonLink="/pages/me/me" vImg='./assets/images/nocard.png'></app-nothings>
+        </div>
+
+        </div>
+        </TabPane>
+        <TabPane style="width: 100%; background-color: white;align-items: center;justify-content: center"
+        [title]="titleTemplate3">
+        <ng-template #titleTemplate3>
+        <Badge>
+          <div>未领取</div>
+        </Badge>
+        </ng-template>
+        <div style="padding-top: 8px; align-items: center;justify-content: center;height: 100%;background-color: #fff">
+        <div style="width: 100%;">
+          <List [className]="'my-list'" *ngIf="ticketlist_all!=null">
+              <ListItem wrap *ngFor="let item of ticketlist_all">
+                  <app-coupon (click)="drawTicket(item.id)" [Coupon]="item"></app-coupon>
+                 </ListItem>
+          </List>
+        <div *ngIf="ticketlist_all==null">
+          <!-- vButton="去领取" -->
+              <app-nothings vText='暂无优惠券' vClick='点击刷新'  vButtonLink="/pages/me/me" vImg='./assets/images/nocard.png'></app-nothings>
+        </div>
+        </div>
+        </div>
+        </TabPane>
+    </Tabs>
+  </div>
+</ion-content>
+</ion-content>

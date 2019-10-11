@@ -1,0 +1,33 @@
+<ion-content>
+    <ion-header  mode="ios" translucent="false"  [ngStyle]="{'padding-top':islh ? '33px' : '5px' }">
+        <ion-toolbar>
+            <ion-back-button slot="start"  defaultHref="/app/mycenter" (click)="outcontent()" text=""></ion-back-button>
+          <ion-title>帮助反馈</ion-title>
+          <div class="text_box">
+      <p class="float-right" (click)="save()">发送反馈</p>
+          </div>
+          </ion-toolbar>
+      </ion-header>
+      <ion-content padding>
+  <div class="am-list" style="margin:0;">
+    <!-- <div class="am-list-header">Count</div> -->
+    <div class="am-list-body"  >
+        <ion-textarea [(ngModel)]="data.content" type='text' maxlength="200"  rows="6" cols="20"    ion-no-padding class="help_msg" placeholder="请输入您的反馈"></ion-textarea>
+      <!-- <TextareaItem class="textarea"  [rows]="5"    [(ngModel)]="data.content"  [count]="100" placeholder='请输入您的意见' [defaultValue]="''">手机号码</TextareaItem> -->
+
+      <!-- <ion-textarea ion-no-padding  class="textarea" *[(ngModel)]="data.content"  placeholder="请输入您的意见"></ion-textarea> -->
+
+    </div>
+  </div>
+  <p class="subtitlemin">
+   <ion-input class="mm_input" [(ngModel)]="data.lxfs" placeholder='您的手机或邮箱' type="text"></ion-input>
+  </p>
+  <p  class="padding-left">上传图片(可选5张)</p>
+  <ImagePicker [files]="files" [length]="5" [selectable]="files.length <= 5" [multiple]="multipleTab === 1" (onChange)="fileChange($event)"
+    (onImageClick)="imageClick($event)" style="background-color: #F7F7F7">
+  </ImagePicker>
+<ion-col size="12">
+  <!-- <p class="h1title">您的手机或邮箱</p> -->
+</ion-col>
+</ion-content>
+</ion-content>

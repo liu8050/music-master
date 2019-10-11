@@ -1,0 +1,20 @@
+<ion-content [class]="'ofhiden'">
+  <ion-header mode="ios" translucent="false"  [ngStyle]="{'padding-top':islh ? '33px' : '5px' }">
+    <ion-toolbar>
+      <div class="titileflex">
+        <ion-back-button
+          slot="start"
+          defaultHref="/app/home"
+          (click)="outcontent()"
+          text=""
+        ></ion-back-button>
+        <ion-title>关于我们</ion-title>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <div class="box">
+      <div [innerHTML]="about.content" class="txtcolor"></div>
+    </div>
+  </ion-content>
+</ion-content>

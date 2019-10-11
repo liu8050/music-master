@@ -1,0 +1,214 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>mycenter</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+</ion-content> -->
+
+<ion-content class="Location">
+ 
+      <div class="navpoa">
+          <div class="title">
+              <!-- <ion-back-button></ion-back-button> -->
+              <!-- <ion-icon (click)="goback()" name="arrow-back"></ion-icon> -->
+              <div class="nav">
+                  <!-- *ngIf="islogin" -->
+                <!-- <ion-icon routerLink="/settings"  slot="start" src="./assets/images/myback.png"></ion-icon> -->
+                  <img src="./assets/images/mybak.png"  [routerLink]="[ '/settings']"  class="maxtitle"  alt="">
+                <div class="navtxt" [class]="!islogin?'center':'navtxt'">我的</div>
+                <img src="./assets/images/myxiaoxi.png"  class="xiaoxi "  (click)='gotonews()'>
+              </div>
+              <!-- <ion-title>我的</ion-title> -->
+              <!-- <ion-icon *ngIf="islogin" routerLink="/settings" class="maxtitle" slot="end" src="./assets/fonts/ic-nac-xiaoxi.png"></ion-icon> -->
+              
+            </div>
+         
+            <div class="Baise"></div>
+    
+                <div *ngIf="islogin" >
+                  <!-- 大图 -->
+                  <!-- class="personal"  -->
+                    <img [src]="'./assets/images/youVip.png'"  class="viplogin" >
+            
+                  <!-- 个人用户头 -->
+                  <div   *ngIf="islogin&&!user['avatar']" (click)='gotoeditmymessage()' >
+                    <img src="{{userImg}}"  class="UserImg obj1">
+                  </div>  
+                  <div   *ngIf="islogin&&user['avatar']" (click)='gotoeditmymessage()'>
+                    <img src="{{user.avatar}}"  class="UserImg">
+                  </div>
+               
+                  <!--  用户余额 -->
+                 <div>
+                 
+                    <div class="abs">
+                        <h6>{{user.username}}</h6>
+          
+                      </div>
+                    <div class="yeAbs">
+                      
+                        <img src="./assets/images/ic-ye.png" alt="">
+                       
+                      </div>
+                      <div class="ckabs" [routerLink]="[ '/mymoney',user.surplus ]">
+                          <img src="./assets/images/chongzhi2@2x.png" alt="">
+                        </div>
+                      <div class="AomAbs" >
+                     
+                      <h6 class="white fontsze" [routerLink]="[ '/mymoney', user.surplus]"  >余额:{{user.surplus}}</h6>
+                 
+                      </div>
+                      <!-- <div class="txt brown miniSize Attendlectures">
+                        今日听课0分钟
+                      </div> -->
+                      <!-- 用户优惠 -->
+                      <div class="userDiscount">
+                        <img src="./assets/images/ic-yh.png" alt="">
+                      </div>
+                      <div class="userDiscountTxt"  (click)="gomyDiscountCoupon()">
+                        <h6 class="white fontsze">我的优惠券</h6>
+                      </div>
+                      <div class="txt brown miniSize FreeWATime">
+                          限时免费领
+                      </div>
+                    </div>
+          
+                 </div>
+                <div  *ngIf="!islogin">
+                    <img src='./assets/images/noVip.png' class="nologinimg">
+                    <div class="islogins"  [routerLink]="[ '/login',nulls]" >
+                      <span >登录</span>
+                      <span>/</span>
+              
+                      <span >注册</span>
+                    </div>
+              
+                    <ion-row class="icons">
+                        <ion-col >
+                            <div class="icon-box" (click)="weChatAuth()">
+                                <ion-icon class="icon-img" src="./assets/icon/weix.svg"></ion-icon>
+                              </div>
+                            </ion-col>
+                            <ion-col >
+                              <div class="icon-box" (click)="weboAuth()">
+                                <ion-icon class="icon-img" src="./assets/icon/weib.svg"></ion-icon>
+                              </div>
+                            </ion-col>
+                      <ion-col >
+                        <div class="icon-box" (click)="QQlogin()">
+                          <ion-icon class="icon-img" color='' src="./assets/icon/qqy.svg"></ion-icon>
+                        </div>
+                      </ion-col>
+              
+                    </ion-row>
+                  </div>
+      </div>
+
+ 
+  <div>
+    <!-- <ion-grid class="PersonalInformation"> -->
+      <!-- <div class="content">
+
+      </div> -->
+    
+      <!-- <ion-row > 
+        
+      </ion-row> -->
+    <!-- </ion-grid> -->
+    <ion-list class="hotlist item" (click)="gomyOrder()">
+        <ion-item >
+         <img src="./assets/images/ic-list-dd@2x.png" class="iconSize">
+          <ion-label class="listtext">我的订单</ion-label>
+          <ion-icon class="listicon" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+        </ion-item>
+      </ion-list>
+      <ion-list class="hotlist item" (click)="goActivies()">
+        <ion-item>
+            <img src="./assets/images/ic-list-hd@2x.png" class="iconSize">
+          <ion-label class="listtext"  >我的活动</ion-label>
+          <ion-icon class="listicon" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+        </ion-item>
+      </ion-list>
+    <!-- <WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace> -->  
+    <!-- <ion-list *ngIf="isIOS" class="hotlist" (click)="gotoMymoney()">
+        <ion-item>
+          <ion-label class="listtext">我的余额</ion-label>
+          <ion-icon class="listicon" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+        </ion-item>
+      </ion-list> -->
+    <!-- <ion-list class="hotlist" (click)="gomyOrder()">
+      <ion-item>
+        <ion-label class="listtext">我的订单</ion-label>
+        <ion-icon class="listicon" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+      </ion-item>
+    </ion-list>
+    <ion-list class="hotlist" (click)="goActivies()">
+      <ion-item>
+        <ion-label class="listtext"  >我的活动</ion-label>
+        <ion-icon class="listicon" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+      </ion-item>
+    </ion-list> -->
+    <!-- <ion-list class="hotlist" (click)="gomyDiscountCoupon()">
+      <ion-item>
+        <ion-label class="listtext">我的优惠券</ion-label>
+        <ion-icon class="listicon" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+      </ion-item>
+    </ion-list> -->
+    <!-- <ion-list class="hotlist" (click)='gotoeditmymessage()'>
+      <ion-item>
+        <ion-label class="listtext">编辑个人信息</ion-label>
+        <ion-icon class="listicon" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+      </ion-item>
+    </ion-list> -->
+    <WhiteSpace class="bgcolor" [size]="'sm'"></WhiteSpace>
+    <!-- <ion-list class="hotlist item" (click)='gotonews()'>
+      <ion-item>
+        <ion-label class="listtext">系统消息</ion-label>
+        <ion-icon class="listicon" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+      </ion-item>
+    </ion-list> -->
+    <ion-list class="hotlist item" (click)="gotofeedback()">
+      <ion-item>
+          <img src="./assets/images/ic-list-fk@2x.png" class="iconSize">
+
+        <ion-label class="listtext">帮助反馈</ion-label>
+        <ion-icon class="listicon" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+      </ion-item>
+    </ion-list>
+ 
+    <ion-list class="hotlist item">
+      <ion-item (click)="showShareActionSheet()">
+          <img src="./assets/images/ic-list-fx@2x.png" class="iconSize">
+
+        <ion-label class="listtext">分享APP</ion-label>
+        <ion-icon class="listicon" ios="ios-arrow-forward"  md="ios-arrow-forward"></ion-icon>
+      </ion-item>
+    </ion-list>
+    <ion-list class="hotlist item">
+    <ion-item (click)="gotoabout()">
+        <img src="./assets/images/ic-list-gy@2x.png" class="iconSize">
+
+        <ion-label class="listtext">关于我们</ion-label>
+        <ion-icon class="listicon" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+      </ion-item>
+    </ion-list>
+    <ion-list class="hotlist item">
+        <ion-item (click)="goservice()">
+            <img src="./assets/images/kefu@2x.png" class="iconSize">
+    
+            <ion-label class="listtext">联系客服</ion-label>
+            <ion-icon class="listicon" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+          </ion-item>
+        </ion-list>
+  </div>
+
+  <ng-template #message>
+    
+      <div class="am-action-sheet-message"></div>
+    </ng-template>
+
+
+</ion-content>

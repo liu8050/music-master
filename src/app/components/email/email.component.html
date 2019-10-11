@@ -1,0 +1,12 @@
+<ion-content class="emailArea">
+  <ion-grid>
+    <ion-row> <ion-label class="title">接受曲谱的邮箱地址</ion-label></ion-row>
+    <ion-row>
+      <ion-col size="12">
+          <ion-input class="mm_input" [(ngModel)]="value" placeholder='请输入邮箱地址:例xxx@xx.com' type="email" pattern="^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"></ion-input>
+          <ion-text style="font-size: 1px; color:#f1f1f1" *ngIf="show">邮箱格式不正确，请重新输入</ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row ><ion-button  border-radius="0.5em" style="margin: 0 auto" (click)="getOpern()">获取曲谱</ion-button></ion-row>
+  </ion-grid>
+</ion-content>

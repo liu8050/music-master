@@ -1,0 +1,47 @@
+.box {
+  padding: 2.5%;
+  width: 100%;
+  height: 100%;
+}
+.poa {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+// .ofhiden {
+//   overflow-y: hidden;
+//   height: 100%;
+//   width: 100%;
+//   background: #ccc;
+// }
+
+// ion-header {
+//   // padding-top: 33px !important;
+//   background-color: #0a0a0a !important;
+// }
+.titileflex {
+  display: flex;
+  align-items: center;
+}
+// .titles {
+//   color: #ffffff;
+//   font-size: 18px;
+// }
+.box {
+  height: 100%;
+  width: 100%;
+  background-color: #ccc !important;
+  background-image: url('/assets/images/pic_bgm@2x.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.ofhiden:host {
+  //   --background: var(--ion-background-img, #fff);
+  background-image: url('/assets/images/pic_bgm@2x.png');
+}
+.txtcolor {
+  color: #ffffff;
+}

@@ -1,0 +1,130 @@
+ion-grid{
+    position: absolute;
+    width: 100%;
+    height: 40%;
+    margin-left:0%;
+    height: auto;
+    left: 0%;
+    bottom: 0%;
+    z-index: 999;
+    background:linear-gradient(to top right,#a0e0bd , #118eea) ;
+  }
+
+  ion-col{
+   height: 10vh;
+   font-size:1.8em;
+   line-height: 10vh;
+   text-align: center;
+   font-weight:600;
+   margin: 0;
+   color:#fff;
+   border:1px solid rgba(165, 168, 166, 0.5);
+  }
+
+  .fixed-button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    width:48%;
+    height: 47px;
+    line-height: 47px;
+}
+  .mybutton {
+    position: absolute;
+    width: 100%;
+    color:#fff;
+    background: none !important;
+    height:100%;
+    left: 0%;
+    bottom: 0%;
+    font-size:0.8em;
+    text-align: center;
+    font-weight:300;
+    z-index: 999;
+  }
+.title {
+    font-size: 24px;
+    line-height: 90px;
+    margin-top: 30px;
+}
+.skipbutton {
+    float: right;
+}
+.icon-box {
+    width: 30px;
+    height: 40px;
+    border-bottom: 1px solid #71ABDA;
+    // border-radius: 50%;
+    margin: 0 auto 5px auto;
+    padding: 0 auto 5px auto;
+    font-size: 28px;
+    line-height: 35px;
+    text-align: center;
+    color: #71ABDA;
+}
+.margin-t-30 ion-col{
+    border:0px !important;
+}
+.margin-t-30{
+    margin-top: 30px;
+}
+.text-center{
+    text-align: center;
+    font-size: 13px;
+    color: #A0A0A0;
+    margin-top: 30px;
+}
+@keyframes animate {
+  100% {
+    opacity: 0;
+  }
+}
+.container{
+  padding: 5%;
+}
+.vcode{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.code{
+  width: 100%;
+  padding: 0;
+  height: 40px;
+  font-size: 35px;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  opacity: 0;
+  margin-left: -100%; // ios上透明度为0时依然有光标
+  -webkit-tap-highlight-color: transparent;
+}
+.labels{
+  display: flex;
+  display: -webkit-flex;
+  width: 100%;
+  height: 40px;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  margin-top: -40px;
+  -webkit-tap-highlight-color: transparent;// 解决ios点击灰色阴影的问题
+}
+.label{
+  //height: 34px;
+  width: 12%;
+  border-bottom: solid 2px #313131;
+  float: left;
+  color: #313131;
+  font-size: 35px;
+  text-align: center;
+  padding-bottom: 4px;
+}
+.active:after{ // 伪类实现光标效果
+  content: ' ';
+  display: inline-block;
+  height: 100%;
+  width: 2px;
+  background: #313131;
+  animation: .8s animate infinite;
+  margin-bottom: 4px;
+}
