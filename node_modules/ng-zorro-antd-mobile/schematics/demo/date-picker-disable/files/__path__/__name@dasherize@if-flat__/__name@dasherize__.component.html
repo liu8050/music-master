@@ -1,0 +1,15 @@
+
+    <List [className]="'date-picker-list'">
+      <ListItem
+        DatePicker
+        [disabled]="true"
+        [extra]="currentDateFormat(value)"
+        [arrow]="'horizontal'"
+        [mode]="'datetime'"
+        (onOk)="onOk($event)"
+      >
+        Datetime
+        <Brief>{{ name }}</Brief>
+      </ListItem>
+    </List>
+  

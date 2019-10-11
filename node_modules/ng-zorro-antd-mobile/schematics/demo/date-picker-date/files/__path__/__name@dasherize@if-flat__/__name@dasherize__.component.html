@@ -1,0 +1,15 @@
+
+    <List [className]="'date-picker-list'">
+      <ListItem
+        DatePicker
+        [extra]="currentDateFormat(value, 'yyyy-mm-dd')"
+        [arrow]="'horizontal'"
+        [mode]="'date'"
+        [(ngModel)]="value"
+        (onOk)="onOk($event)"
+      >
+        Date
+        <Brief>{{ name }}</Brief>
+      </ListItem>
+    </List>
+  

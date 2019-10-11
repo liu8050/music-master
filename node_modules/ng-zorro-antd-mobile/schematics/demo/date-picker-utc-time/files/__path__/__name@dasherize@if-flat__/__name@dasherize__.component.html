@@ -1,0 +1,16 @@
+
+    <List [className]="'date-picker-list'">
+      <ListItem
+        DatePicker
+        [extra]="currentDateFormat(value)"
+        [arrow]="'horizontal'"
+        [mode]="'time'"
+        [locale]="locale"
+        [(ngModel)]="value"
+        (onOk)="onOk($event)"
+      >
+        UTC Time
+        <Brief>{{ name }}</Brief>
+      </ListItem>
+    </List>
+  
